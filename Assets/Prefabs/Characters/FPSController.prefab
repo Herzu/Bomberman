@@ -120,14 +120,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863657835412325523}
-  m_LocalRotation: {x: 0.012608526, y: 0.08074089, z: 0.029073546, w: 0.99623126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 863657835412297905}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.1700001, y: 9.302, z: 3.4380002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &863657835423576403
 CharacterController:
   m_ObjectHideFlags: 0
@@ -396,3 +396,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
     type: 3}
+  range: 0
