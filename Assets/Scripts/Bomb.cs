@@ -19,7 +19,8 @@ public class Bomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.gameObject.GetComponent<SphereCollider>().radius = 0.0f;
+        if(!is3D)
+            this.gameObject.GetComponent<SphereCollider>().radius = 0.0f;
         fuseBurn = 0.2f / maxLifetime;
         lifetime = maxLifetime;
         fire = Instantiate(fireEffect, this.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
@@ -30,7 +31,7 @@ public class Bomb : MonoBehaviour
     {
         lifetime--;
         fuse.gameObject.transform.position -= new Vector3(0,fuseBurn,0);
-        fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.4f,0);
+        fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.3f,0);
         if (lifetime == maxLifetime - 100)
             this.gameObject.GetComponent<SphereCollider>().radius = 0.5f;
         else if (lifetime < -50
@@ -52,6 +53,7 @@ public class Bomb : MonoBehaviour
         }
         if(lifetime==0)
         {
+            this.gameObject.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             exp1 = Instantiate(explosionEffect, this.transform.position, Quaternion.Euler(0, 0, 0));
             exp2 = Instantiate(explosionEffect, this.transform.position, Quaternion.Euler(0,90,0));
             exp3 = Instantiate(explosionEffect, this.transform.position, Quaternion.Euler(0, 180, 0));
