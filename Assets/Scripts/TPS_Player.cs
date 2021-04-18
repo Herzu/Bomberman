@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TPS_Player : MonoBehaviour
+public class TPS_Player : Character
 {
     public GameObject bombPrefab;
     int cooldown = 0;
@@ -19,10 +19,15 @@ public class TPS_Player : MonoBehaviour
         Camera.main.transform.position = this.transform.position + new Vector3(0, 9, 0);
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            GameObject bomb = Instantiate(bombPrefab, this.transform.position + this.transform.forward + new Vector3(0, 1, 0), Quaternion.identity);
-            bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * speed;
-            cooldown = 10;
+            if(this.getBombs() > 0) {
+                GameObject bomb = Instantiate(bombPrefab, this.transform.position + this.transform.forward + new Vector3(0, 1, 0), Quaternion.identity);
+                bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * speed;
+                cooldown = 10;
+                this.setBombs(this.getBombs() - 1);
+            }
         }
+        isAlive();
+        checkBomb();
         cooldown--;
     }
 }

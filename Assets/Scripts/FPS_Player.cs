@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPS_Player : MonoBehaviour
+public class FPS_Player : Character
 {
     public GameObject bombPrefab;
     int cooldown = 0;
@@ -18,10 +18,15 @@ public class FPS_Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject bomb = Instantiate(bombPrefab, this.transform.position+this.transform.forward+new Vector3(0,1,0), Quaternion.identity);
-            bomb.GetComponent<Rigidbody>().velocity = this.transform.GetChild(0).gameObject.transform.forward * speed;
-            cooldown = 10;
+            if(this.getBombs() > 0) {
+                GameObject bomb = Instantiate(bombPrefab, this.transform.position+this.transform.forward+new Vector3(0,1,0), Quaternion.identity);
+                bomb.GetComponent<Rigidbody>().velocity = this.transform.GetChild(0).gameObject.transform.forward * speed;
+                cooldown = 10;
+                this.setBombs(this.getBombs() - 1);
+            }
         }
+        isAlive();
+        checkBomb();
         cooldown--;
     }
 }
