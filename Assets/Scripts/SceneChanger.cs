@@ -7,9 +7,6 @@ public class SceneChanger : MonoBehaviour
 {
     public static SceneChanger instance;
     private GameObject sceneFader;
-    //[SerializeField] bool isStartScene;
-
-
     private void Awake() {
         if(!instance) {
             instance = this;
@@ -19,11 +16,6 @@ public class SceneChanger : MonoBehaviour
     private void Start() {
         LoadSceneFader();
         FadeInCurrentScene();
-        //if(isStartScene == false) {
-        //    FadeInCurrentScene();
-        //} else {
-        //    isStartScene = false;
-        //}
     }
     
     public void ChangeScene(string SceneName) {
