@@ -7,6 +7,7 @@ public class FPS_Player : MonoBehaviour
     public GameObject bombPrefab;
     int cooldown = 0;
     const int speed = 10;
+    public int range;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +17,20 @@ public class FPS_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&cooldown==0)
         {
-            GameObject bomb = Instantiate(bombPrefab, this.transform.position+this.transform.forward+new Vector3(0,1,0), Quaternion.identity);
-            bomb.GetComponent<Rigidbody>().velocity = this.transform.GetChild(0).gameObject.transform.forward * speed;
-            cooldown = 10;
+            Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)(this.transform.position.y+0.1f), (int)this.transform.position.z);
+            Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 - (intVector.z) % 2);
+            GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
+            bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * speed;
+            bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * range, 1, 1);
+            bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * range, 1);
+            bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
+            bomb.GetComponent<Bomb>().is3D = true;
+            bomb.GetComponent<Bomb>().range = range;
+            cooldown = 100;
         }
-        cooldown--;
+        if (cooldown != 0)
+            cooldown--;
     }
 }
