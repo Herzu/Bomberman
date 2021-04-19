@@ -415,8 +415,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104d3f50f3da20b4b8e6ae68a7da3699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 7689393712661332935, guid: d9a3884eab328954e81810da56d1fbe0,
+  blockPrefab: {fileID: 863004108787412837, guid: d68e644e941433c4c96444dc98b344af,
     type: 3}
+  wallPrefab: {fileID: 1151291222737367122, guid: 02a0220fe9ad2f64c942a07790d7d9f7,
+    type: 3}
+  terrain: {fileID: 1594086953}
+  mapXSize: 10
+  mapYSize: 10
 --- !u!1001 &1262303638082462226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,6 +429,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
+      propertyPath: range
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
       propertyPath: m_RootOrder
@@ -432,7 +442,7 @@ PrefabInstance:
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
@@ -442,7 +452,7 @@ PrefabInstance:
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
