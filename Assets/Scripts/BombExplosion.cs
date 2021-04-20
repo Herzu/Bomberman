@@ -14,12 +14,12 @@ public class BombExplosion: MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Block")
+        if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
             currentCollisions.Add(col.gameObject);
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Block")
+        if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
             currentCollisions.Remove(col.gameObject);
     }
         // Update is called once per frame

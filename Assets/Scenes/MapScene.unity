@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
       propertyPath: range
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
@@ -192,6 +192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThirdPersonController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303640027989497, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1746334c62edb054e9d16b86442c9333, type: 3}
@@ -311,6 +316,13 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 1151291222737367122, guid: 02a0220fe9ad2f64c942a07790d7d9f7,
     type: 3}
+  powerupsPrefabs:
+  - {fileID: 3662420347181103337, guid: 6e9930ac85565f0488152740f0b86bf8, type: 3}
+  - {fileID: 1071364105728203779, guid: c4d9e6a5e1c524f459b3a5f900bc42ee, type: 3}
+  - {fileID: 7862793228626373647, guid: ed62deefe37094e418f877fceb9d3bd4, type: 3}
+  - {fileID: 8716236392792263226, guid: 9f423c0fbfa10cc4594010055eaa1329, type: 3}
+  - {fileID: 8544909470405486154, guid: 754dbd94bd8e986488487b1dda0051a7, type: 3}
+  - {fileID: 7097409013955640354, guid: f48b13ce45684fa41b16a849ff27908e, type: 3}
   terrain: {fileID: 950743183}
   mapXSize: 16
   mapYSize: 10
