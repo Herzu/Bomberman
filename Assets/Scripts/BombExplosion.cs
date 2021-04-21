@@ -5,14 +5,16 @@ using UnityEngine;
 public class BombExplosion: MonoBehaviour
 {
     int lifetime;
-    List<GameObject> currentCollisions;
+    List<GameObject> objectCollisions;
+    List<Character> characterCollisions;
     List<GameObject> walls;
     public int type; //1=x, 2=y, 3=z
     float lowerWallLimit = float.MinValue, upperWallLimit = float.MaxValue;
     // Start is called before the first frame update
     void Start()
     {
-        currentCollisions = new List<GameObject>();
+        objectCollisions = new List<GameObject>();
+        characterCollisions = new List<Character>();
         walls = new List<GameObject>();
         lifetime = this.gameObject.transform.parent.gameObject.GetComponent<Bomb>().maxLifetime;
     }
@@ -22,6 +24,8 @@ public class BombExplosion: MonoBehaviour
             currentCollisions.Add(col.gameObject);
         else if (col.gameObject.CompareTag("Wall"))
             walls.Add(col.gameObject);
+        else if(col.gameObject.CompareTag("Player"))
+            characterCollisions.Add(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
     void OnTriggerExit(Collider col)
     {
@@ -29,8 +33,10 @@ public class BombExplosion: MonoBehaviour
             currentCollisions.Remove(col.gameObject);
         else if (col.gameObject.CompareTag("Wall"))
             walls.Remove(col.gameObject);
+        else if(col.gameObject.CompareTag("Player"))
+            characterCollisions.Remove(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
-        // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         lifetime--;
@@ -51,6 +57,11 @@ public class BombExplosion: MonoBehaviour
                     float relativePos = GetRelativePos(gObject.transform.position);
                     if (relativePos < upperWallLimit && relativePos > lowerWallLimit)
                         Destroy(gObject.gameObject);
+                }
+            }
+            foreach(Character character in characterCollisions) {
+                if(!character.isImmune) {
+                    character.lifes--;
                 }
             }
             Destroy(this.gameObject);

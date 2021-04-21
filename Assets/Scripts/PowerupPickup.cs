@@ -22,25 +22,23 @@ public class PowerupPickup : MonoBehaviour
             switch (powerupID)
             {
                 case 1:
-                    if (col.gameObject.GetComponent<TPS_Player>() != null)
-                        col.gameObject.GetComponent<TPS_Player>().range++;
-                    if (col.gameObject.GetComponent<FPS_Player>() != null)
-                        col.gameObject.GetComponent<FPS_Player>().range++;
+                    col.gameObject.GetComponent<Character>().range++;
                     break;
                 case 2:
-                    //movespeed up
+                    col.gameObject.GetComponent<Character>().speed += 5;
                     break;
                 case 3:
-                    //hp up
+                    col.gameObject.GetComponent<Character>().lifes++;
                     break;
                 case 4:
-                    //temporal immunity
+                    col.gameObject.GetComponent<Character>().isImmune = true;
+                    col.gameObject.GetComponent<Character>().immunityTimer = 800;
                     break;
                 case 5:
-                    //more bombs
+                    col.gameObject.GetComponent<Character>().bombs += 2;
                     break;
                 case 6:
-                    //additional points
+                    col.gameObject.GetComponent<Character>().points += 50;
                     break;
             }
             Destroy(this.gameObject);
