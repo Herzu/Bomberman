@@ -21,7 +21,7 @@ public class BombExplosion: MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
-            currentCollisions.Add(col.gameObject);
+            objectCollisions.Add(col.gameObject);
         else if (col.gameObject.CompareTag("Wall"))
             walls.Add(col.gameObject);
         else if(col.gameObject.CompareTag("Player"))
@@ -30,7 +30,7 @@ public class BombExplosion: MonoBehaviour
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
-            currentCollisions.Remove(col.gameObject);
+            objectCollisions.Remove(col.gameObject);
         else if (col.gameObject.CompareTag("Wall"))
             walls.Remove(col.gameObject);
         else if(col.gameObject.CompareTag("Player"))
@@ -50,7 +50,7 @@ public class BombExplosion: MonoBehaviour
                 else
                     upperWallLimit = Mathf.Min(relativePos, upperWallLimit);
             }
-            foreach (GameObject gObject in currentCollisions)
+            foreach (GameObject gObject in objectCollisions)
             {
                 if (gObject != null)
                 {
@@ -60,9 +60,10 @@ public class BombExplosion: MonoBehaviour
                 }
             }
             foreach(Character character in characterCollisions) {
-                if(!character.isImmune) {
-                    character.lifes--;
-                }
+                float relativePos = GetRelativePos(character.transform.position);
+                if (relativePos < upperWallLimit && relativePos > lowerWallLimit)
+                    if (!character.isImmune)
+                        character.lifes--;
             }
             Destroy(this.gameObject);
         }
