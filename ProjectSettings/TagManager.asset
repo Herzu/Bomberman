@@ -9,6 +9,7 @@ TagManager:
   - Panel
   - SceneFade
   - Powerup
+  - Wall
   layers:
   - Default
   - TransparentFX
