@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
       propertyPath: range
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1262303640027754621, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
@@ -324,8 +324,8 @@ MonoBehaviour:
   - {fileID: 8544909470405486154, guid: 754dbd94bd8e986488487b1dda0051a7, type: 3}
   - {fileID: 7097409013955640354, guid: f48b13ce45684fa41b16a849ff27908e, type: 3}
   terrain: {fileID: 950743183}
-  mapXSize: 16
-  mapYSize: 10
+  mapXSize: 15
+  mapYSize: 15
 --- !u!4 &740740978
 Transform:
   m_ObjectHideFlags: 0

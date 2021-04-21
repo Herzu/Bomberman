@@ -18,45 +18,24 @@ public class GameController: MonoBehaviour
         int realXSize = 2 * mapXSize;
         int realYSize = 2 * mapYSize;
         terrain.terrainData.size = new Vector3(realXSize, 0, realYSize);
-        for (int i = 1; i < realXSize; i += 2)
+        for(int i=0;i<mapXSize;i++)
         {
-            Instantiate(wallPrefab, new Vector3(i, 1, 1), Quaternion.identity);
-            Instantiate(wallPrefab, new Vector3(i, 1, realYSize-1), Quaternion.identity);
-        }
-        for (int i = 1; i < realYSize; i += 2)
-        {
-            Instantiate(wallPrefab, new Vector3(1, 1, i), Quaternion.identity);
-            Instantiate(wallPrefab, new Vector3(realXSize-1, 1, i), Quaternion.identity);
-        }
-        for (int i = 7;i<realXSize-7;i+=2)
-        {
-            for (int j = 7; j < realYSize-7; j+=2)
+            for (int j = 0; j < mapYSize; j++)
             {
-                if(chance >= Random.Range(1, 100))
-                    Instantiate(blockPrefab, new Vector3(i, 1, j), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
+                if (i == 0 || j == 0 || i == mapXSize - 1 || j == mapYSize - 1)
+                    Instantiate(wallPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity);
+                else if ((i > 2 || j > 2)
+                    && (i < mapXSize - 3 || j < mapYSize - 3)
+                    && (i > 2 || j < mapYSize - 3)
+                    && (i < mapXSize - 3 || j > 2))
+                {
+                    if (i % 2 == 0 && j % 2 == 0)
+                        Instantiate(wallPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity);
+                    else if (chance >= Random.Range(1, 100))
+                        Instantiate(blockPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
+                }
+
             }
-        }
-        for (int i = 7; i < realXSize - 7; i += 2)
-        {
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(i, 1, 3), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(i, 1, 5), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(i, 1, realYSize-3), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(i, 1, realYSize-5), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-        }
-        for (int i = 7; i < realYSize - 7; i += 2)
-        {
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(3, 1, i), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(5, 1, i), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(realXSize-3, 1, i), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
-            if (chance >= Random.Range(1, 100))
-                Instantiate(blockPrefab, new Vector3(realXSize-5, 1, i), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
         }
     }
 
