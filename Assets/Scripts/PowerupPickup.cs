@@ -35,10 +35,8 @@ public class PowerupPickup : MonoBehaviour
                     col.gameObject.GetComponent<Character>().immunityTimer = 800;
                     break;
                 case 5:
-                    col.gameObject.GetComponent<Character>().bombs += 2;
-                    break;
-                case 6:
-                    col.gameObject.GetComponent<Character>().points += 50;
+                    col.gameObject.GetComponent<Character>().maxBombs ++;
+                    col.gameObject.GetComponent<Character>().bombs++;
                     break;
             }
             Destroy(this.gameObject);

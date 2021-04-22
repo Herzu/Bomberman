@@ -9,7 +9,7 @@ public class TPS_Player : Character
     // Start is called before the first frame update
     void Start()
     {
-
+        this.Init();
     }
 
     // Update is called once per frame
@@ -27,8 +27,8 @@ public class TPS_Player : Character
             bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * this.range);
             bomb.GetComponent<Bomb>().is3D = false;
             bomb.GetComponent<Bomb>().range = this.range;
-            this.cooldown = 100;
-            this.bombs -= 1;
+            this.cooldown = 10;
+            this.placeBomb();
         }
         this.isAlive();
         this.checkBomb();

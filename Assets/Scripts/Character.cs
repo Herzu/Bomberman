@@ -8,24 +8,37 @@ public class Character: MonoBehaviour {
     public int lifes = 3;
     public bool isImmune = false;
     public int immunityTimer = 800;
-    public int bombs = 3;
-    int bombCooldown = 800;
-    public int points = 0;
+    public int bombs = 1;
+    public int maxBombs = 1;
+    public int bombLifetime = 500;
+    List<int> bombCooldowns;
 
     void Start() {
-
+        bombCooldowns = new List<int>();
     }
 
     void Update() {
 
     }
+    protected void Init()
+    {
+        bombCooldowns = new List<int>();
+    }
 
     public void checkBomb() {
-        if(this.bombCooldown == 0) {
-            this.bombs++;
-            this.bombCooldown = 800;
+        for(int i=0;i<bombCooldowns.Count;i++)
+        {
+            if(--bombCooldowns[i]==0)
+            {
+                bombs++;
+            }
         }
-        this.bombCooldown--;
+        bombCooldowns.RemoveAll(item => item == 0);
+    }
+    public void placeBomb()
+    {
+        this.bombs -= 1;
+        bombCooldowns.Add(bombLifetime);
     }
 
     public void isAlive() {
@@ -40,7 +53,8 @@ public class Character: MonoBehaviour {
                 this.isImmune = false;
                 this.immunityTimer = 800;
             }
-            this.immunityTimer--;
+            else
+                this.immunityTimer--;
         }
     }
 }

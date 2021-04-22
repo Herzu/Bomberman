@@ -60,10 +60,17 @@ public class BombExplosion: MonoBehaviour
                 }
             }
             foreach(Character character in characterCollisions) {
-                float relativePos = GetRelativePos(character.transform.position);
-                if (relativePos < upperWallLimit && relativePos > lowerWallLimit)
-                    if (!character.isImmune)
-                        character.lifes--;
+                if (character != null)
+                {
+                    float relativePos = GetRelativePos(character.transform.position);
+                    if (relativePos < upperWallLimit && relativePos > lowerWallLimit)
+                        if (!character.isImmune)
+                        {
+                            character.lifes--;
+                            character.isImmune = true;
+                            character.immunityTimer = 20;
+                        }
+                }
             }
             Destroy(this.gameObject);
         }
