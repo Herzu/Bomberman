@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Block
   - Destructible
+  - Panel
+  - SceneFade
+  - Powerup
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -18,8 +22,8 @@ TagManager:
   - Bomb
   - Player
   - Explosion
-  - 
-  - 
+  - Powerup
+  - BombDelayed
   - 
   - 
   - 

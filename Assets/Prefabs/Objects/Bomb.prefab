@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &552748445212694703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7442184456918651553}
+  - component: {fileID: 8753559469983425272}
+  m_Layer: 12
+  m_Name: PlayerCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7442184456918651553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552748445212694703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4856695417023302872}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8753559469983425272
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552748445212694703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4856695417023302876
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +58,6 @@ GameObject:
   - component: {fileID: 4856695417023302877}
   - component: {fileID: 4856695417023302873}
   - component: {fileID: 7725615460969977134}
-  - component: {fileID: 3100862545710551761}
   m_Layer: 8
   m_Name: Bomb
   m_TagString: Untagged
@@ -38,6 +81,7 @@ Transform:
   - {fileID: 2597527791101713673}
   - {fileID: 7843396680080097436}
   - {fileID: 5704010270936466074}
+  - {fileID: 7442184456918651553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -138,20 +182,8 @@ MonoBehaviour:
   explosionEffect: {fileID: 8177504114973325602, guid: 8b40959498fd9ae4a8d1dc133cfa4ea2,
     type: 3}
   fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
+  playerCollider: {fileID: 552748445212694703}
   is3D: 0
---- !u!65 &3100862545710551761
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4856695417023302876}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.1, z: 1}
-  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &5033228370572426421
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +195,7 @@ GameObject:
   - component: {fileID: 779175338762151742}
   - component: {fileID: 3810700856186574494}
   - component: {fileID: 151833123677092968}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: XExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3545308017c668a408024977b178e3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &5805481903312933931
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +426,7 @@ GameObject:
   - component: {fileID: 7843396680080097436}
   - component: {fileID: 4448254157875524468}
   - component: {fileID: 1495961430144492939}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ZExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,6 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3545308017c668a408024977b178e3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &8565700594925098975
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +484,7 @@ GameObject:
   - component: {fileID: 2597527791101713673}
   - component: {fileID: 5286223863027856640}
   - component: {fileID: 9034693823517506964}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: YExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,3 +530,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3545308017c668a408024977b178e3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 2

@@ -14,13 +14,14 @@ public class Bomb : MonoBehaviour
     public GameObject fuse;
     public GameObject explosionEffect;
     public GameObject fireEffect;
+    public GameObject playerCollider;
     public bool is3D;
     GameObject exp1, exp2, exp3, exp4, exp5, exp6,fire;
     // Start is called before the first frame update
     void Start()
     {
         if(!is3D)
-            this.gameObject.GetComponent<SphereCollider>().radius = 0.0f;
+            playerCollider.gameObject.GetComponent<SphereCollider>().radius = 0.0f;
         fuseBurn = 0.2f / maxLifetime;
         lifetime = maxLifetime;
         fire = Instantiate(fireEffect, this.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
@@ -33,7 +34,7 @@ public class Bomb : MonoBehaviour
         fuse.gameObject.transform.position -= new Vector3(0,fuseBurn,0);
         fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.3f,0);
         if (lifetime == maxLifetime - 100)
-            this.gameObject.GetComponent<SphereCollider>().radius = 0.5f;
+            playerCollider.gameObject.GetComponent<SphereCollider>().radius = 0.5f;
         else if (lifetime < -50
             && xExplosion == null
             && yExplosion == null
