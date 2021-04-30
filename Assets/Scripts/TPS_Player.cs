@@ -12,8 +12,7 @@ public class TPS_Player : Character
         this.Init();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Camera.main.transform.position = this.transform.position + new Vector3(0, 9, 0);
         if (Input.GetKeyDown(KeyCode.LeftAlt) && this.cooldown == 0 && this.bombs > 0)
@@ -30,7 +29,7 @@ public class TPS_Player : Character
             this.cooldown = 10;
             this.placeBomb();
         }
-        this.isAlive();
+
         this.checkBomb();
         this.checkImmunity();
         if(this.cooldown!=0)

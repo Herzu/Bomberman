@@ -41,8 +41,12 @@ public class Character: MonoBehaviour {
         bombCooldowns.Add(bombLifetime);
     }
 
-    public void isAlive() {
-        if(this.lifes < 1) {
+    public bool isAlive() {
+        return this.lifes < 1;
+    }
+
+    public void handleGameover() {
+        if(this.gameObject) {
             Destroy(this.gameObject);
         }
     }

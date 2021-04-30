@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public class GameController: MonoBehaviour
 {
     public GameObject blockPrefab;
@@ -10,9 +12,17 @@ public class GameController: MonoBehaviour
     public Terrain terrain;
     public int mapXSize;
     public int mapYSize;
+    private bool isPaused;
+
+    public UnityEvent OnGameOver;
+
+    private GameObject[] players;
+
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
+        isPaused = false;
         powerups = new Queue<Vector3>();
         int chance = 25;
         int realXSize = 2 * mapXSize;
@@ -56,11 +66,42 @@ public class GameController: MonoBehaviour
                     break;
                 }
             }
-        }    
+        }
+        CheckGameover();
     }
 
-    public void AddPowerup(Vector3 position)
-    {
+    private void CheckGameover() {
+        if (players == null) {
+            players = GameObject.FindGameObjectsWithTag("Player");
+        }
+
+        foreach (GameObject player in players) {
+            TPS_Player playerTPS = null;
+            if (player){
+                playerTPS = player.GetComponent<TPS_Player>();
+            }
+            if (playerTPS && playerTPS.isAlive()) {
+                playerTPS.handleGameover();
+                OnGameOver.Invoke();
+            }
+        }
+    }
+    public void AddPowerup(Vector3 position) {
         powerups.Enqueue(position);
+    }
+
+    
+    public void PauseGame() {
+        if(!isPaused) {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+    }
+
+    public void ResumeGame() {
+        if(isPaused) {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
     }
 }

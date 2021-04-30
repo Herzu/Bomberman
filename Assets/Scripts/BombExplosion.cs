@@ -11,13 +11,14 @@ public class BombExplosion: MonoBehaviour
     public int type; //1=x, 2=y, 3=z
     float lowerWallLimit = float.MinValue, upperWallLimit = float.MaxValue;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         objectCollisions = new List<GameObject>();
         characterCollisions = new List<Character>();
         walls = new List<GameObject>();
         lifetime = this.gameObject.transform.parent.gameObject.GetComponent<Bomb>().maxLifetime;
     }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
@@ -27,6 +28,7 @@ public class BombExplosion: MonoBehaviour
         else if(col.gameObject.CompareTag("Player"))
             characterCollisions.Add(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
+
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
@@ -37,7 +39,7 @@ public class BombExplosion: MonoBehaviour
             characterCollisions.Remove(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         lifetime--;
         if(lifetime == 0)

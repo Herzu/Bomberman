@@ -28,7 +28,7 @@ public class Bomb : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         lifetime--;
         fuse.gameObject.transform.position -= new Vector3(0,fuseBurn,0);
