@@ -145,6 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
+      propertyPath: mapHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
       propertyPath: bombLifetime
       value: 500
       objectReference: {fileID: 0}
@@ -207,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThirdPersonController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303640027989497, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1262303640027989497, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
@@ -683,6 +693,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &678158594
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 863657834883224550, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_Name
+      value: FPSController
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 137e4b8234a85004298c61c4544555e0, type: 3}
 --- !u!1 &740740976
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +814,17 @@ MonoBehaviour:
   terrain: {fileID: 950743183}
   mapXSize: 15
   mapYSize: 15
+  mapZSize: 1
+  blockChance: 50
+  anyPowerupChance: 50
+  powerupWeights: 28000000140000000a0000000a00000014000000
+  initRange: 1
+  initSpeed: 10
+  initLifes: 3
+  initBombs: 1
+  bombLifetime: 300
+  players:
+  - {fileID: 1708588340}
 --- !u!4 &740740978
 Transform:
   m_ObjectHideFlags: 0

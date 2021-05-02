@@ -61,7 +61,11 @@ public class BombExplosion: MonoBehaviour
                         Destroy(gObject.gameObject);
                 }
             }
-            foreach(Character character in characterCollisions) {
+        }
+        else if (lifetime < 0)
+        {
+            foreach (Character character in characterCollisions)
+            {
                 if (character != null)
                 {
                     float relativePos = GetRelativePos(character.transform.position);
@@ -70,11 +74,12 @@ public class BombExplosion: MonoBehaviour
                         {
                             character.lifes--;
                             character.isImmune = true;
-                            character.immunityTimer = 20;
+                            character.immunityTimer = 35;
                         }
                 }
             }
-            Destroy(this.gameObject);
+            if (lifetime == -30)
+                Destroy(this.gameObject);
         }
     }
     float GetRelativePos(Vector3 position)

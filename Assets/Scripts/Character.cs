@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Character: MonoBehaviour {
     public int range;
-    public int speed = 10;
-    public int lifes = 3;
+    public int speed;
+    public int lifes;
     public bool isImmune = false;
     public int immunityTimer = 800;
-    public int bombs = 1;
-    public int maxBombs = 1;
-    public int bombLifetime = 500;
+    public int bombs;
+    public int bombLifetime;
     List<int> bombCooldowns;
 
     void Start() {
