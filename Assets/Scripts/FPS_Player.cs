@@ -9,11 +9,11 @@ public class FPS_Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.Init();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0) && this.cooldown == 0 && this.bombs > 0)
         {
@@ -26,8 +26,8 @@ public class FPS_Player : Character
             bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * this.range);
             bomb.GetComponent<Bomb>().is3D = true;
             bomb.GetComponent<Bomb>().range = this.range;
-            this.cooldown = 100;
-            this.bombs -= 1;
+            this.cooldown = 10;
+            this.placeBomb();
         }
         this.isAlive();
         this.checkBomb();

@@ -5,15 +5,17 @@ using UnityEngine;
 public class TPS_Player : Character
 {
     public GameObject bombPrefab;
+    public int mapHeight;
     int cooldown = 0;
     // Start is called before the first frame update
     void Start()
     {
         this.Init();
+        this.transform.position = new Vector3(this.transform.position.x,2*mapHeight-1,this.transform.position.z);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Camera.main.transform.position = this.transform.position + new Vector3(0, 9, 0);
         if (Input.GetKeyDown(KeyCode.LeftAlt) && this.cooldown == 0 && this.bombs > 0)
@@ -25,7 +27,10 @@ public class TPS_Player : Character
             bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * this.range, 1, 1);
             bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * this.range, 1);
             bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * this.range);
-            bomb.GetComponent<Bomb>().is3D = false;
+            if (mapHeight == 1)
+                bomb.GetComponent<Bomb>().is3D = false;
+            else
+                bomb.GetComponent<Bomb>().is3D = true;
             bomb.GetComponent<Bomb>().range = this.range;
             this.cooldown = 10;
             this.placeBomb();
