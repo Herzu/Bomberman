@@ -11,7 +11,7 @@ public class BombExplosion: MonoBehaviour
     public int type; //1=x, 2=y, 3=z
     float lowerWallLimit = float.MinValue, upperWallLimit = float.MaxValue;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         objectCollisions = new List<GameObject>();
         characterCollisions = new List<Character>();
@@ -37,7 +37,7 @@ public class BombExplosion: MonoBehaviour
             characterCollisions.Remove(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         lifetime--;
         if(lifetime == 0)
@@ -59,7 +59,11 @@ public class BombExplosion: MonoBehaviour
                         Destroy(gObject.gameObject);
                 }
             }
-            foreach(Character character in characterCollisions) {
+        }
+        else if (lifetime < 0)
+        {
+            foreach (Character character in characterCollisions)
+            {
                 if (character != null)
                 {
                     float relativePos = GetRelativePos(character.transform.position);
@@ -68,11 +72,12 @@ public class BombExplosion: MonoBehaviour
                         {
                             character.lifes--;
                             character.isImmune = true;
-                            character.immunityTimer = 20;
+                            character.immunityTimer = 35;
                         }
                 }
             }
-            Destroy(this.gameObject);
+            if (lifetime == -30)
+                Destroy(this.gameObject);
         }
     }
     float GetRelativePos(Vector3 position)

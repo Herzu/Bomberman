@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 6
+  m_JumpPower: 10
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
@@ -225,9 +225,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae6f1d6827d24445ae7a726bc2f6e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 0
+  speed: 10
+  lifes: 3
+  isImmune: 0
+  immunityTimer: 800
+  bombs: 1
+  maxBombs: 1
+  bombLifetime: 500
   bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
     type: 3}
-  range: 0
 --- !u!1 &1262303640027989507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,6 +2509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1262303640027686737}
   - component: {fileID: 1262303640024849813}
+  - component: {fileID: 5859760912056722526}
   m_Layer: 9
   m_Name: EthanBody
   m_TagString: Untagged
@@ -2644,6 +2652,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0009998977, y: 0.007603839, z: 0.00028842688}
     m_Extent: {x: 0.80239844, y: 0.23826995, z: 0.5723474}
   m_DirtyAABB: 0
+--- !u!114 &5859760912056722526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262303640028102407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1262303640028103807
 GameObject:
   m_ObjectHideFlags: 0
