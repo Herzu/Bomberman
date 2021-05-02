@@ -22,10 +22,14 @@ public class TPS_Player : Character
             Vector3Int intVector = new Vector3Int((int)this.transform.position.x,(int)this.transform.position.y,(int)this.transform.position.z);
             Vector3 bombPlacement = intVector + new Vector3(1-(intVector.x)%2, 1, 1-(intVector.z) % 2);
             GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
+            bomb.GetComponent<Bomb>().maxLifetime = bombLifetime;
             bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * this.speed;
             bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * this.range, 1, 1);
+            bomb.transform.GetChild(1).GetComponent<BombExplosion>().lifetime = bombLifetime;
             bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * this.range, 1);
+            bomb.transform.GetChild(2).GetComponent<BombExplosion>().lifetime = bombLifetime;
             bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * this.range);
+            bomb.transform.GetChild(3).GetComponent<BombExplosion>().lifetime = bombLifetime;
             if (mapHeight == 1)
                 bomb.GetComponent<Bomb>().is3D = false;
             else

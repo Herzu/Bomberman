@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombExplosion: MonoBehaviour
 {
-    int lifetime;
+    public int lifetime;
     List<GameObject> objectCollisions;
     List<Character> characterCollisions;
     List<GameObject> walls;
