@@ -18,6 +18,7 @@ public class BombExplosion: MonoBehaviour
         walls = new List<GameObject>();
         lifetime = this.gameObject.transform.parent.gameObject.GetComponent<Bomb>().maxLifetime;
     }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))
@@ -27,6 +28,7 @@ public class BombExplosion: MonoBehaviour
         else if(col.gameObject.CompareTag("Player"))
             characterCollisions.Add(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
+
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Powerup"))

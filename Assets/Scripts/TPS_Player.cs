@@ -14,7 +14,6 @@ public class TPS_Player : Character
         this.transform.position = new Vector3(this.transform.position.x,2*mapHeight-1,this.transform.position.z);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Camera.main.transform.position = this.transform.position + new Vector3(0, 9, 0);
@@ -35,7 +34,7 @@ public class TPS_Player : Character
             this.cooldown = 10;
             this.placeBomb();
         }
-        this.isAlive();
+
         this.checkBomb();
         this.checkImmunity();
         if(this.cooldown!=0)

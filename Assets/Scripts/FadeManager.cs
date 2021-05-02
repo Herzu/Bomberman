@@ -30,6 +30,7 @@ public class FadeManager : MonoBehaviour {
     public void FadeOut(CanvasGroup canvasGroup, float fadeTime) {
         canvasGroup.DOFade(0, fadeTime).SetUpdate(true);
     }
+
     public void FadeIn(GameObject gameObject) {
         gameObject.GetComponent<CanvasGroup>().DOFade(1, fadeinTime).SetUpdate(true);
     }
