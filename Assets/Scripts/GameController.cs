@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     public int initLifes = 3;
     public int initBombs = 1;
     public int bombLifetime = 500;
-    public Character[] players;
+    private GameObject[] players;
     int[] powerupDropTable;
     // Start is called before the first frame update
     void Awake()
@@ -32,7 +32,8 @@ public class GameController : MonoBehaviour
         else
             Fill3D();
         FillDropTable();
-        foreach(Character player in players)
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
         {
             var playerScript = player.GetComponent<Character>();
             playerScript.range = initRange;
@@ -40,6 +41,15 @@ public class GameController : MonoBehaviour
             playerScript.bombs = initBombs;
             playerScript.lifes = initLifes;
             playerScript.bombLifetime = bombLifetime;
+            playerScript.mapHeight = mapZSize;
+            if (player.GetComponent<CharacterController>() != null)
+            {
+                player.GetComponent<CharacterController>().enabled = false;
+                playerScript.moveToPlace();
+                player.GetComponent<CharacterController>().enabled = true;
+            }
+            else
+                playerScript.moveToPlace();
         }
     }
     void FillDropTable()

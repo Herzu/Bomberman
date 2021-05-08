@@ -10,6 +10,7 @@ public class Character: MonoBehaviour {
     public int immunityTimer = 800;
     public int bombs;
     public int bombLifetime;
+    public int mapHeight;
     List<int> bombCooldowns;
 
     void Start() {
@@ -23,7 +24,10 @@ public class Character: MonoBehaviour {
     {
         bombCooldowns = new List<int>();
     }
-
+    public void moveToPlace()
+    {
+        gameObject.transform.position = new Vector3(transform.position.x, 2 * mapHeight + 1, transform.position.z);
+    }
     public void checkBomb() {
         for(int i=0;i<bombCooldowns.Count;i++)
         {

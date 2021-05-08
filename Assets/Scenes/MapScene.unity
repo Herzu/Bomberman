@@ -320,6 +320,12 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 863657834883224550, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: thrownBombPrefab
+      value: 
+      objectReference: {fileID: 4856695417023302876, guid: 3714a366f3a34504689f77f78f987926,
+        type: 3}
     - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -375,10 +381,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325521, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325521, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
         type: 3}
       propertyPath: m_Name
       value: FPSController
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
         type: 3}
@@ -429,7 +450,7 @@ MonoBehaviour:
   terrain: {fileID: 950743183}
   mapXSize: 15
   mapYSize: 15
-  mapZSize: 1
+  mapZSize: 10
   blockChance: 50
   anyPowerupChance: 50
   powerupWeights: 28000000140000000a0000000a00000014000000
@@ -437,9 +458,7 @@ MonoBehaviour:
   initSpeed: 10
   initLifes: 3
   initBombs: 1
-  bombLifetime: 300
-  players:
-  - {fileID: 1708588340}
+  bombLifetime: 100
 --- !u!4 &740740978
 Transform:
   m_ObjectHideFlags: 0
@@ -622,15 +641,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1708588340 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
-    type: 3}
-  m_PrefabInstance: {fileID: 31264550}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ae6f1d6827d24445ae7a726bc2f6e70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
