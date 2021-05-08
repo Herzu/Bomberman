@@ -5,11 +5,13 @@ using UnityEngine;
 public class FPS_Player : Character
 {
     public GameObject bombPrefab;
+    public GameObject thrownBombPrefab;
+    int bombSpeed = 10;
     int cooldown = 0;
     // Start is called before the first frame update
     void Start()
     {
-        this.Init();
+        Init();
     }
 
     // Update is called once per frame
@@ -17,15 +19,15 @@ public class FPS_Player : Character
     {
         if (Input.GetMouseButtonDown(0) && this.cooldown == 0 && this.bombs > 0)
         {
-            Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)(this.transform.position.y+0.1f), (int)this.transform.position.z);
-            Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 - (intVector.z) % 2);
-            GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
-            bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * this.speed;
-            bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * this.range, 1, 1);
-            bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * this.range, 1);
-            bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * this.range);
-            bomb.GetComponent<Bomb>().is3D = true;
-            bomb.GetComponent<Bomb>().range = this.range;
+            GameObject bomb = Instantiate(thrownBombPrefab, gameObject.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
+            bomb.GetComponent<Rigidbody>().velocity = Camera.main.gameObject.transform.forward * bombSpeed;
+            bomb.GetComponent<ThrownBomb>().bombPrefab = bombPrefab;
+            bomb.GetComponent<ThrownBomb>().bombLifetime = bombLifetime;
+            bomb.GetComponent<ThrownBomb>().range = range;
+            if (mapHeight == 1)
+                bomb.GetComponent<ThrownBomb>().is3D = false;
+            else
+                bomb.GetComponent<ThrownBomb>().is3D = true;
             this.cooldown = 10;
             this.placeBomb();
         }

@@ -39,7 +39,7 @@ public class Bomb : MonoBehaviour
     }
     void CreateParticleEffect(int id, float angle)
     {
-        if(id<5)
+        if(id<4)
             exp[id] = Instantiate(explosionEffect, this.transform.position, Quaternion.Euler(0, angle, 0));
         else
             exp[id] = Instantiate(explosionEffect, this.transform.position, Quaternion.Euler(angle, 0, 0));

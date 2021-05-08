@@ -705,6 +705,12 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 863657834883224550, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: thrownBombPrefab
+      value: 
+      objectReference: {fileID: 4856695417023302876, guid: 3714a366f3a34504689f77f78f987926,
+        type: 3}
     - target: {fileID: 863657835412297907, guid: 137e4b8234a85004298c61c4544555e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -760,10 +766,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325521, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325521, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
         type: 3}
       propertyPath: m_Name
       value: FPSController
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0,
         type: 3}
@@ -814,7 +835,7 @@ MonoBehaviour:
   terrain: {fileID: 950743183}
   mapXSize: 15
   mapYSize: 15
-  mapZSize: 1
+  mapZSize: 10
   blockChance: 50
   anyPowerupChance: 50
   powerupWeights: 28000000140000000a0000000a00000014000000
@@ -822,9 +843,7 @@ MonoBehaviour:
   initSpeed: 10
   initLifes: 3
   initBombs: 1
-  bombLifetime: 300
-  players:
-  - {fileID: 1708588340}
+  bombLifetime: 100
 --- !u!4 &740740978
 Transform:
   m_ObjectHideFlags: 0

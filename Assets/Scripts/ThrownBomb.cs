@@ -2,30 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TPS_Player : Character
+public class ThrownBomb : MonoBehaviour
 {
+    public bool is3D;
     public GameObject bombPrefab;
-    int cooldown = 0;
+    public int bombLifetime;
+    public int range;
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+        
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
-        Camera.main.transform.position = transform.position + new Vector3(0, 9, 0);
-        if (Input.GetKeyDown(KeyCode.LeftAlt) && cooldown == 0 && bombs > 0)
-        {
-            PutBomb();
-            cooldown = 10;
-            placeBomb();
-        }
-        isAlive();
-        checkBomb();
-        checkImmunity();
-        if(cooldown!=0)
-            cooldown--;
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        PutBomb();
+        Destroy(this.gameObject);
     }
     private void PutBomb()
     {
@@ -39,10 +36,10 @@ public class TPS_Player : Character
         bomb.transform.GetChild(2).GetComponent<BombExplosion>().lifetime = bombLifetime;
         bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
         bomb.transform.GetChild(3).GetComponent<BombExplosion>().lifetime = bombLifetime;
-        if (mapHeight == 1)
-            bomb.GetComponent<Bomb>().is3D = false;
-        else
+        if (is3D)
             bomb.GetComponent<Bomb>().is3D = true;
+        else
+            bomb.GetComponent<Bomb>().is3D = false;
         bomb.GetComponent<Bomb>().range = range;
     }
 }
