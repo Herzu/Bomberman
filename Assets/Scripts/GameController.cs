@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class GameController : MonoBehaviour
+using UnityEngine.Events;
+
+public class GameController: MonoBehaviour
 {
     public GameObject blockPrefab;
     public GameObject wallPrefab;
@@ -10,6 +12,9 @@ public class GameController : MonoBehaviour
     public Terrain terrain;
     public int mapXSize;
     public int mapYSize;
+    private bool isPaused;
+    public UnityEvent OnGameOver;
+    private GameObject[] players;
     public int mapZSize = 1;
     public int blockChance = 25;
     public int anyPowerupChance = 50;
@@ -19,11 +24,12 @@ public class GameController : MonoBehaviour
     public int initLifes = 3;
     public int initBombs = 1;
     public int bombLifetime = 500;
-    private GameObject[] players;
     int[] powerupDropTable;
     // Start is called before the first frame update
     void Awake()
     {
+        Time.timeScale = 1;
+        isPaused = false;
         Application.targetFrameRate = 60;
         powerups = new Queue<Vector3>();
         terrain.terrainData.size = new Vector3(2 * mapXSize, 0, 2 * mapYSize);
@@ -156,10 +162,41 @@ public class GameController : MonoBehaviour
                 break;
             }
         }
+        CheckGameover();
     }
 
-    public void AddPowerup(Vector3 position)
-    {
+    private void CheckGameover() {
+        if (players == null) {
+            players = GameObject.FindGameObjectsWithTag("Player");
+        }
+
+        foreach (GameObject player in players) {
+            TPS_Player playerTPS = null;
+            if (player){
+                playerTPS = player.GetComponent<TPS_Player>();
+            }
+            if (playerTPS && playerTPS.isAlive()) {
+                playerTPS.handleGameover();
+                OnGameOver.Invoke();
+            }
+        }
+    }
+    public void AddPowerup(Vector3 position) {
         powerups.Enqueue(position);
+    }
+
+    
+    public void PauseGame() {
+        if(!isPaused) {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+    }
+
+    public void ResumeGame() {
+        if(isPaused) {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
     }
 }

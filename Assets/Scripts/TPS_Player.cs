@@ -12,7 +12,6 @@ public class TPS_Player : Character
         Init();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Camera.main.transform.position = transform.position + new Vector3(0, 9, 0);
