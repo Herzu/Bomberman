@@ -8,8 +8,12 @@ public class PlayerUIUpdater : MonoBehaviour
     public static PlayerUIUpdater instance;
 
     [SerializeField] private Text lifesText;
+    [SerializeField] private Image lifesImageObject;
+
     [SerializeField] private Text bombAmountText;
 
+    [SerializeField] private Sprite lifesSprite;
+    [SerializeField] private Sprite immuneLifesSprite;
     private Character player;
 
     private void Awake() {
@@ -27,6 +31,7 @@ public class PlayerUIUpdater : MonoBehaviour
     private void Update() {
         UpdateLifesText();
         UpdateBombAmountText();
+        UpdateHeartsIconOnImmune();
     }
 
     public void UpdateLifesText() {
@@ -35,5 +40,13 @@ public class PlayerUIUpdater : MonoBehaviour
 
     public void UpdateBombAmountText() {
         bombAmountText.text = player.bombs.ToString();
+    }
+
+    public void UpdateHeartsIconOnImmune() {
+        if(player.isImmune){
+            lifesImageObject.sprite = immuneLifesSprite;
+        } else {
+            lifesImageObject.sprite = lifesSprite;
+        }
     }
 }
