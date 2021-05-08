@@ -10,7 +10,7 @@ public class PlayerUIUpdater : MonoBehaviour
     [SerializeField] private Text lifesText;
     [SerializeField] private Text bombAmountText;
 
-    private TPS_Player player;
+    private Character player;
 
     private void Awake() {
         if(!instance) {
@@ -19,7 +19,7 @@ public class PlayerUIUpdater : MonoBehaviour
     }
 
     private void Start() {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<TPS_Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         PlayerUIUpdater.instance.UpdateLifesText();
         PlayerUIUpdater.instance.UpdateBombAmountText();
     }

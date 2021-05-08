@@ -12,10 +12,10 @@ public class GameController: MonoBehaviour
     public Terrain terrain;
     public int mapXSize;
     public int mapYSize;
+    public int mapZSize = 1;
     private bool isPaused;
     public UnityEvent OnGameOver;
     private GameObject[] players;
-    public int mapZSize = 1;
     public int blockChance = 25;
     public int anyPowerupChance = 50;
     public int[] powerupWeights;
@@ -166,17 +166,13 @@ public class GameController: MonoBehaviour
     }
 
     private void CheckGameover() {
-        if (players == null) {
-            players = GameObject.FindGameObjectsWithTag("Player");
-        }
-
         foreach (GameObject player in players) {
-            TPS_Player playerTPS = null;
+            Character playerScript = null;
             if (player){
-                playerTPS = player.GetComponent<TPS_Player>();
+                playerScript = player.GetComponent<Character>();
             }
-            if (playerTPS && playerTPS.isAlive()) {
-                playerTPS.handleGameover();
+            if (playerScript && playerScript.isAlive()) {
+                playerScript.handleGameover();
                 OnGameOver.Invoke();
             }
         }
