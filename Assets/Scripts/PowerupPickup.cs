@@ -17,7 +17,7 @@ public class PowerupPickup : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player")|| col.gameObject.CompareTag("Bot"))
         {
             switch (powerupID)
             {

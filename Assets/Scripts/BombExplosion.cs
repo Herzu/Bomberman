@@ -25,7 +25,7 @@ public class BombExplosion: MonoBehaviour
             objectCollisions.Add(col.gameObject);
         else if (col.gameObject.CompareTag("Wall"))
             walls.Add(col.gameObject);
-        else if(col.gameObject.CompareTag("Player"))
+        else if(col.gameObject.CompareTag("Player")|| col.gameObject.CompareTag("Bot"))
             characterCollisions.Add(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
 
@@ -35,7 +35,7 @@ public class BombExplosion: MonoBehaviour
             objectCollisions.Remove(col.gameObject);
         else if (col.gameObject.CompareTag("Wall"))
             walls.Remove(col.gameObject);
-        else if(col.gameObject.CompareTag("Player"))
+        else if(col.gameObject.CompareTag("Player")||col.gameObject.CompareTag("Bot"))
             characterCollisions.Remove(col.gameObject.GetComponent(typeof(Character)) as Character);
     }
     // Update is called once per frame

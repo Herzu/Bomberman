@@ -16,6 +16,7 @@ public class GameController: MonoBehaviour
     private bool isPaused;
     public UnityEvent OnGameOver;
     private GameObject[] players;
+    private GameObject[] bots;
     public int blockChance = 25;
     public int anyPowerupChance = 50;
     public int[] powerupWeights;
@@ -58,6 +59,18 @@ public class GameController: MonoBehaviour
             }
             else
                 playerScript.moveToPlace();
+        }
+        bots = GameObject.FindGameObjectsWithTag("Bot");
+        foreach (GameObject bot in bots)
+        {
+            var botScript = bot.GetComponent<Character>();
+            botScript.range = initRange;
+            botScript.speed = initSpeed;
+            botScript.bombs = initBombs;
+            botScript.lifes = initLifes;
+            botScript.bombLifetime = bombLifetime;
+            botScript.mapHeight = mapZSize;
+            botScript.moveToPlace();
         }
     }
 
@@ -202,7 +215,20 @@ public class GameController: MonoBehaviour
                 OnGameOver.Invoke();
             }
         }
+        foreach (GameObject bot in bots)
+        {
+            Character botScript = null;
+            if (bot)
+            {
+                botScript = bot.GetComponent<Character>();
+            }
+            if (botScript && botScript.isAlive())
+            {
+                botScript.handleGameover();
+            }
+        }
     }
+    //temporary function, add victory screen here
     public void AddPowerup(Vector3 position) {
         powerups.Enqueue(position);
     }

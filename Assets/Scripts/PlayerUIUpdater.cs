@@ -23,7 +23,24 @@ public class PlayerUIUpdater : MonoBehaviour
     }
 
     private void Start() {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerIt in players)
+        {
+            if (playerIt.GetComponent<FPS_Player>())
+            {
+                if (PlayerPrefs.GetString("playerMode") == "FPP")
+                {
+                    player = playerIt.GetComponent<Character>();
+                }
+            }
+            else if (playerIt.GetComponent<TPS_Player>())
+            {
+                if (PlayerPrefs.GetString("playerMode") == "TPP")
+                {
+                    player = playerIt.GetComponent<Character>();
+                }
+            }
+        }
         PlayerUIUpdater.instance.UpdateLifesText();
         PlayerUIUpdater.instance.UpdateBombAmountText();
     }

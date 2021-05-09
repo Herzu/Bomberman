@@ -10,6 +10,7 @@ TagManager:
   - SceneFade
   - Powerup
   - Wall
+  - Bot
   layers:
   - Default
   - TransparentFX
