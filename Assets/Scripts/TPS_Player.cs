@@ -17,7 +17,7 @@ public class TPS_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Camera.main.transform.position = this.transform.position + new Vector3(0, 9, 0);
+        //Camera.main.transform.position = this.transform.position + new Vector3(0, 9, 0);
         if (Input.GetKeyDown(KeyCode.LeftAlt)&&cooldown==0)
         {
             Vector3Int intVector = new Vector3Int((int)this.transform.position.x,(int)this.transform.position.y,(int)this.transform.position.z);
