@@ -9,6 +9,11 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
+    public int maxFpsValue = 60;
+    void Awake() {
+        SetApplicationMaxFps(60);
+    }
+
     void Start() {
         resolutions = Screen.resolutions;
         PrepareResolutionDropdown();
@@ -36,6 +41,12 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+    private void SetApplicationMaxFps(int newMaxFps) {
+        maxFpsValue = newMaxFps;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = newMaxFps;
+    }
+
     public void SetMasterVolume(float volume) {
         audioMixer.SetFloat("MasterVolume", volume);
     }
@@ -47,6 +58,10 @@ public class SettingsMenu : MonoBehaviour
     public void SetResolution(int resolutionIndex) {
         Resolution res = resolutions[resolutionIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+    }
+
+    public void SetMaxFps(float value) {
+        SetApplicationMaxFps((int)value);
     }
 
 }
