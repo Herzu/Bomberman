@@ -25,9 +25,11 @@ public class GameController: MonoBehaviour
     public int initBombs = 1;
     public int bombLifetime = 500;
     int[] powerupDropTable;
-    // Start is called before the first frame update
+
     void Awake()
-    {
+    {   
+        InitValues();
+        anyPowerupChance = PlayerPrefs.GetInt("powerupChanceAmount");
         Time.timeScale = 1;
         isPaused = false;
         Application.targetFrameRate = 60;
@@ -58,6 +60,30 @@ public class GameController: MonoBehaviour
                 playerScript.moveToPlace();
         }
     }
+
+    void InitValues() {
+        mapXSize = PlayerPrefs.GetInt("xSize");
+        mapYSize = PlayerPrefs.GetInt("ySize");
+        mapZSize = PlayerPrefs.GetInt("zSize");
+        initBombs = PlayerPrefs.GetInt("bombsAmount");
+        initLifes = PlayerPrefs.GetInt("lifesAmount");
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players) {
+            player.SetActive(false);
+            if(player.GetComponent<FPS_Player>()) {
+                if (PlayerPrefs.GetString("playerMode") == "FPP") {
+                    GameObject.FindWithTag("MainCamera").SetActive(false);
+                    player.SetActive(true);
+                }
+            } else if(player.GetComponent<TPS_Player>()) {
+                if (PlayerPrefs.GetString("playerMode") == "TPP") {
+                    player.SetActive(true);
+                }
+            }
+        }
+    }
+
     void FillDropTable()
     {
         powerupDropTable = new int[100];
