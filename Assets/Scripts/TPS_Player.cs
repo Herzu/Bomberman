@@ -39,10 +39,7 @@ public class TPS_Player : Character
         bomb.transform.GetChild(2).GetComponent<BombExplosion>().lifetime = bombLifetime;
         bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
         bomb.transform.GetChild(3).GetComponent<BombExplosion>().lifetime = bombLifetime;
-        if (mapHeight == 1)
-            bomb.GetComponent<Bomb>().is3D = false;
-        else
-            bomb.GetComponent<Bomb>().is3D = true;
+        bomb.GetComponent<Bomb>().is3D = false;
         bomb.GetComponent<Bomb>().range = range;
     }
 }

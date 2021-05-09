@@ -24,10 +24,7 @@ public class FPS_Player : Character
             bomb.GetComponent<ThrownBomb>().bombPrefab = bombPrefab;
             bomb.GetComponent<ThrownBomb>().bombLifetime = bombLifetime;
             bomb.GetComponent<ThrownBomb>().range = range;
-            if (mapHeight == 1)
-                bomb.GetComponent<ThrownBomb>().is3D = false;
-            else
-                bomb.GetComponent<ThrownBomb>().is3D = true;
+            bomb.GetComponent<ThrownBomb>().is3D = true;
             this.cooldown = 10;
             this.placeBomb();
         }

@@ -35,7 +35,7 @@ public class GameController: MonoBehaviour
         Application.targetFrameRate = 60;
         powerups = new Queue<Vector3>();
         terrain.terrainData.size = new Vector3(2 * mapXSize, 0, 2 * mapYSize);
-        if (mapZSize == 1)
+        if (PlayerPrefs.GetString("playerMode") == "TPP")
             Fill2D();
         else
             Fill3D();
