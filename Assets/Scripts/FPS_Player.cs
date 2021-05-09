@@ -19,7 +19,7 @@ public class FPS_Player : Character
     {
         if (Input.GetMouseButtonDown(0) && this.cooldown == 0 && this.bombs > 0)
         {
-            GameObject bomb = Instantiate(thrownBombPrefab, gameObject.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
+            GameObject bomb = Instantiate(thrownBombPrefab, gameObject.transform.position+new Vector3(0,0.3f,0), Quaternion.identity);
             bomb.GetComponent<Rigidbody>().velocity = Camera.main.gameObject.transform.forward * bombSpeed;
             bomb.GetComponent<ThrownBomb>().bombPrefab = bombPrefab;
             bomb.GetComponent<ThrownBomb>().bombLifetime = bombLifetime;
