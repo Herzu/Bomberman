@@ -303,6 +303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bot Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 6167102954204973260, guid: e7a3f36195497d24c8ef5669af1b21a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a3f36195497d24c8ef5669af1b21a2, type: 3}
 --- !u!1 &423117019
@@ -421,16 +426,24 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 1151291222737367122, guid: 02a0220fe9ad2f64c942a07790d7d9f7,
     type: 3}
-  powerupsPrefabs:
+  classicPowerupsPrefabs:
   - {fileID: 3662420347181103337, guid: 6e9930ac85565f0488152740f0b86bf8, type: 3}
   - {fileID: 1071364105728203779, guid: c4d9e6a5e1c524f459b3a5f900bc42ee, type: 3}
   - {fileID: 7862793228626373647, guid: ed62deefe37094e418f877fceb9d3bd4, type: 3}
   - {fileID: 8716236392792263226, guid: 9f423c0fbfa10cc4594010055eaa1329, type: 3}
   - {fileID: 8544909470405486154, guid: 754dbd94bd8e986488487b1dda0051a7, type: 3}
+  - {fileID: 8544909470405486154, guid: 1d1333f99017f5545964afaa352ebe3b, type: 3}
+  arcadePowerupsPrefabs:
+  - {fileID: 3662420347181103337, guid: 6e9930ac85565f0488152740f0b86bf8, type: 3}
+  - {fileID: 1071364105728203779, guid: c4d9e6a5e1c524f459b3a5f900bc42ee, type: 3}
+  - {fileID: 7862793228626373647, guid: ed62deefe37094e418f877fceb9d3bd4, type: 3}
+  - {fileID: 8716236392792263226, guid: 9f423c0fbfa10cc4594010055eaa1329, type: 3}
+  - {fileID: 8544909470405486154, guid: 754dbd94bd8e986488487b1dda0051a7, type: 3}
+  - {fileID: 4857918743085368402, guid: 05005b297970a3d458bd5356b2f62556, type: 3}
   terrain: {fileID: 950743183}
   mapXSize: 15
   mapYSize: 15
-  mapZSize: 1
+  mapZSize: 10
   OnGameOver:
     m_PersistentCalls:
       m_Calls:
@@ -447,12 +460,13 @@ MonoBehaviour:
         m_CallState: 2
   blockChance: 50
   anyPowerupChance: 50
-  powerupWeights: 28000000140000000a0000000a00000014000000
+  classicPowerupWeights: 1e0000000a000000140000000a000000140000000a000000
+  arcadePowerupsWeights: 1e0000000a000000140000000a000000140000000a000000
   initRange: 1
   initSpeed: 10
   initLifes: 3
   initBombs: 1
-  bombLifetime: 100
+  bombLifetime: 150
 --- !u!4 &740740978
 Transform:
   m_ObjectHideFlags: 0
@@ -1030,6 +1044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863657835417858419, guid: 137e4b8234a85004298c61c4544555e0,
+        type: 3}
+      propertyPath: m_JumpSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 137e4b8234a85004298c61c4544555e0, type: 3}

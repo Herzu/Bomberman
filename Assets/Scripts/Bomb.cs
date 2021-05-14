@@ -53,7 +53,7 @@ public class Bomb : MonoBehaviour
         lifetime--;
         fuse.gameObject.transform.position -= new Vector3(0,fuseBurn,0);
         fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.3f,0);
-        if (lifetime == maxLifetime - 100)
+        if (lifetime == maxLifetime - 20)
             playerCollider.gameObject.GetComponent<SphereCollider>().radius = 0.5f;
         else if (lifetime < -30
             && xExplosion == null
