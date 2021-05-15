@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -226,6 +226,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1992257479}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &358709710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358709709}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6096178bc04875e4c9cbda16279c508a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 358709715}
+  speed: 3
+  bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
+    type: 3}
+  range: 3
+  animator: {fileID: 358709711}
 --- !u!95 &358709711
 Animator:
   serializedVersion: 3
@@ -252,9 +270,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358709709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4c0f4cff02e044a9ebfd100b44d982, type: 3}
+  m_Script: {fileID: 11500000, guid: cb2c40f36c9e088408c3676110556d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 358709715}
@@ -297,6 +315,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &358709716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358709709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cdad63a2afcab646a696bb4b14eea94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 358709715}
+  speed: 3
+  bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
+    type: 3}
+  range: 3
+  animator: {fileID: 358709711}
 --- !u!1 &423117019
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,9 +872,45 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610897305}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cdad63a2afcab646a696bb4b14eea94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 1610897308}
+  speed: 3
+  bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
+    type: 3}
+  range: 3
+  animator: {fileID: 1610897307}
+--- !u!114 &1610897311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610897305}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6096178bc04875e4c9cbda16279c508a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 1610897308}
+  speed: 3
+  bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
+    type: 3}
+  range: 3
+  animator: {fileID: 1610897307}
+--- !u!114 &1610897312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610897305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb4e6d08e1cb4f4ebda22fcade743ad, type: 3}
+  m_Script: {fileID: 11500000, guid: cb2c40f36c9e088408c3676110556d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1610897308}
@@ -932,7 +1004,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 66011f032b67fde41aaafe9eca7bf022,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66011f032b67fde41aaafe9eca7bf022, type: 3}
