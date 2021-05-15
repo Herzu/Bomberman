@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 6ff00749cba3ca148a1130e09d528667, type: 2}
 --- !u!1001 &31264550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,8 +130,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
+      propertyPath: bombs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
       propertyPath: range
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
+      propertyPath: maxBombs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
+      propertyPath: mapHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
+      propertyPath: bombLifetime
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
@@ -496,9 +516,47 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 1151291222737367122, guid: 02a0220fe9ad2f64c942a07790d7d9f7,
     type: 3}
+  classicPowerupsPrefabs:
+  - {fileID: 3662420347181103337, guid: 6e9930ac85565f0488152740f0b86bf8, type: 3}
+  - {fileID: 1071364105728203779, guid: c4d9e6a5e1c524f459b3a5f900bc42ee, type: 3}
+  - {fileID: 7862793228626373647, guid: ed62deefe37094e418f877fceb9d3bd4, type: 3}
+  - {fileID: 8716236392792263226, guid: 9f423c0fbfa10cc4594010055eaa1329, type: 3}
+  - {fileID: 8544909470405486154, guid: 754dbd94bd8e986488487b1dda0051a7, type: 3}
+  - {fileID: 8544909470405486154, guid: 1d1333f99017f5545964afaa352ebe3b, type: 3}
+  arcadePowerupsPrefabs:
+  - {fileID: 3662420347181103337, guid: 6e9930ac85565f0488152740f0b86bf8, type: 3}
+  - {fileID: 1071364105728203779, guid: c4d9e6a5e1c524f459b3a5f900bc42ee, type: 3}
+  - {fileID: 7862793228626373647, guid: ed62deefe37094e418f877fceb9d3bd4, type: 3}
+  - {fileID: 8716236392792263226, guid: 9f423c0fbfa10cc4594010055eaa1329, type: 3}
+  - {fileID: 8544909470405486154, guid: 754dbd94bd8e986488487b1dda0051a7, type: 3}
+  - {fileID: 4857918743085368402, guid: 05005b297970a3d458bd5356b2f62556, type: 3}
   terrain: {fileID: 950743183}
-  mapXSize: 16
-  mapYSize: 10
+  mapXSize: 15
+  mapYSize: 15
+  mapZSize: 10
+  OnGameOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1294140433}
+        m_MethodName: ChangePanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1575239838}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  blockChance: 50
+  anyPowerupChance: 50
+  classicPowerupWeights: 1e0000000a000000140000000a000000140000000a000000
+  arcadePowerupsWeights: 1e0000000a000000140000000a000000140000000a000000
+  initRange: 1
+  initSpeed: 10
+  initLifes: 3
+  initBombs: 1
+  bombLifetime: 150
 --- !u!4 &740740978
 Transform:
   m_ObjectHideFlags: 0
@@ -506,8 +564,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740740976}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1038.0925, y: -710.0537, z: 1054.2935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

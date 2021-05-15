@@ -2,35 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPS_Player : MonoBehaviour
+public class FPS_Player : Character
 {
     public GameObject bombPrefab;
+    public GameObject thrownBombPrefab;
+    int bombSpeed = 10;
     int cooldown = 0;
-    const int speed = 10;
-    public int range;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0)&&cooldown==0)
+        if (Input.GetMouseButtonDown(0) && this.cooldown == 0 && this.bombs > 0)
         {
-            Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)(this.transform.position.y+0.1f), (int)this.transform.position.z);
-            Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 - (intVector.z) % 2);
-            GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
-            bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * speed;
-            bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * range, 1, 1);
-            bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * range, 1);
-            bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
-            bomb.GetComponent<Bomb>().is3D = true;
-            bomb.GetComponent<Bomb>().range = range;
-            cooldown = 100;
+            GameObject bomb = Instantiate(thrownBombPrefab, gameObject.transform.position+new Vector3(0,0.3f,0), Quaternion.identity);
+            bomb.GetComponent<Rigidbody>().velocity = Camera.main.gameObject.transform.forward * bombSpeed;
+            bomb.GetComponent<ThrownBomb>().bombPrefab = bombPrefab;
+            bomb.GetComponent<ThrownBomb>().bombLifetime = bombLifetime;
+            bomb.GetComponent<ThrownBomb>().range = range;
+            bomb.GetComponent<ThrownBomb>().is3D = true;
+            this.cooldown = 10;
+            this.placeBomb();
         }
-        if (cooldown != 0)
-            cooldown--;
+        this.isAlive();
+        this.checkBomb();
+        this.checkImmunity();
+        if (this.cooldown != 0)
+            this.cooldown--;
     }
 }
