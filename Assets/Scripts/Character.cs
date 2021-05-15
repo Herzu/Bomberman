@@ -5,9 +5,11 @@ using UnityEngine;
 public class Character: MonoBehaviour {
     public int range;
     public int speed;
+    public int jumpSpeed = 10;
     public int lifes;
     public bool isImmune = false;
     public int immunityTimer = 800;
+    public bool push = false;
     public int bombs;
     public int bombLifetime;
     public int mapHeight;
@@ -23,10 +25,19 @@ public class Character: MonoBehaviour {
     protected void Init()
     {
         bombCooldowns = new List<int>();
+        jumpSpeed = 10;
     }
     public void moveToPlace()
     {
         gameObject.transform.position = new Vector3(transform.position.x, 2 * mapHeight + 1, transform.position.z);
+    }
+    public void updateSpeed()
+    {
+        if (this.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>() != null)
+        {
+            gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = speed;
+            gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_JumpSpeed = jumpSpeed;
+        }
     }
     public void checkBomb() {
         for(int i=0;i<bombCooldowns.Count;i++)

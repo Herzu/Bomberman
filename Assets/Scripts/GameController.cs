@@ -7,7 +7,8 @@ public class GameController: MonoBehaviour
 {
     public GameObject blockPrefab;
     public GameObject wallPrefab;
-    public GameObject[] powerupsPrefabs;
+    public GameObject[] classicPowerupsPrefabs;
+    public GameObject[] arcadePowerupsPrefabs;
     private Queue<Vector3> powerups;
     public Terrain terrain;
     public int mapXSize;
@@ -19,7 +20,8 @@ public class GameController: MonoBehaviour
     private GameObject[] bots;
     public int blockChance = 25;
     public int anyPowerupChance = 50;
-    public int[] powerupWeights;
+    public int[] classicPowerupWeights;
+    public int[] arcadePowerupsWeights;
     public int initRange = 1;
     public int initSpeed = 10;
     public int initLifes = 3;
@@ -101,6 +103,11 @@ public class GameController: MonoBehaviour
     {
         powerupDropTable = new int[100];
         int weightSum = 0;
+        int[] powerupWeights;
+        if (PlayerPrefs.GetString("playerMode") == "TPP")
+            powerupWeights = classicPowerupWeights;
+        else
+            powerupWeights = arcadePowerupsWeights;
         foreach (int weight in powerupWeights)
             weightSum+=weight;
         int index = 0;
@@ -197,7 +204,10 @@ public class GameController: MonoBehaviour
 
             if (drop != -1)
             {
-                Instantiate(powerupsPrefabs[drop], position, Quaternion.identity);
+                if (PlayerPrefs.GetString("playerMode") == "TPP")
+                    Instantiate(classicPowerupsPrefabs[drop], position, Quaternion.identity);
+                else
+                    Instantiate(arcadePowerupsPrefabs[drop], position, Quaternion.identity);
                 break;
             }
         }

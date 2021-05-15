@@ -26,6 +26,7 @@ public class PowerupPickup : MonoBehaviour
                     break;
                 case 2:
                     col.gameObject.GetComponent<Character>().speed += 5;
+                    col.gameObject.GetComponent<Character>().updateSpeed();
                     break;
                 case 3:
                     col.gameObject.GetComponent<Character>().lifes++;
@@ -36,6 +37,13 @@ public class PowerupPickup : MonoBehaviour
                     break;
                 case 5:
                     col.gameObject.GetComponent<Character>().bombs++;
+                    break;
+                case 6:
+                    col.gameObject.GetComponent<Character>().jumpSpeed += 3;
+                    col.gameObject.GetComponent<Character>().updateSpeed();
+                    break;
+                case 7:
+                    col.gameObject.GetComponent<Character>().push = true;
                     break;
             }
             Destroy(this.gameObject);
