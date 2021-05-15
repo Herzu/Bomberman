@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class TomController : MonoBehaviour
 {
     public CharacterController characterController;
     public float speed = 3;
@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
         float verticalMove = Input.GetAxis("Vertical");
 
         //Vector3 move = /*transform.forward **/ horizontalMove + /*transform.right * -*/ verticalMove + transform.up * -1;
-        Vector3 move = new Vector3(1f * horizontalMove,0f,1f * verticalMove);
+        Vector3 move = new Vector3(1f * horizontalMove, 0f, 1f * verticalMove);
         //transform.rotation = Quaternion.Euler(0f, 90f + horizontalMove*90f+verticalMove*90f, 0f);
-        if(move!=Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(move)*Quaternion.Euler(0f,90f,0f);
+        if (move != Vector3.zero)
+            transform.rotation = Quaternion.LookRotation(move) * Quaternion.Euler(0f, -90f, 0f);
 
-        move+=transform.up * -1;
+        move += transform.up * -1;
 
         characterController.Move(speed * Time.deltaTime * move);
 
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isPlanting", true);
             cooldown = 150;
         }
-        if(cooldown==75)
+        if (cooldown == 75)
         {
             Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)this.transform.position.y, (int)this.transform.position.z);
             Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 + (intVector.z) % 2);
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         }
         if (cooldown != 0)
             cooldown--;
-        if(cooldown==0)
+        if (cooldown == 0)
         {
             animator.SetBool("isPlanting", false);
         }
