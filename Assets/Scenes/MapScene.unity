@@ -145,6 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
+        type: 3}
       propertyPath: mapHeight
       value: 1
       objectReference: {fileID: 0}
@@ -152,11 +157,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bombLifetime
       value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262303639313801303, guid: 1746334c62edb054e9d16b86442c9333,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1262303640020864699, guid: 1746334c62edb054e9d16b86442c9333,
         type: 3}
@@ -353,6 +353,29 @@ MonoBehaviour:
     type: 3}
   range: 3
   animator: {fileID: 358709711}
+--- !u!114 &358709717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358709709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae6f1d6827d24445ae7a726bc2f6e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 1
+  speed: 10
+  jumpSpeed: 10
+  lifes: 3
+  isImmune: 0
+  immunityTimer: 800
+  push: 0
+  bombs: 1
+  bombLifetime: 500
+  mapHeight: 1
+  bombPrefab: {fileID: 0}
 --- !u!1 &423117019
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,11 +596,11 @@ MonoBehaviour:
   OnGameOver:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294140433}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangePanel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1575239838}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -769,6 +792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 967a824ade830a6498e07cacc404d43b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967a824ade830a6498e07cacc404d43b, type: 3}
@@ -977,6 +1005,29 @@ MonoBehaviour:
     type: 3}
   range: 3
   animator: {fileID: 1610897307}
+--- !u!114 &1610897313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610897305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae6f1d6827d24445ae7a726bc2f6e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 1
+  speed: 10
+  jumpSpeed: 10
+  lifes: 3
+  isImmune: 0
+  immunityTimer: 800
+  push: 0
+  bombs: 1
+  bombLifetime: 500
+  mapHeight: 1
+  bombPrefab: {fileID: 0}
 --- !u!1001 &1992257479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,6 +1114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 66011f032b67fde41aaafe9eca7bf022,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66011f032b67fde41aaafe9eca7bf022, type: 3}
