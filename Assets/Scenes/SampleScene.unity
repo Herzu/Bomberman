@@ -121,12 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &227408523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1262303640027989497, guid: 1746334c62edb054e9d16b86442c9333,
-    type: 3}
-  m_PrefabInstance: {fileID: 1262303638082462226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -300,37 +294,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1353928867 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 113348, guid: 54eb5844754051b40a918a84c33b7c1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1949411248}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1353928868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353928867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb49ed3bb6cf90e478e1b78352a1f63e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
-    type: 3}
-  range: 1
-  agent: {fileID: 1353928871}
-  player: {fileID: 227408523}
---- !u!195 &1353928871 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 19597056, guid: 54eb5844754051b40a918a84c33b7c1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1949411248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594086951
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +370,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758924438
 GameObject:
@@ -436,8 +401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1758924440
 MonoBehaviour:
@@ -455,7 +419,21 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 1151291222737367122, guid: 02a0220fe9ad2f64c942a07790d7d9f7,
     type: 3}
-  powerupsPrefabs: []
+  classicPowerupsPrefabs: []
+  arcadePowerupsPrefabs: []
   terrain: {fileID: 1594086953}
   mapXSize: 10
   mapYSize: 10
+  mapZSize: 1
+  OnGameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  blockChance: 25
+  anyPowerupChance: 50
+  classicPowerupWeights: 
+  arcadePowerupsWeights: 
+  initRange: 1
+  initSpeed: 10
+  initLifes: 3
+  initBombs: 1
+  bombLifetime: 500

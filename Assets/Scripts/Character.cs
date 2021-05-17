@@ -19,8 +19,9 @@ public class Character: MonoBehaviour {
         bombCooldowns = new List<int>();
     }
 
-    void Update() {
-
+    void FixedUpdate() {
+        checkBomb();
+        checkImmunity();
     }
     protected void Init()
     {

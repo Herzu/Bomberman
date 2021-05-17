@@ -10,6 +10,9 @@ public class GameController: MonoBehaviour
     public GameObject[] classicPowerupsPrefabs;
     public GameObject[] arcadePowerupsPrefabs;
     private Queue<Vector3> powerups;
+    public Camera[] cameras;
+    public GameObject[] PlayerPrefabs;
+    public GameObject[] BotPrefabs;
     public Terrain terrain;
     public int mapXSize;
     public int mapYSize;
@@ -18,6 +21,7 @@ public class GameController: MonoBehaviour
     public UnityEvent OnGameOver;
     private GameObject[] players;
     private GameObject[] bots;
+    public int[] controlls;
     public int blockChance = 25;
     public int anyPowerupChance = 50;
     public int[] classicPowerupWeights;
@@ -39,9 +43,14 @@ public class GameController: MonoBehaviour
         powerups = new Queue<Vector3>();
         terrain.terrainData.size = new Vector3(2 * mapXSize, 0, 2 * mapYSize);
         if (PlayerPrefs.GetString("playerMode") == "TPP")
+        {
             Fill2D();
+            SummonCharacters();
+        }
         else
+        {
             Fill3D();
+        }
         FillDropTable();
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
@@ -75,7 +84,66 @@ public class GameController: MonoBehaviour
             botScript.moveToPlace();
         }
     }
-
+    void SummonCharacters()
+    {
+        int players = 0;
+        int characters = 0;
+        foreach(int type in controlls)
+        {
+            Vector3[] pos = { new Vector3(3, 1, 3), new Vector3(3, 1, 2*mapYSize - 3), new Vector3(2 * mapXSize - 3, 1, 3), new Vector3(2 * mapXSize - 3, 1, 2 * mapYSize - 3) };
+            GameObject character;
+            switch (type)
+            {
+                case 0:
+                    characters--;
+                break;
+                case 1:
+                    players++;
+                    character = Instantiate(PlayerPrefabs[characters], pos[characters], Quaternion.identity);
+                    character.GetComponent<ArrowsController>().enabled = true;
+                    character.GetComponent<ArrowsController>().camera = cameras[characters];
+                break;
+                case 2:
+                    players++;
+                    character = Instantiate(PlayerPrefabs[characters], pos[characters], Quaternion.identity);
+                    character.GetComponent<WASDController>().enabled = true;
+                    character.GetComponent<WASDController>().camera = cameras[characters];
+                    break;
+                case 3:
+                    players++;
+                    character = Instantiate(PlayerPrefabs[characters], pos[characters], Quaternion.identity);
+                    character.GetComponent<GamepadController>().enabled = true;
+                    character.GetComponent<GamepadController>().camera = cameras[characters];
+                    break;
+                case 4:
+                    Instantiate(BotPrefabs[characters], pos[characters], Quaternion.identity);
+                break;
+            }
+            characters++;
+        }
+        setupCameras(players);
+    }
+    void setupCameras(int players)
+    {
+        foreach (Camera cam in cameras)
+            cam.gameObject.SetActive(false);
+        if (players == 1)
+            cameras[0].rect = new Rect(0, 0, 1, 1);
+        else if(players == 2)
+        {
+            cameras[0].rect = new Rect(0, 0, 0.5f, 1);
+            cameras[1].rect = new Rect(0.5f, 0, 0.5f, 1);
+        }
+        else
+        {
+            cameras[0].rect = new Rect(0, 0, 0.5f, 0.5f);
+            cameras[1].rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+            cameras[2].rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            cameras[3].rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+        }
+        for (int i = 0; i < players; i++)
+            cameras[i].gameObject.SetActive(true);
+    }
     void InitValues() {
         mapXSize = PlayerPrefs.GetInt("xSize");
         mapYSize = PlayerPrefs.GetInt("ySize");
@@ -84,19 +152,6 @@ public class GameController: MonoBehaviour
         initLifes = PlayerPrefs.GetInt("lifesAmount");
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players) {
-            player.SetActive(false);
-            if(player.GetComponent<FPS_Player>()) {
-                if (PlayerPrefs.GetString("playerMode") == "FPP") {
-                    GameObject.FindWithTag("MainCamera").SetActive(false);
-                    player.SetActive(true);
-                }
-            } else if(player.GetComponent<TPS_Player>()) {
-                if (PlayerPrefs.GetString("playerMode") == "TPP") {
-                    player.SetActive(true);
-                }
-            }
-        }
     }
 
     void FillDropTable()
