@@ -13,6 +13,7 @@ public class GameController: MonoBehaviour
     public Camera[] cameras;
     public GameObject[] PlayerPrefabs;
     public GameObject[] BotPrefabs;
+    public GameObject FPPrefab;
     public Terrain terrain;
     public int mapXSize;
     public int mapYSize;
@@ -45,11 +46,32 @@ public class GameController: MonoBehaviour
         if (PlayerPrefs.GetString("playerMode") == "TPP")
         {
             Fill2D();
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject player in players)
+            {
+                if (player.GetComponent<FPS_Player>() == null)
+                    Destroy(player.gameObject);
+                else
+                    player.gameObject.SetActive(false);
+            }
             SummonCharacters();
         }
         else
         {
             Fill3D();
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach(GameObject player in players)
+            {
+                if (player.GetComponent<FPS_Player>() == null)
+                    Destroy(player.gameObject);
+                else
+                {
+                    player.GetComponent<CharacterController>().enabled = false;
+                    player.GetComponent<FPS_Player>().moveToPlace();
+                    player.GetComponent<CharacterController>().enabled = true;
+                    player.gameObject.SetActive(true);
+                }
+            }
         }
         FillDropTable();
         players = GameObject.FindGameObjectsWithTag("Player");

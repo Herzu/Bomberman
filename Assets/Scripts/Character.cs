@@ -39,6 +39,12 @@ public class Character: MonoBehaviour {
             gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = speed;
             gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_JumpSpeed = jumpSpeed;
         }
+        if (this.gameObject.GetComponent<ArrowsController>() != null)
+            gameObject.GetComponent<ArrowsController>().speed = speed / 2;
+        if (this.gameObject.GetComponent<WASDController>() != null)
+            gameObject.GetComponent<WASDController>().speed = speed / 2;
+        if (this.gameObject.GetComponent<GamepadController>() != null)
+            gameObject.GetComponent<GamepadController>().speed = speed / 2;
     }
     public void checkBomb() {
         for(int i=0;i<bombCooldowns.Count;i++)

@@ -15,14 +15,20 @@ public class PlayerUIUpdater : MonoBehaviour
     public GameObject player;
 
     private void Start() {
-        UpdateLifesText();
-        UpdateBombAmountText();
+        if (player != null)
+        {
+            UpdateLifesText();
+            UpdateBombAmountText();
+        }
     }
 
     private void Update() {
-        UpdateLifesText();
-        UpdateBombAmountText();
-        UpdateHeartsIconOnImmune();
+        if (player != null)
+        {
+            UpdateLifesText();
+            UpdateBombAmountText();
+            UpdateHeartsIconOnImmune();
+        }
     }
 
     public void UpdateLifesText() {
