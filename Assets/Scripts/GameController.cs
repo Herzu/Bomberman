@@ -150,6 +150,12 @@ public class GameController: MonoBehaviour
         mapZSize = PlayerPrefs.GetInt("zSize");
         initBombs = PlayerPrefs.GetInt("bombsAmount");
         initLifes = PlayerPrefs.GetInt("lifesAmount");
+        controlls = new int [] {
+            PlayerPrefs.GetInt("P1Controlls"),
+            PlayerPrefs.GetInt("P2Controlls"),
+            PlayerPrefs.GetInt("P3Controlls"),
+            PlayerPrefs.GetInt("P4Controlls")
+        };
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
     }
