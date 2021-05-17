@@ -1151,9 +1151,9 @@ MonoBehaviour:
   - {fileID: 89792309}
   - {fileID: 192013119}
   PlayerPrefabs:
-  - {fileID: 5244212668150739621, guid: f8c5fcf07ca48d0418daf28baeea7d45, type: 3}
+  - {fileID: 5246675292652571762, guid: 80ef0e7e053bd80459df1cd6e31c343b, type: 3}
   - {fileID: 2437823026753891399, guid: a78c0cf35f7da5e42b1c32ef1c1ab334, type: 3}
-  - {fileID: 5244212668150739621, guid: f8c5fcf07ca48d0418daf28baeea7d45, type: 3}
+  - {fileID: 5246675292652571762, guid: 80ef0e7e053bd80459df1cd6e31c343b, type: 3}
   - {fileID: 2437823026753891399, guid: a78c0cf35f7da5e42b1c32ef1c1ab334, type: 3}
   BotPrefabs:
   - {fileID: 6167102954204973260, guid: 383352f8addabd04d8493567d3d75e00, type: 3}

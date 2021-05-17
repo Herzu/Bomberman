@@ -80,6 +80,7 @@ public class GameController: MonoBehaviour
             var playerScript = player.GetComponent<Character>();
             playerScript.range = initRange;
             playerScript.speed = initSpeed;
+            playerScript.updateSpeed();
             playerScript.bombs = initBombs;
             playerScript.lifes = initLifes;
             playerScript.bombLifetime = bombLifetime;

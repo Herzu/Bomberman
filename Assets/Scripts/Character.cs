@@ -45,6 +45,10 @@ public class Character: MonoBehaviour {
             gameObject.GetComponent<WASDController>().speed = speed / 2;
         if (this.gameObject.GetComponent<GamepadController>() != null)
             gameObject.GetComponent<GamepadController>().speed = speed / 2;
+        if (this.gameObject.GetComponent<Animator>() != null)
+            gameObject.GetComponent<Animator>().speed = speed / 10;
+        if (this.gameObject.transform.GetChild(0).GetComponent<Animator>() != null)
+            gameObject.transform.GetChild(0).GetComponent<Animator>().speed = speed / 10.0f;
     }
     public void checkBomb() {
         for(int i=0;i<bombCooldowns.Count;i++)
