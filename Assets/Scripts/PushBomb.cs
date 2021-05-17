@@ -12,7 +12,7 @@ public class PushBomb : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (cooldown < 0 && collision.gameObject.GetComponent<TPS_Player>()!=null&& collision.gameObject.GetComponent<TPS_Player>().push)
+        if (cooldown < 0 && collision.gameObject.GetComponentInParent<Character>()!=null&& collision.gameObject.GetComponentInParent<Character>().push)
         {
             if(Mathf.Abs(this.transform.position.x-collision.gameObject.transform.position.x)> Mathf.Abs(this.transform.position.z - collision.gameObject.transform.position.z))
                 gameObject.transform.parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
