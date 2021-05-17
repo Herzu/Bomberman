@@ -102,18 +102,24 @@ public class GameController: MonoBehaviour
                     character = Instantiate(PlayerPrefabs[characters], pos[characters], Quaternion.identity);
                     character.GetComponent<ArrowsController>().enabled = true;
                     character.GetComponent<ArrowsController>().camera = cameras[characters];
+                    character.GetComponent<ArrowsController>().camera
+                        .transform.Find("UI").GetComponent<PlayerUIUpdater>().player = character;
                 break;
                 case 2:
                     players++;
                     character = Instantiate(PlayerPrefabs[characters], pos[characters], Quaternion.identity);
                     character.GetComponent<WASDController>().enabled = true;
                     character.GetComponent<WASDController>().camera = cameras[characters];
+                    character.GetComponent<WASDController>().camera
+                        .transform.Find("UI").GetComponent<PlayerUIUpdater>().player = character;
                     break;
                 case 3:
                     players++;
                     character = Instantiate(PlayerPrefabs[characters], pos[characters], Quaternion.identity);
                     character.GetComponent<GamepadController>().enabled = true;
                     character.GetComponent<GamepadController>().camera = cameras[characters];
+                    character.GetComponent<GamepadController>().camera
+                        .transform.Find("UI").GetComponent<PlayerUIUpdater>().player = character;
                     break;
                 case 4:
                     Instantiate(BotPrefabs[characters], pos[characters], Quaternion.identity);

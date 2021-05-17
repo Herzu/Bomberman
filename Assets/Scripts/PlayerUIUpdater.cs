@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerUIUpdater : MonoBehaviour
 {
-    public static PlayerUIUpdater instance;
-
     [SerializeField] private Text lifesText;
     [SerializeField] private Image lifesImageObject;
 
@@ -14,35 +12,11 @@ public class PlayerUIUpdater : MonoBehaviour
 
     [SerializeField] private Sprite lifesSprite;
     [SerializeField] private Sprite immuneLifesSprite;
-    private Character player;
-
-    private void Awake() {
-        if(!instance) {
-            instance = this;
-        }
-    }
+    public GameObject player;
 
     private void Start() {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject playerIt in players)
-        {
-            if (playerIt.GetComponent<FPS_Player>())
-            {
-                if (PlayerPrefs.GetString("playerMode") == "FPP")
-                {
-                    player = playerIt.GetComponent<Character>();
-                }
-            }
-            else if (playerIt.GetComponent<TPS_Player>())
-            {
-                if (PlayerPrefs.GetString("playerMode") == "TPP")
-                {
-                    player = playerIt.GetComponent<Character>();
-                }
-            }
-        }
-        PlayerUIUpdater.instance.UpdateLifesText();
-        PlayerUIUpdater.instance.UpdateBombAmountText();
+        UpdateLifesText();
+        UpdateBombAmountText();
     }
 
     private void Update() {
@@ -52,15 +26,15 @@ public class PlayerUIUpdater : MonoBehaviour
     }
 
     public void UpdateLifesText() {
-        lifesText.text = player.lifes.ToString();
+        lifesText.text = player.GetComponent<Character>().lifes.ToString();
     }
 
     public void UpdateBombAmountText() {
-        bombAmountText.text = player.bombs.ToString();
+        bombAmountText.text = player.GetComponent<Character>().bombs.ToString();
     }
 
     public void UpdateHeartsIconOnImmune() {
-        if(player.isImmune){
+        if(player.GetComponent<Character>().isImmune){
             lifesImageObject.sprite = immuneLifesSprite;
         } else {
             lifesImageObject.sprite = lifesSprite;

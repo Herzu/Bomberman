@@ -97,5 +97,9 @@ public class GameMapSettings : MonoBehaviour
         bombsAmount = 1;
         powerupChanceAmount = 25;
         SetPlayerMode("TPP");
+        PlayerPrefs.SetInt("P1Controlls", 2);
+        PlayerPrefs.SetInt("P2Controlls", 4);
+        PlayerPrefs.SetInt("P3Controlls", 0);
+        PlayerPrefs.SetInt("P4Controlls", 0);
     }
 }
