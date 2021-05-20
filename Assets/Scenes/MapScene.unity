@@ -1151,15 +1151,15 @@ MonoBehaviour:
   - {fileID: 89792309}
   - {fileID: 192013119}
   PlayerPrefabs:
-  - {fileID: 5246675292652571762, guid: 80ef0e7e053bd80459df1cd6e31c343b, type: 3}
-  - {fileID: 2437823026753891399, guid: a78c0cf35f7da5e42b1c32ef1c1ab334, type: 3}
-  - {fileID: 5246675292652571762, guid: 80ef0e7e053bd80459df1cd6e31c343b, type: 3}
+  - {fileID: 5246675292652571762, guid: 64c50fdd2a896d34eb0023f07a1ea005, type: 3}
+  - {fileID: 5246675292652571762, guid: 54f2147148c5b4d438c32c871b22b0d9, type: 3}
+  - {fileID: 2437823026753891399, guid: 9f0fa3640652c89458f5bda30c7298d3, type: 3}
   - {fileID: 2437823026753891399, guid: a78c0cf35f7da5e42b1c32ef1c1ab334, type: 3}
   BotPrefabs:
-  - {fileID: 6167102954204973260, guid: 383352f8addabd04d8493567d3d75e00, type: 3}
-  - {fileID: 6167102954204973260, guid: ba0479bbfa20ce848ba850af6d4f50e5, type: 3}
-  - {fileID: 6167102954204973260, guid: 383352f8addabd04d8493567d3d75e00, type: 3}
-  - {fileID: 6167102954204973260, guid: ba0479bbfa20ce848ba850af6d4f50e5, type: 3}
+  - {fileID: 6167102954204973260, guid: e2540bcd2ccd10f4e82baa8f0fc90e60, type: 3}
+  - {fileID: 6167102954204973260, guid: 8f63e7980b97fef4cb4ed10342e6905e, type: 3}
+  - {fileID: 6167102954204973260, guid: 56ebca76a07337642997b2611ee6564d, type: 3}
+  - {fileID: 6167102954204973260, guid: 0da6a25cef7e7fc42994d311ebb415ee, type: 3}
   FPPrefab: {fileID: 863657835412325523, guid: 137e4b8234a85004298c61c4544555e0, type: 3}
   terrain: {fileID: 950743183}
   mapXSize: 15
