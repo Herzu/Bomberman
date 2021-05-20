@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//! Klasa odpowiedzialna za możliwość popchnięcia bomby
 public class PushBomb : MonoBehaviour
 {
-    private int cooldown = 30;  //tymczasowe wyłączenie efektu aby uniknąć natychmiastowego popchnięcia
+    private int cooldown = 30;  //!< tymczasowe wyłączenie efektu aby uniknąć natychmiastowego popchnięcia
     // Start is called before the first frame update
     void Start()
     {
@@ -12,7 +12,7 @@ public class PushBomb : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //sprawdzenie kolizji z graczem
+        //sprawdzenie kolizji z graczem oraz czy gracz odblokował możliwość popchnięcia bomby
         if (cooldown < 0 && collision.gameObject.GetComponentInParent<Character>()!=null&& collision.gameObject.GetComponentInParent<Character>().push)
         {
             //sprawdzenie osi w której nastąpiła kolizja

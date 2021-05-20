@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//klasa odpowiedzialna za zasygnalizowanie do GameControllera zniszczenia bloku w celu stworzenia powerupa
+//! Klasa odpowiedzialna za zasygnalizowanie do GameControllera zniszczenia bloku w celu stworzenia powerupa
 public class BlockDestroy : MonoBehaviour
 {
-    
-	//klasa GameControllera
-    public GameController GameController;
+    public GameController GameController;   //!< obiekt GameControllera
     private void OnDestroy()
     {
         if (GameController != null)

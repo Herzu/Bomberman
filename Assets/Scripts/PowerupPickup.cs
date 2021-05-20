@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//! Klasa odpowiedzialna za możliwość podniesienia pickupu
 public class PowerupPickup : MonoBehaviour
 {
-    public int powerupID;   //id powerupu oznaczające typ powerupu
+    public int powerupID;   //!< id powerupu oznaczające typ powerupu
     // Start is called before the first frame update
     void Start()
     {

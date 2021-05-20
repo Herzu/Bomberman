@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//! Klasa odpowiedzialna za kontrolę gracza pierwszoosobowego
 public class FPS_Player : Character
 {
-    public GameObject bombPrefab;           //prefab bomby
-    public GameObject thrownBombPrefab;     //prefab rzuconej bomby
-    int bombSpeed = 10;                     //prędkość rzutu bomby
-    int cooldown = 0;                       //czas odnowienia między rzutami bombami
+    public GameObject bombPrefab;           //!< prefab bomby
+    public GameObject thrownBombPrefab;     //!< prefab rzuconej bomby
+    int bombSpeed = 10;                     //!< prędkość rzutu bomby
+    int cooldown = 0;                       //!< czas odnowienia między rzutami bombami
     // Start is called before the first frame update
     void Start()
     {
