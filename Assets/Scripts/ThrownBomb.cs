@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//! Klasa odpowiedzialna za możliwość rzucenia bombą w trybie pierwszoosobowym
 public class ThrownBomb : MonoBehaviour
 {
-    public bool is3D;               //czy bomba ma wybuchać także w osi pionowej
-    public GameObject bombPrefab;   //prefab bomby
-    public int bombLifetime;        //maksymalny czas życia bomby
-    public int range;               //zasięg bomby
+    public bool is3D;               //!< czy bomba ma wybuchać także w osi pionowej
+    public GameObject bombPrefab;   //!< prefab bomby
+    public int bombLifetime;        //!< maksymalny czas życia bomby
+    public int range;               //!< zasięg bomby
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +19,14 @@ public class ThrownBomb : MonoBehaviour
     {
         
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         //przy kolizji z terenem postaw bombę i zniszcz ten obiekt
         PutBomb();
         Destroy(this.gameObject);
     }
+    /** Funkcja tworząca bombę*/
     private void PutBomb()
     {
         //obliczenie bazowego wektora (z float na int)

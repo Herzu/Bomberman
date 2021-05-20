@@ -2,36 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+//! Klasa odpowiedzialna za sterowanie rozgrywką
 public class GameController: MonoBehaviour
 {
-    public GameObject blockPrefab;              //prefab zniszczalnej ściany
-    public GameObject wallPrefab;               //prefab niezniszczalnej ściany
-    public GameObject[] classicPowerupsPrefabs; //lista prefabów powerupów trybu klasycznego
-    public GameObject[] arcadePowerupsPrefabs;  //lista prefabów powerupów trybu arcade
-    private Queue<Vector3> powerups;            //kolejka powerupów do stworzenia
-    public Camera[] cameras;                    //lista kamer
-    public GameObject[] PlayerPrefabs;          //lista prefabów graczy
-    public GameObject[] BotPrefabs;             //lista prefabó postaci
-    public Terrain terrain;                     //obiekt terenu
-    public int mapXSize;                        //rozmiar mapy w osi X
-    public int mapYSize;                        //rozmiar mpay w osi Y
-    public int mapZSize = 1;                    //wysokość mapy
-    private bool isPaused;                      //czy gra jest spauzowana
-    public UnityEvent OnGameOver;               //wydarzenie wywoływane przy końcu gry
-    private GameObject[] players;               //lista graczy
-    private GameObject[] bots;                  //lista botów
-    public int[] controlls;                     //lista wybranych graczy i wybranych kontrollerów
-    public int blockChance = 25;                //szansa na postawienie zniszczalnej ściany na każdym polu
-    public int anyPowerupChance = 50;           //szansa na pojawienie sie powerupu
-    public int[] classicPowerupWeights;         //wagi szansy na odpowiednie powerupy w trybie klasycznym
-    public int[] arcadePowerupsWeights;         //wagi szansy na odpowiednie powerupy w trybie arcade
-    public int initRange = 1;                   //startowy zasięg postaci
-    public int initSpeed = 10;                  //startowa szybkość postaci
-    public int initLifes = 3;                   //startowa ilość żyć postaci
-    public int initBombs = 1;                   //startowa ilość bomb postaci
-    public int bombLifetime = 500;              //startowy czas życia bomb
-    int[] powerupDropTable;                     //tablica informująca który powerup został wylosowany
+    public GameObject blockPrefab;              //!< prefab zniszczalnej ściany
+    public GameObject wallPrefab;               //!< prefab niezniszczalnej ściany
+    public GameObject[] classicPowerupsPrefabs; //!< lista prefabów powerupów trybu klasycznego
+    public GameObject[] arcadePowerupsPrefabs;  //!< lista prefabów powerupów trybu arcade
+    private Queue<Vector3> powerups;            //!< kolejka powerupów do stworzenia
+    public Camera[] cameras;                    //!< lista kamer
+    public GameObject[] PlayerPrefabs;          //!< lista prefabów graczy
+    public GameObject[] BotPrefabs;             //!< lista prefabó postaci
+    public Terrain terrain;                     //!< obiekt terenu
+    public int mapXSize;                        //!< rozmiar mapy w osi X
+    public int mapYSize;                        //!< rozmiar mpay w osi Y
+    public int mapZSize = 1;                    //!< wysokość mapy
+    private bool isPaused;                      //!< czy gra jest spauzowana
+    public UnityEvent OnGameOver;               //!< wydarzenie wywoływane przy końcu gry
+    private GameObject[] players;               //!< lista graczy
+    private GameObject[] bots;                  //!< lista botów
+    public int[] controlls;                     //!< lista wybranych graczy i wybranych kontrollerów
+    public int blockChance = 25;                //!< szansa na postawienie zniszczalnej ściany na każdym polu
+    public int anyPowerupChance = 50;           //!< szansa na pojawienie sie powerupu
+    public int[] classicPowerupWeights;         //!< wagi szansy na odpowiednie powerupy w trybie klasycznym
+    public int[] arcadePowerupsWeights;         //!< wagi szansy na odpowiednie powerupy w trybie arcade
+    public int initRange = 1;                   //!< startowy zasięg postaci
+    public int initSpeed = 10;                  //!< startowa szybkość postaci
+    public int initLifes = 3;                   //!< startowa ilość żyć postaci
+    public int initBombs = 1;                   //!< startowa ilość bomb postaci
+    public int bombLifetime = 500;              //!< startowy czas życia bomb
+    int[] powerupDropTable;                     //!< tablica informująca który powerup został wylosowany
 
     void Awake()
     {   
@@ -118,7 +118,7 @@ public class GameController: MonoBehaviour
             botScript.moveToPlace();
         }
     }
-    //funkcja tworząca postacie
+    /** \biref funkcja tworząca postacie*/
     void SummonCharacters()
     {
         int players = 0;        //liczba graczy
@@ -176,7 +176,9 @@ public class GameController: MonoBehaviour
         //ustawienie rozmiarów kamer
         setupCameras(players);
     }
-    //funkcja ustawiająca kamery
+    /**  funkcja ustawiająca kamery
+     *  @param players liczba aktywnych graczy
+     */
     void setupCameras(int players)
     {
         //wyłaczenie wszystkich kamer
@@ -203,7 +205,7 @@ public class GameController: MonoBehaviour
         for (int i = 0; i < players; i++)
             cameras[i].gameObject.SetActive(true);
     }
-    //funkcja inicjalizująca wartości bazowe
+    /**funkcja inicjalizująca wartości bazowe*/
     void InitValues() {
         //pobranie rozmiaru mapy
         mapXSize = PlayerPrefs.GetInt("xSize");
@@ -222,7 +224,7 @@ public class GameController: MonoBehaviour
         //przypisanie postaci do tablicy postaci
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
     }
-    //funkcja wypełniająca tablicę informującą który powerup ma się pojawić
+    /**  funkcja wypełniająca tablicę informującą który powerup ma się pojawić*/
     void FillDropTable()
     {
         //inicjalizacja tablicy ze stoma miejscami (miejsca są zajmowanie przez powerupy w zależności od ich wagi)
@@ -258,7 +260,7 @@ public class GameController: MonoBehaviour
             index++;
         }
     }
-    //wypełnienie mapy 2D
+    /**  funkcja wypełnieniająca mapę 2D*/
     void Fill2D()
     {
         for (int i = 0; i < mapXSize; i++)
@@ -285,7 +287,7 @@ public class GameController: MonoBehaviour
             }
         }
     }
-    //wypełnienie mapy 3D
+    /**  funkcja wypełnieniająca mapę 3D*/
     void Fill3D()
     {
         //stworzenie dodatkowej części muru w osi X
@@ -356,7 +358,7 @@ public class GameController: MonoBehaviour
         //sprawdzenie czy gra się nie skończyła
         CheckGameover();
     }
-    //funkcja sprawdzająca czy gra się skończyła
+    /**  funkcja sprawdzająca czy gra się skończyła*/
     private void CheckGameover() {
         //sprawdzenie czy którykolwiek z graczy jest martwy
         foreach (GameObject player in players) {
@@ -383,19 +385,21 @@ public class GameController: MonoBehaviour
             }
         }
     }
-    //funkcja dodająca powerupu do kolejki
+    /**  funkcja dodająca powerupu do kolejki
+     * @param position pozycja w której ma zostać stworzony powerup
+     */
     public void AddPowerup(Vector3 position) {
         powerups.Enqueue(position);
     }
 
-    //funkcja pauzująca grę
+    /**  funkcja pauzująca grę*/
     public void PauseGame() {
         if(!isPaused) {
             Time.timeScale = 0;
             isPaused = true;
         }
     }
-    //funkcja wznawiająca grę
+    /**  funkcja wznawiająca grę*/
     public void ResumeGame() {
         if(isPaused) {
             Time.timeScale = 1;

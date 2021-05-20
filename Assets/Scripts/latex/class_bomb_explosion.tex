@@ -1,0 +1,153 @@
+\hypertarget{class_bomb_explosion}{}\doxysection{Dokumentacja klasy Bomb\+Explosion}
+\label{class_bomb_explosion}\index{BombExplosion@{BombExplosion}}
+
+
+Klasa odpowiedzialna za zadawanie obrażeń przy eksplozji.  
+
+
+Diagram dziedziczenia dla Bomb\+Explosion\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bomb_explosion}
+\end{center}
+\end{figure}
+\doxysubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_bomb_explosion_a878175e73a3b6d8f676edbd4020ac286}{lifetime}}
+\begin{DoxyCompactList}\small\item\em pozostały czas życia do wybuchu \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_bomb_explosion_ada164db3e9a315d2ef5d2c67b3de3b80}{type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_bomb_explosion_ab3814f253fb06e32c22b6a87f9aa2be8}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_bomb_explosion_af9dea916e5e86c657f4d98c6911a56a7}{On\+Trigger\+Enter}} (Collider col)
+\item 
+void \mbox{\hyperlink{class_bomb_explosion_abfa88cefdb59d912f1864ba491cf732e}{On\+Trigger\+Exit}} (Collider col)
+\item 
+void \mbox{\hyperlink{class_bomb_explosion_aa0e1b88978ef33967b0887467df2f42e}{Fixed\+Update}} ()
+\item 
+float \mbox{\hyperlink{class_bomb_explosion_a5e52712ee46f3cd28db949a34823db92}{Get\+Relative\+Pos}} (Vector3 position)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{class_bomb_explosion_ae52c3e586920ed62f8f73cb7a65be29d}{object\+Collisions}}
+\begin{DoxyCompactList}\small\item\em lista kolizji z obiektami \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_character}{Character}} $>$ \mbox{\hyperlink{class_bomb_explosion_a55ab11b6ad901ab1656553987cebdbe2}{character\+Collisions}}
+\begin{DoxyCompactList}\small\item\em lista kolizji z postaciami \end{DoxyCompactList}\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{class_bomb_explosion_aa2741f30e83874749a5c321d6c2d6670}{walls}}
+\begin{DoxyCompactList}\small\item\em lista kolizji ze ścianami \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_bomb_explosion_a15bc1eaa1e426bffa37f420df3aa1b84}{lower\+Wall\+Limit}} = float.\+Min\+Value
+\item 
+float \mbox{\hyperlink{class_bomb_explosion_aea2d2fe873c8f187c8944166d5d300fe}{upper\+Wall\+Limit}} = float.\+Max\+Value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa odpowiedzialna za zadawanie obrażeń przy eksplozji. 
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_bomb_explosion_ab3814f253fb06e32c22b6a87f9aa2be8}\label{class_bomb_explosion_ab3814f253fb06e32c22b6a87f9aa2be8}} 
+\index{BombExplosion@{BombExplosion}!Awake@{Awake}}
+\index{Awake@{Awake}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Bomb\+Explosion.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bomb_explosion_aa0e1b88978ef33967b0887467df2f42e}\label{class_bomb_explosion_aa0e1b88978ef33967b0887467df2f42e}} 
+\index{BombExplosion@{BombExplosion}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Bomb\+Explosion.\+Fixed\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bomb_explosion_a5e52712ee46f3cd28db949a34823db92}\label{class_bomb_explosion_a5e52712ee46f3cd28db949a34823db92}} 
+\index{BombExplosion@{BombExplosion}!GetRelativePos@{GetRelativePos}}
+\index{GetRelativePos@{GetRelativePos}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{GetRelativePos()}{GetRelativePos()}}
+{\footnotesize\ttfamily float Bomb\+Explosion.\+Get\+Relative\+Pos (\begin{DoxyParamCaption}\item[{Vector3}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja obliczająca pozycję relatywną do bomby 
+\begin{DoxyParams}{Parametry}
+{\em position} & pozycja sprawdzanego obiektu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bomb_explosion_af9dea916e5e86c657f4d98c6911a56a7}\label{class_bomb_explosion_af9dea916e5e86c657f4d98c6911a56a7}} 
+\index{BombExplosion@{BombExplosion}!OnTriggerEnter@{OnTriggerEnter}}
+\index{OnTriggerEnter@{OnTriggerEnter}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter()}{OnTriggerEnter()}}
+{\footnotesize\ttfamily void Bomb\+Explosion.\+On\+Trigger\+Enter (\begin{DoxyParamCaption}\item[{Collider}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bomb_explosion_abfa88cefdb59d912f1864ba491cf732e}\label{class_bomb_explosion_abfa88cefdb59d912f1864ba491cf732e}} 
+\index{BombExplosion@{BombExplosion}!OnTriggerExit@{OnTriggerExit}}
+\index{OnTriggerExit@{OnTriggerExit}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit()}{OnTriggerExit()}}
+{\footnotesize\ttfamily void Bomb\+Explosion.\+On\+Trigger\+Exit (\begin{DoxyParamCaption}\item[{Collider}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_bomb_explosion_a55ab11b6ad901ab1656553987cebdbe2}\label{class_bomb_explosion_a55ab11b6ad901ab1656553987cebdbe2}} 
+\index{BombExplosion@{BombExplosion}!characterCollisions@{characterCollisions}}
+\index{characterCollisions@{characterCollisions}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{characterCollisions}{characterCollisions}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_character}{Character}}$>$ Bomb\+Explosion.\+character\+Collisions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+lista kolizji z postaciami 
+
+\mbox{\Hypertarget{class_bomb_explosion_a878175e73a3b6d8f676edbd4020ac286}\label{class_bomb_explosion_a878175e73a3b6d8f676edbd4020ac286}} 
+\index{BombExplosion@{BombExplosion}!lifetime@{lifetime}}
+\index{lifetime@{lifetime}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{lifetime}{lifetime}}
+{\footnotesize\ttfamily int Bomb\+Explosion.\+lifetime}
+
+
+
+pozostały czas życia do wybuchu 
+
+\mbox{\Hypertarget{class_bomb_explosion_a15bc1eaa1e426bffa37f420df3aa1b84}\label{class_bomb_explosion_a15bc1eaa1e426bffa37f420df3aa1b84}} 
+\index{BombExplosion@{BombExplosion}!lowerWallLimit@{lowerWallLimit}}
+\index{lowerWallLimit@{lowerWallLimit}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{lowerWallLimit}{lowerWallLimit}}
+{\footnotesize\ttfamily float Bomb\+Explosion.\+lower\+Wall\+Limit = float.\+Min\+Value\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bomb_explosion_ae52c3e586920ed62f8f73cb7a65be29d}\label{class_bomb_explosion_ae52c3e586920ed62f8f73cb7a65be29d}} 
+\index{BombExplosion@{BombExplosion}!objectCollisions@{objectCollisions}}
+\index{objectCollisions@{objectCollisions}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{objectCollisions}{objectCollisions}}
+{\footnotesize\ttfamily List$<$Game\+Object$>$ Bomb\+Explosion.\+object\+Collisions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+lista kolizji z obiektami 
+
+\mbox{\Hypertarget{class_bomb_explosion_ada164db3e9a315d2ef5d2c67b3de3b80}\label{class_bomb_explosion_ada164db3e9a315d2ef5d2c67b3de3b80}} 
+\index{BombExplosion@{BombExplosion}!type@{type}}
+\index{type@{type}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily int Bomb\+Explosion.\+type}
+
+\mbox{\Hypertarget{class_bomb_explosion_aea2d2fe873c8f187c8944166d5d300fe}\label{class_bomb_explosion_aea2d2fe873c8f187c8944166d5d300fe}} 
+\index{BombExplosion@{BombExplosion}!upperWallLimit@{upperWallLimit}}
+\index{upperWallLimit@{upperWallLimit}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{upperWallLimit}{upperWallLimit}}
+{\footnotesize\ttfamily float Bomb\+Explosion.\+upper\+Wall\+Limit = float.\+Max\+Value\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bomb_explosion_aa2741f30e83874749a5c321d6c2d6670}\label{class_bomb_explosion_aa2741f30e83874749a5c321d6c2d6670}} 
+\index{BombExplosion@{BombExplosion}!walls@{walls}}
+\index{walls@{walls}!BombExplosion@{BombExplosion}}
+\doxysubsubsection{\texorpdfstring{walls}{walls}}
+{\footnotesize\ttfamily List$<$Game\+Object$>$ Bomb\+Explosion.\+walls\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+lista kolizji ze ścianami 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_bomb_explosion_8cs}{Bomb\+Explosion.\+cs}}\end{DoxyCompactItemize}

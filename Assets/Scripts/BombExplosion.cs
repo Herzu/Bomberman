@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//klasa odpowiedzialna za zadawanie obrażeń przy eksplozji
+//! Klasa odpowiedzialna za zadawanie obrażeń przy eksplozji
 public class BombExplosion: MonoBehaviour
 {
-    public int lifetime;                    //pozostały czas życia do wybuchu
-    List<GameObject> objectCollisions;      //lista kolizji z obiektami
-    List<Character> characterCollisions;    //lista kolizji z postaciami
-    List<GameObject> walls;                 //listo kolizji ze ścianami
+    public int lifetime;                    //!< pozostały czas życia do wybuchu
+    List<GameObject> objectCollisions;      //!< lista kolizji z obiektami
+    List<Character> characterCollisions;    //!< lista kolizji z postaciami
+    List<GameObject> walls;                 //!< lista kolizji ze ścianami
     public int type; //1=x, 2=y, 3=z
     float lowerWallLimit = float.MinValue, upperWallLimit = float.MaxValue;
     // Start is called before the first frame update
@@ -96,7 +96,9 @@ public class BombExplosion: MonoBehaviour
                 Destroy(this.gameObject);   //destrukcja obiektu eksplozji
         }
     }
-    //funkcja obliczająca pozycję relatywną do bomby
+    /** funkcja obliczająca pozycję relatywną do bomby
+     * @param position pozycja sprawdzanego obiektu
+     */
     private float GetRelativePos(Vector3 position)
     {
         //w zależności od ustalonego typu relatywna pozycja obliczana jest dla innej osi

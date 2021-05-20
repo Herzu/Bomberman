@@ -1,0 +1,113 @@
+\hypertarget{class_thrown_bomb}{}\doxysection{Dokumentacja klasy Thrown\+Bomb}
+\label{class_thrown_bomb}\index{ThrownBomb@{ThrownBomb}}
+
+
+Klasa odpowiedzialna za możliwość rzucenia bombą w trybie pierwszoosobowym.  
+
+
+Diagram dziedziczenia dla Thrown\+Bomb\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_thrown_bomb}
+\end{center}
+\end{figure}
+\doxysubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_thrown_bomb_a29067e68dcc2f7553eb9a6ac7c3ecff1}{is3D}}
+\begin{DoxyCompactList}\small\item\em czy bomba ma wybuchać także w osi pionowej \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_thrown_bomb_ab66167fdc8588e6e7e8ad178bfbd04b5}{bomb\+Prefab}}
+\begin{DoxyCompactList}\small\item\em prefab bomby \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_thrown_bomb_a52a1afb88a26f46f026598701ac0db5c}{bomb\+Lifetime}}
+\begin{DoxyCompactList}\small\item\em maksymalny czas życia bomby \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_thrown_bomb_a6da6e08c21052b838193b6cc58987885}{range}}
+\begin{DoxyCompactList}\small\item\em zasięg bomby \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_thrown_bomb_a9612164c95a84a888d3b332cfe383186}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_thrown_bomb_a33227fe0edd11305fa4dea7b13b7de2b}{Fixed\+Update}} ()
+\item 
+void \mbox{\hyperlink{class_thrown_bomb_a72ec966258539e4febd3bacb263fd12c}{On\+Collision\+Enter}} (Collision collision)
+\item 
+void \mbox{\hyperlink{class_thrown_bomb_a1f0b8c5ad714efc6e8908e53da02cece}{Put\+Bomb}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa odpowiedzialna za możliwość rzucenia bombą w trybie pierwszoosobowym. 
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_thrown_bomb_a33227fe0edd11305fa4dea7b13b7de2b}\label{class_thrown_bomb_a33227fe0edd11305fa4dea7b13b7de2b}} 
+\index{ThrownBomb@{ThrownBomb}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Thrown\+Bomb.\+Fixed\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_thrown_bomb_a72ec966258539e4febd3bacb263fd12c}\label{class_thrown_bomb_a72ec966258539e4febd3bacb263fd12c}} 
+\index{ThrownBomb@{ThrownBomb}!OnCollisionEnter@{OnCollisionEnter}}
+\index{OnCollisionEnter@{OnCollisionEnter}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter()}{OnCollisionEnter()}}
+{\footnotesize\ttfamily void Thrown\+Bomb.\+On\+Collision\+Enter (\begin{DoxyParamCaption}\item[{Collision}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_thrown_bomb_a1f0b8c5ad714efc6e8908e53da02cece}\label{class_thrown_bomb_a1f0b8c5ad714efc6e8908e53da02cece}} 
+\index{ThrownBomb@{ThrownBomb}!PutBomb@{PutBomb}}
+\index{PutBomb@{PutBomb}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{PutBomb()}{PutBomb()}}
+{\footnotesize\ttfamily void Thrown\+Bomb.\+Put\+Bomb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Funkcja tworząca bombę \mbox{\Hypertarget{class_thrown_bomb_a9612164c95a84a888d3b332cfe383186}\label{class_thrown_bomb_a9612164c95a84a888d3b332cfe383186}} 
+\index{ThrownBomb@{ThrownBomb}!Start@{Start}}
+\index{Start@{Start}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Thrown\+Bomb.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_thrown_bomb_a52a1afb88a26f46f026598701ac0db5c}\label{class_thrown_bomb_a52a1afb88a26f46f026598701ac0db5c}} 
+\index{ThrownBomb@{ThrownBomb}!bombLifetime@{bombLifetime}}
+\index{bombLifetime@{bombLifetime}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{bombLifetime}{bombLifetime}}
+{\footnotesize\ttfamily int Thrown\+Bomb.\+bomb\+Lifetime}
+
+
+
+maksymalny czas życia bomby 
+
+\mbox{\Hypertarget{class_thrown_bomb_ab66167fdc8588e6e7e8ad178bfbd04b5}\label{class_thrown_bomb_ab66167fdc8588e6e7e8ad178bfbd04b5}} 
+\index{ThrownBomb@{ThrownBomb}!bombPrefab@{bombPrefab}}
+\index{bombPrefab@{bombPrefab}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{bombPrefab}{bombPrefab}}
+{\footnotesize\ttfamily Game\+Object Thrown\+Bomb.\+bomb\+Prefab}
+
+
+
+prefab bomby 
+
+\mbox{\Hypertarget{class_thrown_bomb_a29067e68dcc2f7553eb9a6ac7c3ecff1}\label{class_thrown_bomb_a29067e68dcc2f7553eb9a6ac7c3ecff1}} 
+\index{ThrownBomb@{ThrownBomb}!is3D@{is3D}}
+\index{is3D@{is3D}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{is3D}{is3D}}
+{\footnotesize\ttfamily bool Thrown\+Bomb.\+is3D}
+
+
+
+czy bomba ma wybuchać także w osi pionowej 
+
+\mbox{\Hypertarget{class_thrown_bomb_a6da6e08c21052b838193b6cc58987885}\label{class_thrown_bomb_a6da6e08c21052b838193b6cc58987885}} 
+\index{ThrownBomb@{ThrownBomb}!range@{range}}
+\index{range@{range}!ThrownBomb@{ThrownBomb}}
+\doxysubsubsection{\texorpdfstring{range}{range}}
+{\footnotesize\ttfamily int Thrown\+Bomb.\+range}
+
+
+
+zasięg bomby 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_thrown_bomb_8cs}{Thrown\+Bomb.\+cs}}\end{DoxyCompactItemize}

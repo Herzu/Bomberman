@@ -1,0 +1,469 @@
+\hypertarget{class_game_controller}{}\doxysection{Dokumentacja klasy Game\+Controller}
+\label{class_game_controller}\index{GameController@{GameController}}
+
+
+Klasa odpowiedzialna za sterowanie rozgrywką  
+
+
+Diagram dziedziczenia dla Game\+Controller\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_controller_a89bfdcf877bf6644d073093e63640aaf}{Add\+Powerup}} (Vector3 position)
+\item 
+void \mbox{\hyperlink{class_game_controller_a9f3f49c53f3c8dbe17dbb8c4d5a1511b}{Pause\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_acef5fa47a21089ac88b3035ae6089009}{Resume\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_game_controller_a55be61aede7e12547990dd12c321d140}{block\+Prefab}}
+\begin{DoxyCompactList}\small\item\em prefab zniszczalnej ściany \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_game_controller_a6bd7b4713f46069190f15bb88183df7e}{wall\+Prefab}}
+\begin{DoxyCompactList}\small\item\em prefab niezniszczalnej ściany \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a880c5910acd2909fb16aee7d0330bdc7}{classic\+Powerups\+Prefabs}}
+\begin{DoxyCompactList}\small\item\em lista prefabów powerupów trybu klasycznego \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a8055e5ed73ba60f2a6c3998b1aa43043}{arcade\+Powerups\+Prefabs}}
+\begin{DoxyCompactList}\small\item\em lista prefabów powerupów trybu arcade \end{DoxyCompactList}\item 
+Camera\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a7d4d9ef3a283e2a03d006287e1ef9f24}{cameras}}
+\begin{DoxyCompactList}\small\item\em lista kamer \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a65abd05f53dcba4eece77a0534939db0}{Player\+Prefabs}}
+\begin{DoxyCompactList}\small\item\em lista prefabów graczy \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a0abf11aca6e3f762d4a1fe57e4dd852b}{Bot\+Prefabs}}
+\begin{DoxyCompactList}\small\item\em lista prefabó postaci \end{DoxyCompactList}\item 
+Terrain \mbox{\hyperlink{class_game_controller_ad19f6b37ea45831557954fa045a27689}{terrain}}
+\begin{DoxyCompactList}\small\item\em obiekt terenu \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a273f24d33ba57941f9045d571bf527cb}{map\+XSize}}
+\begin{DoxyCompactList}\small\item\em rozmiar mapy w osi X \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a3e246b73653fc9a2ffbb528ec3f4b35c}{map\+YSize}}
+\begin{DoxyCompactList}\small\item\em rozmiar mpay w osi Y \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a22549bb6fb31df7b267c6963ec0b5330}{map\+ZSize}} = 1
+\begin{DoxyCompactList}\small\item\em wysokość mapy \end{DoxyCompactList}\item 
+Unity\+Event \mbox{\hyperlink{class_game_controller_a82bec79f37a0b57d8a320d6dde8ca170}{On\+Game\+Over}}
+\begin{DoxyCompactList}\small\item\em wydarzenie wywoływane przy końcu gry \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a9a85abe84e0926956861fb4fd0a13ae9}{controlls}}
+\begin{DoxyCompactList}\small\item\em lista wybranych graczy i wybranych kontrollerów \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_ac7c2ec2569418efe34aa944bd572497e}{block\+Chance}} = 25
+\begin{DoxyCompactList}\small\item\em szansa na postawienie zniszczalnej ściany na każdym polu \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_adbf1db5b9eb19b075b3bdf06578a1085}{any\+Powerup\+Chance}} = 50
+\begin{DoxyCompactList}\small\item\em szansa na pojawienie sie powerupu \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_af7178c2e39a653a1e0323ac8bd9ad380}{classic\+Powerup\+Weights}}
+\begin{DoxyCompactList}\small\item\em wagi szansy na odpowiednie powerupy w trybie klasycznym \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a0f3101bf720df8e928a981fb05015028}{arcade\+Powerups\+Weights}}
+\begin{DoxyCompactList}\small\item\em wagi szansy na odpowiednie powerupy w trybie arcade \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a5089119a024910ae434788a34fa37e1d}{init\+Range}} = 1
+\begin{DoxyCompactList}\small\item\em startowy zasięg postaci \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a6456f22b08df3feddaa371ee095cd049}{init\+Speed}} = 10
+\begin{DoxyCompactList}\small\item\em startowa szybkość postaci \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a65e6b65819c2b00ffeb4b32a96fcc9e2}{init\+Lifes}} = 3
+\begin{DoxyCompactList}\small\item\em startowa ilość żyć postaci \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_aeb97e57e7055cd1d781a41d5937c9806}{init\+Bombs}} = 1
+\begin{DoxyCompactList}\small\item\em startowa ilość bomb postaci \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_controller_a48119573e58fcd1131469a99d3a88b33}{bomb\+Lifetime}} = 500
+\begin{DoxyCompactList}\small\item\em startowy czas życia bomb \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_controller_a1dfa0b843c71b7013f101e200613e8b5}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a124f6270215f66301a5e50c0f10f9c96}{Summon\+Characters}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a193b47f497955b37a1f3e6c7051f55ca}{setup\+Cameras}} (int \mbox{\hyperlink{class_game_controller_aa19e54ecb999d8113b3a05f6121bc5ea}{players}})
+\item 
+void \mbox{\hyperlink{class_game_controller_a20d9172b68b40fa514e0e8aac42b2676}{Init\+Values}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a073204dd3b4833b312f8ac46a7a87d4a}{Fill\+Drop\+Table}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a7053df24e02203aae1474b0f6bc9711f}{Fill2D}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_ae6f0db663aa6965d085d1fbac9b1d1df}{Fill3D}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a5a89277529cadb49af7d55eba3bbf056}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_aea3f6e4ec749c4a84f09cb6b89dd925a}{Check\+Gameover}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+Queue$<$ Vector3 $>$ \mbox{\hyperlink{class_game_controller_a49eb6ee106b52a1cf315da81577971d2}{powerups}}
+\begin{DoxyCompactList}\small\item\em kolejka powerupów do stworzenia \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_controller_a4f83ac6f51abe164a979acdf01318905}{is\+Paused}}
+\begin{DoxyCompactList}\small\item\em czy gra jest spauzowana \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_aa19e54ecb999d8113b3a05f6121bc5ea}{players}}
+\begin{DoxyCompactList}\small\item\em lista graczy \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a6e3871c441c6b87b16d772b406403a0a}{bots}}
+\begin{DoxyCompactList}\small\item\em lista botów \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_game_controller_a9257fd0641afee002cdf29ba80728de8}{powerup\+Drop\+Table}}
+\begin{DoxyCompactList}\small\item\em tablica informująca który powerup został wylosowany \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa odpowiedzialna za sterowanie rozgrywką 
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_game_controller_a89bfdcf877bf6644d073093e63640aaf}\label{class_game_controller_a89bfdcf877bf6644d073093e63640aaf}} 
+\index{GameController@{GameController}!AddPowerup@{AddPowerup}}
+\index{AddPowerup@{AddPowerup}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{AddPowerup()}{AddPowerup()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Add\+Powerup (\begin{DoxyParamCaption}\item[{Vector3}]{position }\end{DoxyParamCaption})}
+
+funkcja dodająca powerupu do kolejki 
+\begin{DoxyParams}{Parametry}
+{\em position} & pozycja w której ma zostać stworzony powerup \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_controller_a1dfa0b843c71b7013f101e200613e8b5}\label{class_game_controller_a1dfa0b843c71b7013f101e200613e8b5}} 
+\index{GameController@{GameController}!Awake@{Awake}}
+\index{Awake@{Awake}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_game_controller_aea3f6e4ec749c4a84f09cb6b89dd925a}\label{class_game_controller_aea3f6e4ec749c4a84f09cb6b89dd925a}} 
+\index{GameController@{GameController}!CheckGameover@{CheckGameover}}
+\index{CheckGameover@{CheckGameover}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{CheckGameover()}{CheckGameover()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Check\+Gameover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja sprawdzająca czy gra się skończyła \mbox{\Hypertarget{class_game_controller_a7053df24e02203aae1474b0f6bc9711f}\label{class_game_controller_a7053df24e02203aae1474b0f6bc9711f}} 
+\index{GameController@{GameController}!Fill2D@{Fill2D}}
+\index{Fill2D@{Fill2D}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{Fill2D()}{Fill2D()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Fill2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja wypełnieniająca mapę 2D \mbox{\Hypertarget{class_game_controller_ae6f0db663aa6965d085d1fbac9b1d1df}\label{class_game_controller_ae6f0db663aa6965d085d1fbac9b1d1df}} 
+\index{GameController@{GameController}!Fill3D@{Fill3D}}
+\index{Fill3D@{Fill3D}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{Fill3D()}{Fill3D()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Fill3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja wypełnieniająca mapę 3D \mbox{\Hypertarget{class_game_controller_a073204dd3b4833b312f8ac46a7a87d4a}\label{class_game_controller_a073204dd3b4833b312f8ac46a7a87d4a}} 
+\index{GameController@{GameController}!FillDropTable@{FillDropTable}}
+\index{FillDropTable@{FillDropTable}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{FillDropTable()}{FillDropTable()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Fill\+Drop\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja wypełniająca tablicę informującą który powerup ma się pojawić \mbox{\Hypertarget{class_game_controller_a20d9172b68b40fa514e0e8aac42b2676}\label{class_game_controller_a20d9172b68b40fa514e0e8aac42b2676}} 
+\index{GameController@{GameController}!InitValues@{InitValues}}
+\index{InitValues@{InitValues}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{InitValues()}{InitValues()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Init\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja inicjalizująca wartości bazowe \mbox{\Hypertarget{class_game_controller_a9f3f49c53f3c8dbe17dbb8c4d5a1511b}\label{class_game_controller_a9f3f49c53f3c8dbe17dbb8c4d5a1511b}} 
+\index{GameController@{GameController}!PauseGame@{PauseGame}}
+\index{PauseGame@{PauseGame}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{PauseGame()}{PauseGame()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Pause\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funkcja pauzująca grę \mbox{\Hypertarget{class_game_controller_acef5fa47a21089ac88b3035ae6089009}\label{class_game_controller_acef5fa47a21089ac88b3035ae6089009}} 
+\index{GameController@{GameController}!ResumeGame@{ResumeGame}}
+\index{ResumeGame@{ResumeGame}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{ResumeGame()}{ResumeGame()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Resume\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funkcja wznawiająca grę \mbox{\Hypertarget{class_game_controller_a193b47f497955b37a1f3e6c7051f55ca}\label{class_game_controller_a193b47f497955b37a1f3e6c7051f55ca}} 
+\index{GameController@{GameController}!setupCameras@{setupCameras}}
+\index{setupCameras@{setupCameras}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{setupCameras()}{setupCameras()}}
+{\footnotesize\ttfamily void Game\+Controller.\+setup\+Cameras (\begin{DoxyParamCaption}\item[{int}]{players }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+funkcja ustawiająca kamery 
+\begin{DoxyParams}{Parametry}
+{\em players} & liczba aktywnych graczy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_controller_a124f6270215f66301a5e50c0f10f9c96}\label{class_game_controller_a124f6270215f66301a5e50c0f10f9c96}} 
+\index{GameController@{GameController}!SummonCharacters@{SummonCharacters}}
+\index{SummonCharacters@{SummonCharacters}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{SummonCharacters()}{SummonCharacters()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Summon\+Characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\textbackslash{}biref funkcja tworząca postacie \mbox{\Hypertarget{class_game_controller_a5a89277529cadb49af7d55eba3bbf056}\label{class_game_controller_a5a89277529cadb49af7d55eba3bbf056}} 
+\index{GameController@{GameController}!Update@{Update}}
+\index{Update@{Update}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_game_controller_adbf1db5b9eb19b075b3bdf06578a1085}\label{class_game_controller_adbf1db5b9eb19b075b3bdf06578a1085}} 
+\index{GameController@{GameController}!anyPowerupChance@{anyPowerupChance}}
+\index{anyPowerupChance@{anyPowerupChance}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{anyPowerupChance}{anyPowerupChance}}
+{\footnotesize\ttfamily int Game\+Controller.\+any\+Powerup\+Chance = 50}
+
+
+
+szansa na pojawienie sie powerupu 
+
+\mbox{\Hypertarget{class_game_controller_a8055e5ed73ba60f2a6c3998b1aa43043}\label{class_game_controller_a8055e5ed73ba60f2a6c3998b1aa43043}} 
+\index{GameController@{GameController}!arcadePowerupsPrefabs@{arcadePowerupsPrefabs}}
+\index{arcadePowerupsPrefabs@{arcadePowerupsPrefabs}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{arcadePowerupsPrefabs}{arcadePowerupsPrefabs}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Game\+Controller.\+arcade\+Powerups\+Prefabs}
+
+
+
+lista prefabów powerupów trybu arcade 
+
+\mbox{\Hypertarget{class_game_controller_a0f3101bf720df8e928a981fb05015028}\label{class_game_controller_a0f3101bf720df8e928a981fb05015028}} 
+\index{GameController@{GameController}!arcadePowerupsWeights@{arcadePowerupsWeights}}
+\index{arcadePowerupsWeights@{arcadePowerupsWeights}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{arcadePowerupsWeights}{arcadePowerupsWeights}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Game\+Controller.\+arcade\+Powerups\+Weights}
+
+
+
+wagi szansy na odpowiednie powerupy w trybie arcade 
+
+\mbox{\Hypertarget{class_game_controller_ac7c2ec2569418efe34aa944bd572497e}\label{class_game_controller_ac7c2ec2569418efe34aa944bd572497e}} 
+\index{GameController@{GameController}!blockChance@{blockChance}}
+\index{blockChance@{blockChance}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{blockChance}{blockChance}}
+{\footnotesize\ttfamily int Game\+Controller.\+block\+Chance = 25}
+
+
+
+szansa na postawienie zniszczalnej ściany na każdym polu 
+
+\mbox{\Hypertarget{class_game_controller_a55be61aede7e12547990dd12c321d140}\label{class_game_controller_a55be61aede7e12547990dd12c321d140}} 
+\index{GameController@{GameController}!blockPrefab@{blockPrefab}}
+\index{blockPrefab@{blockPrefab}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{blockPrefab}{blockPrefab}}
+{\footnotesize\ttfamily Game\+Object Game\+Controller.\+block\+Prefab}
+
+
+
+prefab zniszczalnej ściany 
+
+\mbox{\Hypertarget{class_game_controller_a48119573e58fcd1131469a99d3a88b33}\label{class_game_controller_a48119573e58fcd1131469a99d3a88b33}} 
+\index{GameController@{GameController}!bombLifetime@{bombLifetime}}
+\index{bombLifetime@{bombLifetime}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{bombLifetime}{bombLifetime}}
+{\footnotesize\ttfamily int Game\+Controller.\+bomb\+Lifetime = 500}
+
+
+
+startowy czas życia bomb 
+
+\mbox{\Hypertarget{class_game_controller_a0abf11aca6e3f762d4a1fe57e4dd852b}\label{class_game_controller_a0abf11aca6e3f762d4a1fe57e4dd852b}} 
+\index{GameController@{GameController}!BotPrefabs@{BotPrefabs}}
+\index{BotPrefabs@{BotPrefabs}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{BotPrefabs}{BotPrefabs}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Game\+Controller.\+Bot\+Prefabs}
+
+
+
+lista prefabó postaci 
+
+\mbox{\Hypertarget{class_game_controller_a6e3871c441c6b87b16d772b406403a0a}\label{class_game_controller_a6e3871c441c6b87b16d772b406403a0a}} 
+\index{GameController@{GameController}!bots@{bots}}
+\index{bots@{bots}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{bots}{bots}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Game\+Controller.\+bots\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+lista botów 
+
+\mbox{\Hypertarget{class_game_controller_a7d4d9ef3a283e2a03d006287e1ef9f24}\label{class_game_controller_a7d4d9ef3a283e2a03d006287e1ef9f24}} 
+\index{GameController@{GameController}!cameras@{cameras}}
+\index{cameras@{cameras}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{cameras}{cameras}}
+{\footnotesize\ttfamily Camera \mbox{[}$\,$\mbox{]} Game\+Controller.\+cameras}
+
+
+
+lista kamer 
+
+\mbox{\Hypertarget{class_game_controller_a880c5910acd2909fb16aee7d0330bdc7}\label{class_game_controller_a880c5910acd2909fb16aee7d0330bdc7}} 
+\index{GameController@{GameController}!classicPowerupsPrefabs@{classicPowerupsPrefabs}}
+\index{classicPowerupsPrefabs@{classicPowerupsPrefabs}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{classicPowerupsPrefabs}{classicPowerupsPrefabs}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Game\+Controller.\+classic\+Powerups\+Prefabs}
+
+
+
+lista prefabów powerupów trybu klasycznego 
+
+\mbox{\Hypertarget{class_game_controller_af7178c2e39a653a1e0323ac8bd9ad380}\label{class_game_controller_af7178c2e39a653a1e0323ac8bd9ad380}} 
+\index{GameController@{GameController}!classicPowerupWeights@{classicPowerupWeights}}
+\index{classicPowerupWeights@{classicPowerupWeights}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{classicPowerupWeights}{classicPowerupWeights}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Game\+Controller.\+classic\+Powerup\+Weights}
+
+
+
+wagi szansy na odpowiednie powerupy w trybie klasycznym 
+
+\mbox{\Hypertarget{class_game_controller_a9a85abe84e0926956861fb4fd0a13ae9}\label{class_game_controller_a9a85abe84e0926956861fb4fd0a13ae9}} 
+\index{GameController@{GameController}!controlls@{controlls}}
+\index{controlls@{controlls}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{controlls}{controlls}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Game\+Controller.\+controlls}
+
+
+
+lista wybranych graczy i wybranych kontrollerów 
+
+\mbox{\Hypertarget{class_game_controller_aeb97e57e7055cd1d781a41d5937c9806}\label{class_game_controller_aeb97e57e7055cd1d781a41d5937c9806}} 
+\index{GameController@{GameController}!initBombs@{initBombs}}
+\index{initBombs@{initBombs}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{initBombs}{initBombs}}
+{\footnotesize\ttfamily int Game\+Controller.\+init\+Bombs = 1}
+
+
+
+startowa ilość bomb postaci 
+
+\mbox{\Hypertarget{class_game_controller_a65e6b65819c2b00ffeb4b32a96fcc9e2}\label{class_game_controller_a65e6b65819c2b00ffeb4b32a96fcc9e2}} 
+\index{GameController@{GameController}!initLifes@{initLifes}}
+\index{initLifes@{initLifes}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{initLifes}{initLifes}}
+{\footnotesize\ttfamily int Game\+Controller.\+init\+Lifes = 3}
+
+
+
+startowa ilość żyć postaci 
+
+\mbox{\Hypertarget{class_game_controller_a5089119a024910ae434788a34fa37e1d}\label{class_game_controller_a5089119a024910ae434788a34fa37e1d}} 
+\index{GameController@{GameController}!initRange@{initRange}}
+\index{initRange@{initRange}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{initRange}{initRange}}
+{\footnotesize\ttfamily int Game\+Controller.\+init\+Range = 1}
+
+
+
+startowy zasięg postaci 
+
+\mbox{\Hypertarget{class_game_controller_a6456f22b08df3feddaa371ee095cd049}\label{class_game_controller_a6456f22b08df3feddaa371ee095cd049}} 
+\index{GameController@{GameController}!initSpeed@{initSpeed}}
+\index{initSpeed@{initSpeed}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{initSpeed}{initSpeed}}
+{\footnotesize\ttfamily int Game\+Controller.\+init\+Speed = 10}
+
+
+
+startowa szybkość postaci 
+
+\mbox{\Hypertarget{class_game_controller_a4f83ac6f51abe164a979acdf01318905}\label{class_game_controller_a4f83ac6f51abe164a979acdf01318905}} 
+\index{GameController@{GameController}!isPaused@{isPaused}}
+\index{isPaused@{isPaused}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{isPaused}{isPaused}}
+{\footnotesize\ttfamily bool Game\+Controller.\+is\+Paused\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+czy gra jest spauzowana 
+
+\mbox{\Hypertarget{class_game_controller_a273f24d33ba57941f9045d571bf527cb}\label{class_game_controller_a273f24d33ba57941f9045d571bf527cb}} 
+\index{GameController@{GameController}!mapXSize@{mapXSize}}
+\index{mapXSize@{mapXSize}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{mapXSize}{mapXSize}}
+{\footnotesize\ttfamily int Game\+Controller.\+map\+XSize}
+
+
+
+rozmiar mapy w osi X 
+
+\mbox{\Hypertarget{class_game_controller_a3e246b73653fc9a2ffbb528ec3f4b35c}\label{class_game_controller_a3e246b73653fc9a2ffbb528ec3f4b35c}} 
+\index{GameController@{GameController}!mapYSize@{mapYSize}}
+\index{mapYSize@{mapYSize}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{mapYSize}{mapYSize}}
+{\footnotesize\ttfamily int Game\+Controller.\+map\+YSize}
+
+
+
+rozmiar mpay w osi Y 
+
+\mbox{\Hypertarget{class_game_controller_a22549bb6fb31df7b267c6963ec0b5330}\label{class_game_controller_a22549bb6fb31df7b267c6963ec0b5330}} 
+\index{GameController@{GameController}!mapZSize@{mapZSize}}
+\index{mapZSize@{mapZSize}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{mapZSize}{mapZSize}}
+{\footnotesize\ttfamily int Game\+Controller.\+map\+ZSize = 1}
+
+
+
+wysokość mapy 
+
+\mbox{\Hypertarget{class_game_controller_a82bec79f37a0b57d8a320d6dde8ca170}\label{class_game_controller_a82bec79f37a0b57d8a320d6dde8ca170}} 
+\index{GameController@{GameController}!OnGameOver@{OnGameOver}}
+\index{OnGameOver@{OnGameOver}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{OnGameOver}{OnGameOver}}
+{\footnotesize\ttfamily Unity\+Event Game\+Controller.\+On\+Game\+Over}
+
+
+
+wydarzenie wywoływane przy końcu gry 
+
+\mbox{\Hypertarget{class_game_controller_a65abd05f53dcba4eece77a0534939db0}\label{class_game_controller_a65abd05f53dcba4eece77a0534939db0}} 
+\index{GameController@{GameController}!PlayerPrefabs@{PlayerPrefabs}}
+\index{PlayerPrefabs@{PlayerPrefabs}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{PlayerPrefabs}{PlayerPrefabs}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Game\+Controller.\+Player\+Prefabs}
+
+
+
+lista prefabów graczy 
+
+\mbox{\Hypertarget{class_game_controller_aa19e54ecb999d8113b3a05f6121bc5ea}\label{class_game_controller_aa19e54ecb999d8113b3a05f6121bc5ea}} 
+\index{GameController@{GameController}!players@{players}}
+\index{players@{players}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{players}{players}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Game\+Controller.\+players\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+lista graczy 
+
+\mbox{\Hypertarget{class_game_controller_a9257fd0641afee002cdf29ba80728de8}\label{class_game_controller_a9257fd0641afee002cdf29ba80728de8}} 
+\index{GameController@{GameController}!powerupDropTable@{powerupDropTable}}
+\index{powerupDropTable@{powerupDropTable}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{powerupDropTable}{powerupDropTable}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Game\+Controller.\+powerup\+Drop\+Table\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tablica informująca który powerup został wylosowany 
+
+\mbox{\Hypertarget{class_game_controller_a49eb6ee106b52a1cf315da81577971d2}\label{class_game_controller_a49eb6ee106b52a1cf315da81577971d2}} 
+\index{GameController@{GameController}!powerups@{powerups}}
+\index{powerups@{powerups}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{powerups}{powerups}}
+{\footnotesize\ttfamily Queue$<$Vector3$>$ Game\+Controller.\+powerups\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+kolejka powerupów do stworzenia 
+
+\mbox{\Hypertarget{class_game_controller_ad19f6b37ea45831557954fa045a27689}\label{class_game_controller_ad19f6b37ea45831557954fa045a27689}} 
+\index{GameController@{GameController}!terrain@{terrain}}
+\index{terrain@{terrain}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{terrain}{terrain}}
+{\footnotesize\ttfamily Terrain Game\+Controller.\+terrain}
+
+
+
+obiekt terenu 
+
+\mbox{\Hypertarget{class_game_controller_a6bd7b4713f46069190f15bb88183df7e}\label{class_game_controller_a6bd7b4713f46069190f15bb88183df7e}} 
+\index{GameController@{GameController}!wallPrefab@{wallPrefab}}
+\index{wallPrefab@{wallPrefab}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{wallPrefab}{wallPrefab}}
+{\footnotesize\ttfamily Game\+Object Game\+Controller.\+wall\+Prefab}
+
+
+
+prefab niezniszczalnej ściany 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_game_controller_8cs}{Game\+Controller.\+cs}}\end{DoxyCompactItemize}

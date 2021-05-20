@@ -1,24 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//! Klasa odpowiedzialna za zachowanie bomby
 public class Bomb : MonoBehaviour
 {
-    public int maxLifetime;				//maksymalny czas życia bomby
-    private int lifetime;				//pozostały czas życia bomby
-    private float fuseBurn;				//wartość przesunięcia lontu pomby
-    public int range;					//zasięg bomby
-    public GameObject xExplosion;		//obiekt odpowiedzialny za sprawdzanie postaci w zasięgu w osi X
-    public GameObject yExplosion;		//obiekt odpowiedzialny za sprawdzanie postaci w zasięgu w osi Y
-    public GameObject zExplosion;		//obiekt odpowiedzialny za sprawdzanie postaci w zasięgu w osi Z
-    public GameObject fuse;				//obiekt reprezentujący lont
-    public GameObject explosionEffect;	//prefab efektu eksplozji
-    public GameObject fireEffect;		//prefab efektu	płomienia
-    public GameObject playerCollider;	//obiekt odczytujący kolizję z graczem
-    public bool is3D;					//czy bomba ma wybuchać także w osi pionowej
-    private GameObject[] exp;			//tablica efektów eksplozji
-    private ParticleSystem[] par;		//tablica systemów cząsteczkowych eksplozji
-    private GameObject fire;			//obiekt efektu płomienia
+    public int maxLifetime;				//!< maksymalny czas życia bomby
+    private int lifetime;				//!< pozostały czas życia bomby
+    private float fuseBurn;				//!< wartość przesunięcia lontu pomby
+    public int range;					//!< zasięg bomby
+    public GameObject xExplosion;		//!< obiekt odpowiedzialny za sprawdzanie postaci w zasięgu w osi X
+    public GameObject yExplosion;		//!< obiekt odpowiedzialny za sprawdzanie postaci w zasięgu w osi Y
+    public GameObject zExplosion;		//!< obiekt odpowiedzialny za sprawdzanie postaci w zasięgu w osi Z
+    public GameObject fuse;				//!< obiekt reprezentujący lont
+    public GameObject explosionEffect;	//!< prefab efektu eksplozji
+    public GameObject fireEffect;		//!< prefab efektu	płomienia
+    public GameObject playerCollider;	//!< obiekt odczytujący kolizję z graczem
+    public bool is3D;					//!< czy bomba ma wybuchać także w osi pionowej
+    private GameObject[] exp;			//!< tablica efektów eksplozji
+    private ParticleSystem[] par;		//!< tablica systemów cząsteczkowych eksplozji
+    private GameObject fire;			//!< obiekt efektu płomienia
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +40,10 @@ public class Bomb : MonoBehaviour
 		//stworzenie efektu ognia
         fire = Instantiate(fireEffect, this.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
     }
-	//stworzenie efektów eksplozji z odpowiednim kątem bazując na id
+	/** funkcja tworzoąca efekt eksplozji z odpowiednim kątem bazując na id
+	 * @param id identyfikator kierunku efektu
+	 * @param angle kąt o który ma zostać obrócony efekt
+	 */
     void CreateParticleEffect(int id, float angle)
     {
         if(id<4)	//wybuchy znajdują się poziomo, więc obrót następuje wokół osi y

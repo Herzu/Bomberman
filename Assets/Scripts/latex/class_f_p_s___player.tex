@@ -1,0 +1,101 @@
+\hypertarget{class_f_p_s___player}{}\doxysection{Dokumentacja klasy FPS\+\_\+\+Player}
+\label{class_f_p_s___player}\index{FPS\_Player@{FPS\_Player}}
+
+
+Klasa odpowiedzialna za kontrolę gracza pierwszoosobowego.  
+
+
+Diagram dziedziczenia dla FPS\+\_\+\+Player\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_f_p_s___player}
+\end{center}
+\end{figure}
+\doxysubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_f_p_s___player_aaa5190c94746f1b41fc52ccb2cba56e6}{bomb\+Prefab}}
+\begin{DoxyCompactList}\small\item\em prefab bomby \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_f_p_s___player_a0de586cb6dd941026b3be0b0ef89d373}{thrown\+Bomb\+Prefab}}
+\begin{DoxyCompactList}\small\item\em prefab rzuconej bomby \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_f_p_s___player_a4152c0373fee79bd9b624eb0b458e6bd}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_f_p_s___player_a56b8f698070b6c8e719c863a2d81afa3}{Fixed\+Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_f_p_s___player_ad3bf26bd68d362325acc8f577fbaaee3}{bomb\+Speed}} = 10
+\begin{DoxyCompactList}\small\item\em prędkość rzutu bomby \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_f_p_s___player_a95e5cc71911e44949f37958c65c8e4b9}{cooldown}} = 0
+\begin{DoxyCompactList}\small\item\em czas odnowienia między rzutami bombami \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Dodatkowe Dziedziczone Składowe}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa odpowiedzialna za kontrolę gracza pierwszoosobowego. 
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_f_p_s___player_a56b8f698070b6c8e719c863a2d81afa3}\label{class_f_p_s___player_a56b8f698070b6c8e719c863a2d81afa3}} 
+\index{FPS\_Player@{FPS\_Player}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!FPS\_Player@{FPS\_Player}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void FPS\+\_\+\+Player.\+Fixed\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_f_p_s___player_a4152c0373fee79bd9b624eb0b458e6bd}\label{class_f_p_s___player_a4152c0373fee79bd9b624eb0b458e6bd}} 
+\index{FPS\_Player@{FPS\_Player}!Start@{Start}}
+\index{Start@{Start}!FPS\_Player@{FPS\_Player}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void FPS\+\_\+\+Player.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_f_p_s___player_aaa5190c94746f1b41fc52ccb2cba56e6}\label{class_f_p_s___player_aaa5190c94746f1b41fc52ccb2cba56e6}} 
+\index{FPS\_Player@{FPS\_Player}!bombPrefab@{bombPrefab}}
+\index{bombPrefab@{bombPrefab}!FPS\_Player@{FPS\_Player}}
+\doxysubsubsection{\texorpdfstring{bombPrefab}{bombPrefab}}
+{\footnotesize\ttfamily Game\+Object FPS\+\_\+\+Player.\+bomb\+Prefab}
+
+
+
+prefab bomby 
+
+\mbox{\Hypertarget{class_f_p_s___player_ad3bf26bd68d362325acc8f577fbaaee3}\label{class_f_p_s___player_ad3bf26bd68d362325acc8f577fbaaee3}} 
+\index{FPS\_Player@{FPS\_Player}!bombSpeed@{bombSpeed}}
+\index{bombSpeed@{bombSpeed}!FPS\_Player@{FPS\_Player}}
+\doxysubsubsection{\texorpdfstring{bombSpeed}{bombSpeed}}
+{\footnotesize\ttfamily int FPS\+\_\+\+Player.\+bomb\+Speed = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+prędkość rzutu bomby 
+
+\mbox{\Hypertarget{class_f_p_s___player_a95e5cc71911e44949f37958c65c8e4b9}\label{class_f_p_s___player_a95e5cc71911e44949f37958c65c8e4b9}} 
+\index{FPS\_Player@{FPS\_Player}!cooldown@{cooldown}}
+\index{cooldown@{cooldown}!FPS\_Player@{FPS\_Player}}
+\doxysubsubsection{\texorpdfstring{cooldown}{cooldown}}
+{\footnotesize\ttfamily int FPS\+\_\+\+Player.\+cooldown = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+czas odnowienia między rzutami bombami 
+
+\mbox{\Hypertarget{class_f_p_s___player_a0de586cb6dd941026b3be0b0ef89d373}\label{class_f_p_s___player_a0de586cb6dd941026b3be0b0ef89d373}} 
+\index{FPS\_Player@{FPS\_Player}!thrownBombPrefab@{thrownBombPrefab}}
+\index{thrownBombPrefab@{thrownBombPrefab}!FPS\_Player@{FPS\_Player}}
+\doxysubsubsection{\texorpdfstring{thrownBombPrefab}{thrownBombPrefab}}
+{\footnotesize\ttfamily Game\+Object FPS\+\_\+\+Player.\+thrown\+Bomb\+Prefab}
+
+
+
+prefab rzuconej bomby 
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_f_p_s___player_8cs}{FPS\+\_\+\+Player.\+cs}}\end{DoxyCompactItemize}
