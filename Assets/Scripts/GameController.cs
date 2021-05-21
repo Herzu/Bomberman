@@ -20,6 +20,7 @@ public class GameController: MonoBehaviour
     private bool isPaused;                      //!< czy gra jest spauzowana
     public UnityEvent OnPlayerWin;              //!< wydarzenie wywoływane przy końcu wygranej gracza
     public UnityEvent OnBotWin;                 //!< wydarzenie wywoływane przy końcu wygranej bota
+    public UnityEvent OnPause;                  //!< wydarzenie wywoływane przy kliknieciu pauzy
     private GameObject[] players;               //!< lista graczy
     private GameObject[] bots;                  //!< lista botów
     public int[] controlls;                     //!< lista wybranych graczy i wybranych kontrollerów
@@ -356,9 +357,20 @@ public class GameController: MonoBehaviour
                 break;
             }
         }
+
+        //sprawdzenie czy pauza została wywołana
+        CheckPause();
         //sprawdzenie czy gra się nie skończyła
         CheckGameover();
     }
+
+    /**  funkcja sprawdzająca czy gracz chce spauzować grę*/
+    private void CheckPause() {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            PauseGame();
+        }
+    }
+
     /**  funkcja sprawdzająca czy gra się skończyła*/
     private void CheckGameover() {
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -386,10 +398,12 @@ public class GameController: MonoBehaviour
         }
 
         //sprawdzenie kto wygrał
-        if (players.Length == 1 && bots.Length == 0) {
-            OnPlayerWin.Invoke();
-        } else if (bots.Length == 1 && players.Length == 0) {
-            OnBotWin.Invoke();
+        if (PlayerPrefs.GetString("playerMode") == "TPP") {
+            if (players.Length == 1 && bots.Length == 0) {
+                OnPlayerWin.Invoke();
+            } else if (bots.Length == 1 && players.Length == 0) {
+                OnBotWin.Invoke();
+            }
         }
     }
     /**  funkcja dodająca powerupu do kolejki
@@ -402,6 +416,7 @@ public class GameController: MonoBehaviour
     /**  funkcja pauzująca grę*/
     public void PauseGame() {
         if(!isPaused) {
+            OnPause.Invoke();
             Time.timeScale = 0;
             isPaused = true;
         }
