@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 417869374698929774}
-  speed: 3
   bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
     type: 3}
   animator: {fileID: 3578699052831085983}
   camera: {fileID: 0}
+  speed: 3
 --- !u!114 &3599376140557308978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,11 +136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 417869374698929774}
-  speed: 3
   bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
     type: 3}
   animator: {fileID: 3578699052831085983}
   camera: {fileID: 0}
+  speed: 3
 --- !u!114 &8905514052767947256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,11 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 417869374698929774}
-  speed: 3
   bombPrefab: {fileID: 4856695417023302876, guid: b66878bafbe01a14181cc22c9878eee3,
     type: 3}
   animator: {fileID: 3578699052831085983}
   camera: {fileID: 0}
+  speed: 3
 --- !u!54 &7302472336152877017
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 0e205dc6618f5704bb5c57647a021ef2, type: 2}
+      objectReference: {fileID: 9100000, guid: 74b0078f82088af48b7995fca8a525db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86941eb1ed2411d49adb107b2bf5237f, type: 3}
 --- !u!4 &7442826237304360933 stripped

@@ -103,7 +103,6 @@ public class WASDController : MonoBehaviour
     }
     if (cooldown != 0)
       cooldown--;
-    cooldown--;
     // ok. koniec animacji      
     if (cooldown == 0)
     {
