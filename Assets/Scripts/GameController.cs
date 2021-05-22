@@ -18,7 +18,9 @@ public class GameController: MonoBehaviour
     public int mapYSize;                        //!< rozmiar mpay w osi Y
     public int mapZSize = 1;                    //!< wysokość mapy
     private bool isPaused;                      //!< czy gra jest spauzowana
-    public UnityEvent OnGameOver;               //!< wydarzenie wywoływane przy końcu gry
+    public UnityEvent OnPlayerWin;              //!< wydarzenie wywoływane przy końcu wygranej gracza
+    public UnityEvent OnBotWin;                 //!< wydarzenie wywoływane przy końcu wygranej bota
+    public UnityEvent OnPause;                  //!< wydarzenie wywoływane przy kliknieciu pauzy
     private GameObject[] players;               //!< lista graczy
     private GameObject[] bots;                  //!< lista botów
     public int[] controlls;                     //!< lista wybranych graczy i wybranych kontrollerów
@@ -355,11 +357,23 @@ public class GameController: MonoBehaviour
                 break;
             }
         }
+
+        //sprawdzenie czy pauza została wywołana
+        CheckPause();
         //sprawdzenie czy gra się nie skończyła
         CheckGameover();
     }
+
+    /**  funkcja sprawdzająca czy gracz chce spauzować grę*/
+    private void CheckPause() {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            PauseGame();
+        }
+    }
+
     /**  funkcja sprawdzająca czy gra się skończyła*/
     private void CheckGameover() {
+        players = GameObject.FindGameObjectsWithTag("Player");
         //sprawdzenie czy którykolwiek z graczy jest martwy
         foreach (GameObject player in players) {
             Character playerScript = null;
@@ -368,20 +382,27 @@ public class GameController: MonoBehaviour
             }
             if (playerScript && playerScript.isDead()) {
                 playerScript.handleGameover();
-                OnGameOver.Invoke();
             }
         }
+
+        bots = GameObject.FindGameObjectsWithTag("Bot");
         //sprawdzenie czy którykolwiek z botów jest martwy
-        foreach (GameObject bot in bots)
-        {
+        foreach (GameObject bot in bots) {
             Character botScript = null;
-            if (bot)
-            {
+            if (bot) {
                 botScript = bot.GetComponent<Character>();
             }
-            if (botScript && botScript.isDead())
-            {
+            if (botScript && botScript.isDead()) {
                 botScript.handleGameover();
+            }
+        }
+
+        //sprawdzenie kto wygrał
+        if (PlayerPrefs.GetString("playerMode") == "TPP") {
+            if (players.Length == 1 && bots.Length == 0) {
+                OnPlayerWin.Invoke();
+            } else if (bots.Length == 1 && players.Length == 0) {
+                OnBotWin.Invoke();
             }
         }
     }
@@ -395,6 +416,7 @@ public class GameController: MonoBehaviour
     /**  funkcja pauzująca grę*/
     public void PauseGame() {
         if(!isPaused) {
+            OnPause.Invoke();
             Time.timeScale = 0;
             isPaused = true;
         }

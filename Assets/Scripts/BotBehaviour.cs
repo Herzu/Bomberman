@@ -164,7 +164,7 @@ public class BotBehaviour : Character
     {
         foreach(Vector3 pos in availablePositions)
         {
-            Debug.Log(pos);
+            // Debug.Log(pos);
         }
     }
 
@@ -187,8 +187,8 @@ public class BotBehaviour : Character
                 destination.x = pos.x*2-1;
             }
         }
-        Debug.Log(destination.x);
-        Debug.Log(destination.z);
+        // Debug.Log(destination.x);
+        // Debug.Log(destination.z);
         agent.SetDestination(destination);
         state = BotState.moving;
     }
