@@ -37,7 +37,7 @@ public class ThrownBomb : MonoBehaviour
         GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
         //przekazanie czasu życia
         bomb.GetComponent<Bomb>().maxLifetime = bombLifetime;
-        //przekazanie zasięgu i czasów życai do obiektów odpowiadających za zadawanie obrażeń
+        //przekazanie zasięgu i czasów życia do obiektów odpowiadających za zadawanie obrażeń
         bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * range, 1, 1);
         bomb.transform.GetChild(1).GetComponent<BombExplosion>().lifetime = bombLifetime;
         bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * range, 1);
