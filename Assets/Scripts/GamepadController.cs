@@ -76,20 +76,27 @@ public class GamepadController : MonoBehaviour
     // ok. polowa czasu stawiania bomby
     if (cooldown == 75)
     {
+	  //pobranie zasięgu i czasu życia bomby ze skryptu postaci
       int range = character.range;
       int bombLifetime = character.bombLifetime;
+	  //obliczenie bazowego wektora (z float na int)
       Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)this.transform.position.y, (int)this.transform.position.z);
+	  //obliczenie wektora pozycji stawiającego bombę na środku pola
       Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 - (intVector.z) % 2);
+	  //stworzenie bomby
       GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
+	  //przekazanie czasu życia
       bomb.GetComponent<Bomb>().maxLifetime = bombLifetime;
-      bomb.GetComponent<Rigidbody>().velocity = this.gameObject.transform.forward * 0;
+      //przekazanie zasięgu i czasów życia do obiektów odpowiadających za zadawanie obrażeń
       bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * range, 1, 1);
       bomb.transform.GetChild(1).GetComponent<BombExplosion>().lifetime = bombLifetime;
       bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * range, 1);
       bomb.transform.GetChild(2).GetComponent<BombExplosion>().lifetime = bombLifetime;
       bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
       bomb.transform.GetChild(3).GetComponent<BombExplosion>().lifetime = bombLifetime;
+	  //przekazanie wartości trójwymiarowości do bomby
       bomb.GetComponent<Bomb>().is3D = false;
+	  //przekazanie zasięgu do bomby
       bomb.GetComponent<Bomb>().range = range;
     }
     if (cooldown != 0)
