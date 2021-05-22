@@ -13,6 +13,7 @@ public class WASDController : MonoBehaviour
   public Animator animator;                       //<! animator postaci
   public Camera camera;                           //<! kamera
   private Character character;                    //<! logika postaci
+  public int speed;                               //<! szybkość poruszania się
   private void Awake()
   {
     // inicjalizacja logiki postaci
