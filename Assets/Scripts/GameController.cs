@@ -35,7 +35,7 @@ public class GameController: MonoBehaviour
     public int bombLifetime = 500;              //!< startowy czas życia bomb
     int[] powerupDropTable;                     //!< tablica informująca który powerup został wylosowany
 
-    bool isGameOver = false;                     //!< czy gra została zakonczona
+    bool isGameOver;                     //!< czy gra została zakonczona
     void Awake()
     {   
         //inicjalizacja wartości startowych
@@ -46,6 +46,8 @@ public class GameController: MonoBehaviour
         Time.timeScale = 1;
         //wyłączenie pauzy
         isPaused = false;
+        //wylaczenie konca gry
+        isGameOver = false;
         //inicjalizacja kolejki powerupów
         powerups = new Queue<Vector3>();
         //ustalenie romiaru terenu
@@ -399,17 +401,15 @@ public class GameController: MonoBehaviour
         }
 
         //sprawdzenie kto wygrał
-        if (PlayerPrefs.GetString("playerMode") == "TPP") {
-            if (players.Length == 1 && bots.Length == 0) {
-                if (!isGameOver) {
+        if (!isGameOver) {
+            if (PlayerPrefs.GetString("playerMode") == "TPP") {
+                if (players.Length == 1 && bots.Length == 0) {
                     OnPlayerWin.Invoke();
                     this.isGameOver = true;
-                }
-            } else if (bots.Length == 1 && players.Length == 0) {
-                if (!isGameOver) {
+                } else if (bots.Length == 1 && players.Length == 0) {
                     OnBotWin.Invoke();
                     this.isGameOver = true;
-                }   
+                }
             }
         }
     }
