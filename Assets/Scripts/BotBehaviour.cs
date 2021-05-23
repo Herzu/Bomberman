@@ -333,24 +333,26 @@ public class BotBehaviour : Character
      */
     void escape()
     {
-        
         //wybranie losoewgo elementu z listy dostępnych wspólrzędnych
-        int rnd = Random.Range(0, availablePositions.Count - 1);
-        Vector3 dest = availablePositions[rnd];
-        while(elementMap[(int)dest.x, (int)dest.z] == "bomb" || elementMap[(int)dest.x, (int)dest.z] == "explosion")
+        if (availablePositions.Count > 0)
         {
-            rnd = Random.Range(0, availablePositions.Count - 1);
-            dest = availablePositions[rnd];
+            int rnd = Random.Range(0, availablePositions.Count - 1);
+            Vector3 dest = availablePositions[rnd];
+            while (elementMap[(int)dest.x, (int)dest.z] == "bomb" || elementMap[(int)dest.x, (int)dest.z] == "explosion")
+            {
+                rnd = Random.Range(0, availablePositions.Count - 1);
+                dest = availablePositions[rnd];
+            }
+            //ustawienie celu na wylosowaną pozycję
+            agent.SetDestination(dest);
         }
-        //ustawienie celu na wylosowaną pozycję
-        agent.SetDestination(dest);
         //wybranie losowo liczby między 0 a 2
-        rnd = Random.Range(0, 2);
+        int rnd2 = Random.Range(0, 2);
         //losowe wybranie kolejnego stanu - 33,3% szansy, że bot będzie w następnym ruchu ścigał gracza
         //66,6% szansy, że następny ruch bota będzie losowy
-        if (rnd == 0)
+        if (rnd2 == 0)
             state = BotState.runningAway;
-        if (rnd > 0)
+        if (rnd2 > 0)
             state = BotState.moving;
     }
     /**
