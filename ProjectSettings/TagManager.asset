@@ -11,6 +11,8 @@ TagManager:
   - Powerup
   - Wall
   - Bot
+  - Fire
+  - Bomb
   layers:
   - Default
   - TransparentFX

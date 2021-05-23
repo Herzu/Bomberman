@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class BotBehaviour : Character
 {
+    private Character character;
+    public Animator animator;
     public GameObject bombPrefab; //!< model podstawianej bomby
     int cooldown = 0;   //!< licznik czasu, który musi upłynać, żeby podstawić kolejną bombę
     private List<Vector3> availablePositions = new List<Vector3>(); //!< lista dostępnych pozycji na mapie
@@ -12,11 +14,13 @@ public class BotBehaviour : Character
     public NavMeshAgent agent;  //!< NavMeshAgent pozwalający przeciwnikom korzystać z NavMesha na mapie
     public GameObject player; //!< wskaźnik na gracza
     int playerX, playerY; //!< współrzędne gracza na mapie
-    enum BotState { moving, escaping, planting, stationary, runningAway}; //!< stany, w których może znajdować się bot
+    enum BotState { moving, escaping, planting, stationary, runningAway }; //!< stany, w których może znajdować się bot
     BotState state = BotState.stationary; //!< aktualny stan bota
     // Start is called before the first frame update
     void Start()
     {
+        range = 1;
+        bombLifetime = 250;
         Init();
         //pobranie obiektu GameControllera i pobranie z niego rozmiarów mapy
         GameObject go = GameObject.Find("GameController");
@@ -32,10 +36,13 @@ public class BotBehaviour : Character
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (cooldown != 0)
+        {
+            //Debug.Log(cooldown);
+            cooldown--;
+        }
         checkBomb();
         checkImmunity();
-        if (cooldown != 0)
-            cooldown--;
         for (int i = 0; i < elementMap.GetUpperBound(0); i++)
         {
             for (int j = 0; j < elementMap.GetUpperBound(1); j++)
@@ -44,6 +51,11 @@ public class BotBehaviour : Character
 
             }
         }
+        if (cooldown < 10)
+        {
+            // wylaczenie animacji stawiania bomby        
+            animator.SetBool("isPlanting", false);
+        }
         //aktualizacja tabeli
         tableSetup();
         //aktualizacja listy dostępnych współrzędnych
@@ -51,29 +63,29 @@ public class BotBehaviour : Character
         //określenie kolejnego ruchu bota
         switch (state)
         {
-                //w stanie stationary bot wyszukuje cel (gracza)
+            //w stanie stationary bot wyszukuje cel (gracza)
             case BotState.stationary:
                 findTarget();
                 break;
-                //w stanie planting bot podkłada bombę, znajduje ponownie dostępne miejsca i przechodzi w stan escaping
+            //w stanie planting bot podkłada bombę, znajduje ponownie dostępne miejsca i przechodzi w stan escaping
             case BotState.planting:
                 plantBomb();
                 findAvailable();
                 break;
-                //w stanie moving bot sprawdza, czy dotarł do miejsca podłożenia bomby
+            //w stanie moving bot sprawdza, czy dotarł do miejsca podłożenia bomby
             case BotState.moving:
                 checkDestinationReached();
                 break;
-                //w stanie escaping bot rozpoczyna ucieczkę z miejsca podłożenia bomby
+            //w stanie escaping bot rozpoczyna ucieczkę z miejsca podłożenia bomby
             case BotState.escaping:
                 escape();
                 break;
-                //w stanie runningAway bot sprawdza, czy dtarłdo celu ucieczki
+            //w stanie runningAway bot sprawdza, czy dtarłdo celu ucieczki
             case BotState.runningAway:
                 chooseTarget();
                 break;
 
-        } 
+        }
     }
     /**
      *Funkcja aktualizująca dane w tablicy położenia elementów na mapie 
@@ -181,22 +193,25 @@ public class BotBehaviour : Character
         int minX = 1000, minY = 1000, tempX, tempY;
         foreach (Vector3 pos in availablePositions)
         {
-            //obliczenie wartości bezwzględnej odległosci między graczem a danymi z listy jako zmienna tymczasowa
-            tempX = (int)Mathf.Abs(playerX - pos.x);
-            tempY = (int)Mathf.Abs(playerY - pos.z);
-            if (tempY < minY)
+            if(elementMap[(int)pos.x, (int)pos.z] != "bomb" || elementMap[(int)pos.x, (int)pos.z] != "explosion")
             {
-                //jeśli zmienna tymczasowa jest mniejsza od dotychczasowego minimum to zmieniamy minimum
-                //i ustawiamy wspólrzędną z wektora docelowego odpowiednio przeliczając dane z listy
-                minY = tempY;
-                destination.z = pos.z * 2 - 1;
-            }
-            if (tempX < minX)
-            {
-                //jeśli zmienna tymczasowa jest mniejsza od dotychczasowego minimum to zmieniamy minimum
-                //i ustawiamy wspólrzędną z wektora docelowego odpowiednio przeliczając dane z listy
-                minX = tempX;
-                destination.x = pos.x * 2 - 1;
+                //obliczenie wartości bezwzględnej odległosci między graczem a danymi z listy jako zmienna tymczasowa
+                tempX = (int)Mathf.Abs(playerX - pos.x);
+                tempY = (int)Mathf.Abs(playerY - pos.z);
+                if (tempY < minY)
+                {
+                    //jeśli zmienna tymczasowa jest mniejsza od dotychczasowego minimum to zmieniamy minimum
+                    //i ustawiamy wspólrzędną z wektora docelowego odpowiednio przeliczając dane z listy
+                    minY = tempY;
+                    destination.z = pos.z * 2 - 1;
+                }
+                if (tempX < minX)
+                {
+                    //jeśli zmienna tymczasowa jest mniejsza od dotychczasowego minimum to zmieniamy minimum
+                    //i ustawiamy wspólrzędną z wektora docelowego odpowiednio przeliczając dane z listy
+                    minX = tempX;
+                    destination.x = pos.x * 2 - 1;
+                }
             }
         }
         //ustawiamy cel bota na wsólrzędne wektora docelowego
@@ -223,28 +238,42 @@ public class BotBehaviour : Character
      */
     void plantBomb()
     {
-        
+
         if (cooldown == 0)
         {
-            //obliczenie współrzędnych na które podstawić bombę
-            Vector3Int intVector = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
+            // wlaczenie animacji stawiania bomby
+            animator.SetBool("isPlanting", true);
+            // ustawienie opoznienia na ok. czas stawiania bomby
+            cooldown = 150;
+        }
+        if (cooldown == 75)
+        {
+            //pobranie zasięgu i czasu życia bomby ze skryptu postaci
+            int range = this.range;
+            int bombLifetime = this.bombLifetime;
+            //obliczenie bazowego wektora (z float na int)
+            Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)this.transform.position.y, (int)this.transform.position.z);
+            //obliczenie wektora pozycji stawiającego bombę na środku pola
             Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 - (intVector.z) % 2);
-            //utworzenie klona modelu bomby
+            //stworzenie bomby
             GameObject bomb = Instantiate(bombPrefab, bombPlacement, Quaternion.identity);
-            //ustawienie odpowiednich parametrów bomby na zdefiniowane przez nas wartości
+            //przekazanie czasu życia
             bomb.GetComponent<Bomb>().maxLifetime = bombLifetime;
+            //przekazanie zasięgu i czasów życia do obiektów odpowiadających za zadawanie obrażeń
             bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * range, 1, 1);
             bomb.transform.GetChild(1).GetComponent<BombExplosion>().lifetime = bombLifetime;
             bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * range, 1);
             bomb.transform.GetChild(2).GetComponent<BombExplosion>().lifetime = bombLifetime;
             bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
             bomb.transform.GetChild(3).GetComponent<BombExplosion>().lifetime = bombLifetime;
+            //przekazanie wartości trójwymiarowości do bomby
             bomb.GetComponent<Bomb>().is3D = false;
+            //przekazanie zasięgu do bomby
             bomb.GetComponent<Bomb>().range = range;
-            //zwiększenie cooldownu
-            cooldown = 100;
         }
         //zmiana stanu bota
+        if (animator.GetBool("isPlanting") == true)
+            return;
         state = BotState.escaping;
     }
     /**
@@ -266,31 +295,32 @@ public class BotBehaviour : Character
             int a = 1;
             //dopóki a jest mniejsze niż zasięg i nie napotkaliśly ściany wpisujemy
             //w odpowiednie miejsca tabeli elementów ostrzeżenie o ekspolzji w każdym z kierunków
-            while (a < rad && elementMap[x + a, y] != "wall")
+            while (a <= rad && elementMap[x + a, y] != "wall")
             {
+                Debug.Log(x+a);
                 elementMap[x + a, y] = "explosion";
                 a++;
             }
             a = 1;
-            while (a < rad && elementMap[x - a, y] != "wall")
+            while (a <= rad && elementMap[x - a, y] != "wall")
             {
                 elementMap[x - a, y] = "explosion";
                 a++;
             }
             a = 1;
-            while (a < rad && elementMap[x, y + a] != "wall")
+            while (a <= rad && elementMap[x, y + a] != "wall")
             {
                 elementMap[x, y + a] = "explosion";
                 a++;
             }
             a = 1;
-            while (a < rad && elementMap[x, y - a] != "wall")
+            while (a <= rad && elementMap[x, y - a] != "wall")
             {
                 elementMap[x, y - a] = "explosion";
                 a++;
             }
             //usuwanie pozycji z bombami z listy dostępnych współrzędnych 
-            for (int i = availablePositions.Count - 1; i > -1; i--)
+             for (int i = availablePositions.Count - 1; i > -1; i--)
             {
                 if (availablePositions[i].x == x && availablePositions[i].z == y)
                 {
@@ -304,9 +334,15 @@ public class BotBehaviour : Character
      */
     void escape()
     {
+        
         //wybranie losoewgo elementu z listy dostępnych wspólrzędnych
         int rnd = Random.Range(0, availablePositions.Count - 1);
         Vector3 dest = availablePositions[rnd];
+        while(elementMap[(int)dest.x, (int)dest.z] == "bomb" || elementMap[(int)dest.x, (int)dest.z] == "explosion")
+        {
+            rnd = Random.Range(0, availablePositions.Count - 1);
+            dest = availablePositions[rnd];
+        }
         //ustawienie celu na wylosowaną pozycję
         agent.SetDestination(dest);
         //wybranie losowo liczby między 0 a 2
