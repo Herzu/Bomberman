@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['speed_287',['speed',['../class_arrows_controller.html#ad3fdd1b77612ac1eeb434b01bd9ce63f',1,'ArrowsController.speed()'],['../class_character.html#a9da48d375d938eddc1dbc79060078a61',1,'Character.speed()'],['../class_gamepad_controller.html#abd57af003b1d9cc79189f27c9dbb50d0',1,'GamepadController.speed()'],['../class_w_a_s_d_controller.html#a25cfa623c0b08ab06cc08d5b5113e2a2',1,'WASDController.speed()']]],
-  ['state_288',['state',['../class_bot_behaviour.html#a12eb8c18b6852d46a3b379e032d7071d',1,'BotBehaviour']]]
+  ['range_455',['range',['../class_bomb.html#a6cf54e6ff1c1e091c47bf0ad3a5b6b2a',1,'Bomb.range()'],['../class_character.html#a310e425426917b3843150d633832fe6d',1,'Character.range()'],['../class_thrown_bomb.html#a6da6e08c21052b838193b6cc58987885',1,'ThrownBomb.range()']]],
+  ['resolutiondropdown_456',['resolutionDropdown',['../class_settings_menu.html#ab0df79c7d9415bcb605cd6236f1be238',1,'SettingsMenu']]],
+  ['resolutions_457',['resolutions',['../class_settings_menu.html#a210d41a46c4293e55b5366b1437bd7f3',1,'SettingsMenu']]]
 ];

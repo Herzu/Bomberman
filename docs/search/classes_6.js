@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['thrownbomb_162',['ThrownBomb',['../class_thrown_bomb.html',1,'']]]
+  ['multiplayerplayerssettings_256',['MultiplayerPlayersSettings',['../class_multiplayer_players_settings.html',1,'']]]
 ];

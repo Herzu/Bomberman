@@ -1,11 +1,15 @@
 var searchData=
 [
-  ['objectcollisions_98',['objectCollisions',['../class_bomb_explosion.html#ae52c3e586920ed62f8f73cb7a65be29d',1,'BombExplosion']]],
-  ['onbotwin_99',['OnBotWin',['../class_game_controller.html#a59b956e8c895f70979933912d6d40255',1,'GameController']]],
-  ['oncollisionenter_100',['OnCollisionEnter',['../class_push_bomb.html#af6473007a7e79d0bd44faabb20c4775a',1,'PushBomb.OnCollisionEnter()'],['../class_thrown_bomb.html#a72ec966258539e4febd3bacb263fd12c',1,'ThrownBomb.OnCollisionEnter()']]],
-  ['ondestroy_101',['OnDestroy',['../class_block_destroy.html#afbf2416d34d1776020e96a9b2c5f6f4b',1,'BlockDestroy']]],
-  ['onpause_102',['OnPause',['../class_game_controller.html#aedd2ca516a2f65e8b9ebd91be56b21f2',1,'GameController']]],
-  ['onplayerwin_103',['OnPlayerWin',['../class_game_controller.html#ae0198693694953eb66fd4f1f7418aade',1,'GameController']]],
-  ['ontriggerenter_104',['OnTriggerEnter',['../class_bomb_explosion.html#af9dea916e5e86c657f4d98c6911a56a7',1,'BombExplosion.OnTriggerEnter()'],['../class_powerup_pickup.html#ac9d46a9e1ab745da000e6f3c3473c522',1,'PowerupPickup.OnTriggerEnter()']]],
-  ['ontriggerexit_105',['OnTriggerExit',['../class_bomb_explosion.html#abfa88cefdb59d912f1864ba491cf732e',1,'BombExplosion']]]
+  ['mapheight_136',['mapHeight',['../class_character.html#ab98a0181225fe520df16284025c0e3a4',1,'Character']]],
+  ['mapvisualization_137',['mapVisualization',['../class_game_map_settings.html#ae5f39f681a8880bdeb0342bdaa671174',1,'GameMapSettings']]],
+  ['mapxsize_138',['mapXSize',['../class_game_controller.html#a273f24d33ba57941f9045d571bf527cb',1,'GameController']]],
+  ['mapysize_139',['mapYSize',['../class_game_controller.html#a3e246b73653fc9a2ffbb528ec3f4b35c',1,'GameController']]],
+  ['mapzsize_140',['mapZSize',['../class_game_controller.html#a22549bb6fb31df7b267c6963ec0b5330',1,'GameController']]],
+  ['maxfpsvalue_141',['maxFpsValue',['../class_settings_menu.html#a2eab13c3635b314d16cb62a570c6947b',1,'SettingsMenu']]],
+  ['maxlifetime_142',['maxLifetime',['../class_bomb.html#a6ffe794289ec9af47ae97e031a8f0e7c',1,'Bomb']]],
+  ['move_143',['Move',['../class_arrows_controller.html#a6f9bae7ee846eb371bada1cec27d5b35',1,'ArrowsController.Move()'],['../class_gamepad_controller.html#af42269336e1d4a11f6b7721810a8d922',1,'GamepadController.Move()'],['../class_w_a_s_d_controller.html#a967924d7b265484a8cb6e5d79e101452',1,'WASDController.Move()']]],
+  ['movetoplace_144',['moveToPlace',['../class_character.html#a61103fcba556128744ca513fc91be657',1,'Character']]],
+  ['moving_145',['moving',['../class_bot_behaviour.html#a4a2f56f4009c078f98e6e238f730a3a2a7b3ef1b118f53a58660b8530d1aa4683',1,'BotBehaviour']]],
+  ['multiplayerplayerssettings_146',['MultiplayerPlayersSettings',['../class_multiplayer_players_settings.html',1,'']]],
+  ['multiplayerplayerssettings_2ecs_147',['MultiplayerPlayersSettings.cs',['../_multiplayer_players_settings_8cs.html',1,'']]]
 ];

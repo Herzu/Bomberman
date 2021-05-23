@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['yexplosion_296',['yExplosion',['../class_bomb.html#a4f3b83ff8b210558f1785fb83d002937',1,'Bomb']]]
+  ['xexplosion_469',['xExplosion',['../class_bomb.html#a62532909727e30376437ef7b681247e7',1,'Bomb']]],
+  ['xsize_470',['xSize',['../class_game_map_settings.html#ab1110bcb1cabdef594215df3094659a5',1,'GameMapSettings']]],
+  ['xslider_471',['xSlider',['../class_game_map_settings.html#a432367c73e4be47026cd86b641d04783',1,'GameMapSettings']]]
 ];

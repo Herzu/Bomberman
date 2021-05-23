@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['mapheight_90',['mapHeight',['../class_character.html#ab98a0181225fe520df16284025c0e3a4',1,'Character']]],
-  ['mapxsize_91',['mapXSize',['../class_game_controller.html#a273f24d33ba57941f9045d571bf527cb',1,'GameController']]],
-  ['mapysize_92',['mapYSize',['../class_game_controller.html#a3e246b73653fc9a2ffbb528ec3f4b35c',1,'GameController']]],
-  ['mapzsize_93',['mapZSize',['../class_game_controller.html#a22549bb6fb31df7b267c6963ec0b5330',1,'GameController']]],
-  ['maxlifetime_94',['maxLifetime',['../class_bomb.html#a6ffe794289ec9af47ae97e031a8f0e7c',1,'Bomb']]],
-  ['move_95',['Move',['../class_arrows_controller.html#a6f9bae7ee846eb371bada1cec27d5b35',1,'ArrowsController.Move()'],['../class_gamepad_controller.html#af42269336e1d4a11f6b7721810a8d922',1,'GamepadController.Move()'],['../class_w_a_s_d_controller.html#a967924d7b265484a8cb6e5d79e101452',1,'WASDController.Move()']]],
-  ['movetoplace_96',['moveToPlace',['../class_character.html#a61103fcba556128744ca513fc91be657',1,'Character']]],
-  ['moving_97',['moving',['../class_bot_behaviour.html#a4a2f56f4009c078f98e6e238f730a3a2a7b3ef1b118f53a58660b8530d1aa4683',1,'BotBehaviour']]]
+  ['lifes_127',['lifes',['../class_character.html#abd67b98e8f4ffd069c52b2e7baa814f6',1,'Character']]],
+  ['lifesamount_128',['lifesAmount',['../class_game_map_settings.html#a83c287921009c4c5ff53c5a677d5617a',1,'GameMapSettings']]],
+  ['lifesimageobject_129',['lifesImageObject',['../class_player_u_i_updater.html#a01d8ef4f7a1a02a4eee2912dad8ff3fe',1,'PlayerUIUpdater']]],
+  ['lifesslider_130',['lifesSlider',['../class_game_map_settings.html#a71589da4d4df5063ec27e3b204a6bd45',1,'GameMapSettings']]],
+  ['lifessprite_131',['lifesSprite',['../class_player_u_i_updater.html#a47c13f9910cf3d1b4926dbdf96b49a94',1,'PlayerUIUpdater']]],
+  ['lifestext_132',['lifesText',['../class_player_u_i_updater.html#a04715dfb04a880f0d9b87289cd5bd225',1,'PlayerUIUpdater']]],
+  ['lifetime_133',['lifetime',['../class_bomb.html#a5f72fd2965c78c849c24faab743f09c0',1,'Bomb.lifetime()'],['../class_bomb_explosion.html#a878175e73a3b6d8f676edbd4020ac286',1,'BombExplosion.lifetime()']]],
+  ['loadscenefader_134',['LoadSceneFader',['../class_scene_changer.html#ac81abe0a268e138c1835bf9198eafbcc',1,'SceneChanger']]],
+  ['lowerwalllimit_135',['lowerWallLimit',['../class_bomb_explosion.html#a15bc1eaa1e426bffa37f420df3aa1b84',1,'BombExplosion']]]
 ];
