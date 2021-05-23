@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//! Klasa obługujaca boty
 public class BotBehaviour : Character
 {
     private Character character;
@@ -38,7 +39,6 @@ public class BotBehaviour : Character
     {
         if (cooldown != 0)
         {
-            //Debug.Log(cooldown);
             cooldown--;
         }
         checkBomb();
@@ -297,7 +297,6 @@ public class BotBehaviour : Character
             //w odpowiednie miejsca tabeli elementów ostrzeżenie o ekspolzji w każdym z kierunków
             while (a <= rad && elementMap[x + a, y] != "wall")
             {
-                Debug.Log(x+a);
                 elementMap[x + a, y] = "explosion";
                 a++;
             }
