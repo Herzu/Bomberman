@@ -28,12 +28,14 @@ public class InterfaceManager : MonoBehaviour
 	 */
     public void ChangePanel(GameObject panelToOpen) {
         activePanel = GameObject.FindGameObjectWithTag("Panel");
-        FadeManager.instance.FadeOut(activePanel);
-        activePanel.SetActive(false);
-        activePanel = panelToOpen;
-        activePanel.SetActive(true);
-        activePanel.GetComponent<CanvasGroup>().alpha = 0;
-        FadeManager.instance.FadeIn(activePanel);
+        if(activePanel) {
+            FadeManager.instance.FadeOut(activePanel);
+            activePanel.SetActive(false);
+            activePanel = panelToOpen;
+            activePanel.SetActive(true);
+            activePanel.GetComponent<CanvasGroup>().alpha = 0;
+            FadeManager.instance.FadeIn(activePanel);
+        }
     }
 
     /** Funkcja zamykajaca aplikacje */
