@@ -11,7 +11,18 @@ sysinfo.txt
 /Assets/AssetStoreTools*
 *.apk
 *.unitypackage
- 
+
+Projekt/[Tt]emp/
+Projekt/[Oo]bj/
+Projekt/[Bb]uild
+Projekt/[Bb]uilds/
+Projekt/[Ll]ibrary/
+Projekt/sysinfo.txt
+Projekt/*.stackdump
+Projekt/Assets/AssetStoreTools*
+Projekt/*.apk
+Projekt/*.unitypackage
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -29,6 +40,21 @@ sysinfo.txt
 .consulo/
 /*.tmp
 /*.svd
+
+Projekt/[Ee]xported[Oo]bj/
+Projekt/.vs/
+Projekt/*.userprefs
+Projekt/*.csproj
+Projekt/*.pidb
+Projekt/*.pidb.meta
+Projekt/*.suo
+Projekt/*.sln*
+Projekt/*.user
+Projekt/*.unityproj
+Projekt/*.booproj
+Projekt/.consulo/
+Projekt/*.tmp
+Projekt/*.svd
  
 # ============ #
 # OS generated #
@@ -44,3 +70,4 @@ ehthumbs.db
 Corridor/Library/ShaderCache/
 Corridor/Library/metadata/
 .vscode
+Projekt/Library

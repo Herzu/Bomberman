@@ -11,7 +11,7 @@ public class WASDController : MonoBehaviour
   public GameObject bombPrefab;                   //<! prefab bomby
   int cooldown = 0;                               //<! opoznienie w stawianiu bomby
   public Animator animator;                       //<! animator postaci
-  public Camera camera;                           //<! kamera
+  // public Camera camera;                           //<! kamera
   private Character character;                    //<! logika postaci
   public int speed;                               //<! szybkość poruszania się
   private void Awake()
@@ -55,7 +55,7 @@ public class WASDController : MonoBehaviour
     // wykonanie ruchu przy uzyciu CharacterController
     characterController.Move(speed * Time.deltaTime * move);
     // przesuniecie kamery
-    camera.transform.position = this.transform.position + new Vector3(0, 9, 0);
+    // camera.transform.position = this.transform.position + new Vector3(0, 9, 0);
     // wlaczenie animacji chodzenia
     animator.SetBool("isWalking", horizontalMove != 0 || verticalMove != 0);
   }
