@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{53C8BBCB-E937-81A4-B932-A92FD8FEBDE3}</ProjectGuid>
+    <ProjectGuid>{FDE76E55-8F95-B17A-F5EB-F218F1B07F99}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -256,16 +256,34 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Assets/3RDParty/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Assets/3RDParty/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Assets/3RDParty/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Assets/3RDParty/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="PackageManagerAssembly">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Assets/3RDParty/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Assets/3RDParty/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.Protobuf">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.barracuda@1.0.4/Barracuda/Runtime/Plugins/ProtoBuffer/Google.Protobuf.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst.Unsafe">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.burst@1.3.4/Unity.Burst.Unsafe.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.Abstractions">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/System.IO.Abstractions.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.Abstractions.TestingHelpers">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/System.IO.Abstractions.TestingHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="Grpc.Core">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/ProtoBuffer/Grpc.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Interactive.Async">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/ProtoBuffer/System.Interactive.Async.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -622,59 +640,95 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Barracuda.MacBLAS">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.MacBLAS.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Barracuda.Editor">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst.Editor">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InputSystem">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Barracuda">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Barracuda.iOSBLAS">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.iOSBLAS.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ML-Agents.CommunicatorObjects">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.ML-Agents.CommunicatorObjects.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Barracuda.BurstBLAS">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.BurstBLAS.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ML-Agents.Editor">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.ML-Agents.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ML-Agents">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.ML-Agents.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{A9271820-4AB6-5A1B-F886-CC52006A1CE4}</Project>
+      <Project>{78B42BEC-C559-63E3-6996-7DE1ABC1B6B0}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{2D5492D6-0C30-3C87-9C97-7DE71ABEF87D}</Project>
+      <Project>{BAAB6FCD-6F98-DF81-CAA9-EA77D1A3BC7C}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{1B808F5D-A0C5-EE09-1795-ED0965448364}</Project>
+      <Project>{9F952607-E480-86D6-C22E-09E2FAC79EDA}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>

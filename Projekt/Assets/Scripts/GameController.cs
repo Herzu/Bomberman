@@ -113,6 +113,7 @@ public class GameController: MonoBehaviour
         bots = GameObject.FindGameObjectsWithTag("Bot");
         foreach (GameObject bot in bots)
         {
+            bot.GetComponent<BomberAgent>().target = players[0];
             var botScript = bot.GetComponent<Character>();
             botScript.range = initRange;
             botScript.speed = initSpeed;
