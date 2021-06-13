@@ -81,18 +81,20 @@ public class GameController: MonoBehaviour
     /**  funkcja wypełnieniająca mapę 2D*/
     void Fill2D()
     {
-        for (int i = 0; i < mapXSize; i++)
+        int offsetX = (int)(this.gameObject.transform.parent.gameObject.transform.position.x)/2;
+        int offsetY = (int)(this.gameObject.transform.parent.gameObject.transform.position.y)/2;
+        for (int i = offsetX; i < mapXSize+offsetX; i++)
         {
-            for (int j = 0; j < mapYSize; j++)
+            for (int j = offsetY; j < mapYSize+offsetY; j++)
             {
                 //stworzenie zewnętrznych ścian
-                if (i == 0 || j == 0 || i == mapXSize - 1 || j == mapYSize - 1)
+                if (i == offsetX || j == offsetY || i == mapXSize + offsetX - 1 || j == mapYSize + offsetY - 1)
                     Instantiate(wallPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity);
                 //pozostawienie wolnego miejsca w pozycjach startowych
-                else if ((i > 2 || j > 2)
-                    && (i < mapXSize - 3 || j < mapYSize - 3)
-                    && (i > 2 || j < mapYSize - 3)
-                    && (i < mapXSize - 3 || j > 2))
+                else if ((i > offsetX + 2 || j > offsetY + 2)
+                    && (i < mapXSize + offsetX - 3 || j < mapYSize + offsetY - 3)
+                    && (i > offsetX + 2 || j < mapYSize + offsetY - 3)
+                    && (i < mapXSize + offsetX - 3 || j > offsetY + 2))
                 {
                     //wypełnienie odpowiednich miejsc niezniszczalnymi ścianami
                     if (i % 2 == 0 && j % 2 == 0)

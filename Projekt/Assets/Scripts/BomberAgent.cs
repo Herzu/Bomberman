@@ -36,6 +36,7 @@ public class BomberAgent : Agent
     public override void OnEpisodeBegin()
     {
         previousScore = 0;
-        gameObject.transform.position = new Vector3Int(13, 1, 13);
+        Vector3Int offset = Vector3Int.FloorToInt(this.gameObject.transform.parent.gameObject.transform.position);
+        gameObject.transform.position = new Vector3Int(13, 1, 13) + offset;
     }
 }
