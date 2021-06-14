@@ -94,7 +94,7 @@ public class BombExplosion: MonoBehaviour
                         }
                 }
             }
-            if (lifetime == -30)            //zakończenie efektu eksplozji
+            if (lifetime == -10)            //zakończenie efektu eksplozji
                 Destroy(this.gameObject);   //destrukcja obiektu eksplozji
         }
     }

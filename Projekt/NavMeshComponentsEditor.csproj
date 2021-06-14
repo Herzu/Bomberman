@@ -264,22 +264,22 @@
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Assets/3RDParty/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
  </Reference>
  <Reference Include="Google.Protobuf">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.barracuda@1.0.4/Barracuda/Runtime/Plugins/ProtoBuffer/Google.Protobuf.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.barracuda@2.0.0-pre.3/Barracuda/Runtime/Plugins/ProtoBuffer/Google.Protobuf.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Burst.Unsafe">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.burst@1.3.4/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="System.IO.Abstractions">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/System.IO.Abstractions.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/System.IO.Abstractions.dll</HintPath>
  </Reference>
  <Reference Include="System.IO.Abstractions.TestingHelpers">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/System.IO.Abstractions.TestingHelpers.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/System.IO.Abstractions.TestingHelpers.dll</HintPath>
  </Reference>
  <Reference Include="Grpc.Core">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/ProtoBuffer/Grpc.Core.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/ProtoBuffer/Grpc.Core.dll</HintPath>
  </Reference>
  <Reference Include="System.Interactive.Async">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/ProtoBuffer/System.Interactive.Async.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/ProtoBuffer/System.Interactive.Async.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>

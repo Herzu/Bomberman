@@ -176,6 +176,7 @@
      <Compile Include="Assets\Scripts\BomberAgent.cs" />
      <Compile Include="Assets\Scripts\BotBehaviour.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\EndPoint.cs" />
      <Compile Include="Assets\Scripts\FPS_Player.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GamepadController.cs" />
@@ -441,22 +442,22 @@
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Assets/3RDParty/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="Google.Protobuf">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.barracuda@1.0.4/Barracuda/Runtime/Plugins/ProtoBuffer/Google.Protobuf.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.barracuda@2.0.0-pre.3/Barracuda/Runtime/Plugins/ProtoBuffer/Google.Protobuf.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Burst.Unsafe">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.burst@1.3.4/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="System.IO.Abstractions">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/System.IO.Abstractions.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/System.IO.Abstractions.dll</HintPath>
  </Reference>
  <Reference Include="System.IO.Abstractions.TestingHelpers">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/System.IO.Abstractions.TestingHelpers.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/System.IO.Abstractions.TestingHelpers.dll</HintPath>
  </Reference>
  <Reference Include="Grpc.Core">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/ProtoBuffer/Grpc.Core.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/ProtoBuffer/Grpc.Core.dll</HintPath>
  </Reference>
  <Reference Include="System.Interactive.Async">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/PackageCache/com.unity.ml-agents@1.0.8/Plugins/ProtoBuffer/System.Interactive.Async.dll</HintPath>
+ <HintPath>C:/Users/dawid/Desktop/ml-agents-release_18_branch/com.unity.ml-agents/Plugins/ProtoBuffer/System.Interactive.Async.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -845,9 +846,6 @@
  <Reference Include="Unity.Barracuda.iOSBLAS">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.iOSBLAS.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ML-Agents.CommunicatorObjects">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.ML-Agents.CommunicatorObjects.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
@@ -866,14 +864,11 @@
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ML-Agents.Editor">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.ML-Agents.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ML-Agents">
- <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.ML-Agents.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Barracuda.ONNX">
+ <HintPath>C:/Users/dawid/Desktop/Bomberman/Projekt/Library/ScriptAssemblies/Unity.Barracuda.ONNX.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -884,6 +879,18 @@
     <ProjectReference Include="NavMeshComponents.csproj">
       <Project>{9F952607-E480-86D6-C22E-09E2FAC79EDA}</Project>
       <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ML-Agents.CommunicatorObjects.csproj">
+      <Project>{D7BBEF12-AC10-30D2-FB08-E759E5F43DC2}</Project>
+      <Name>Unity.ML-Agents.CommunicatorObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ML-Agents.Editor.csproj">
+      <Project>{5FF40FE5-CAB8-F0BB-1749-7ECF7E67A3C9}</Project>
+      <Name>Unity.ML-Agents.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ML-Agents.csproj">
+      <Project>{64CC8688-7E81-C1CE-DDFE-B2A7D1DCA42B}</Project>
+      <Name>Unity.ML-Agents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

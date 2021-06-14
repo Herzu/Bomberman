@@ -10,14 +10,14 @@ public class BomberAgent : Agent
     public GameObject target;
     public float previousScore;
     public bool targetFound;
-    public GameController gameController; 
+    public GameController gameController;
 
-    // public override void CollectObservations(VectorSensor sensor) 
-    // {
-    //     sensor.AddObservation(gameObject.transform.InverseTransformPoint(target.transform.position));
-    //     sensor.AddObservation(gameObject.GetComponent<Rigidbody>().velocity);
-    //     sensor.AddObservation(gameObject.GetComponent<Character>().bombs);
-    // }
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(gameObject.transform.InverseTransformPoint(target.transform.position));
+        sensor.AddObservation(gameObject.GetComponent<Rigidbody>().velocity);
+        sensor.AddObservation(gameObject.GetComponent<Character>().bombs);
+    }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
