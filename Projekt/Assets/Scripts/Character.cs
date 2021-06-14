@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//! Klasa odpowiedzialna za zarz¹dzanie postaci¹
+//! Klasa odpowiedzialna za zarzï¿½dzanie postaciï¿½
 public class Character: MonoBehaviour {
-    public int range;               //!< zasiêg wybuchu
-    public int speed;               //!< szybkoœæ poruszania
-    public int jumpSpeed = 10;      //!< szybkoœæ skoku
-    public int lifes;               //!< ¿ycia
-    public bool isImmune = false;   //!< czy gracz jest nieœmiertelny
-    public int immunityTimer = 800; //!< pozosta³y czas nieœmiertelnoœci
-    public bool push = false;       //!< czy gracz mo¿e popychaæ bombê
-    public int bombs;               //!< iloœæ bomb
-    public int bombLifetime;        //!< bazowy czas ¿ycia bomb
-    public int mapHeight;           //!< wysokoœæ mapy
-    List<int> bombCooldowns;        //!< lista czasów odnowienia poszczególnych bomb
+    public int range;               //!< zasiï¿½g wybuchu
+    public int speed;               //!< szybkoï¿½ï¿½ poruszania
+    public int jumpSpeed = 10;      //!< szybkoï¿½ï¿½ skoku
+    public int lifes;               //!< ï¿½ycia
+    public bool isImmune = false;   //!< czy gracz jest nieï¿½miertelny
+    public int immunityTimer = 800; //!< pozostaï¿½y czas nieï¿½miertelnoï¿½ci
+    public bool push = false;       //!< czy gracz moï¿½e popychaï¿½ bombï¿½
+    public int bombs;               //!< iloï¿½ï¿½ bomb
+    public int bombLifetime;        //!< bazowy czas ï¿½ycia bomb
+    public int mapHeight;           //!< wysokoï¿½ï¿½ mapy
+    public GameObject bombPrefab;   //<! prefab bomby
+    List<int> bombCooldowns;        //!< lista czasï¿½w odnowienia poszczegï¿½lnych bomb
+    int bombCooldown = 0;
 
     void Start() {
         //inicjalizacja list bomb
@@ -23,86 +25,114 @@ public class Character: MonoBehaviour {
     void FixedUpdate() {
         //aktualizacja listy bomb
         checkBomb();
-        //aktualizacja nieœmiertelnoœci
+        //aktualizacja nieï¿½miertelnoï¿½ci
         checkImmunity();
     }
-    /**  funkcja wywo³ywana z klasy rodzicielskiej przy inicjalizacji*/
+    /**  funkcja wywoï¿½ywana z klasy rodzicielskiej przy inicjalizacji*/
     protected void Init()
     {
         bombCooldowns = new List<int>();
         jumpSpeed = 10;
     }
-    /** funkcja umieszczaj¹ca postaæ w odpowiednim miejscu mapy*/
+    /** funkcja umieszczajï¿½ca postaï¿½ w odpowiednim miejscu mapy*/
     public void moveToPlace()
     {
         gameObject.transform.position = new Vector3(transform.position.x, 2 * mapHeight + 1, transform.position.z);
     }
-    /** funkcja zapisuj¹ca szybkoœæ postaci do kontrolera postaci*/
+    /** funkcja zapisujï¿½ca szybkoï¿½ï¿½ postaci do kontrolera postaci*/
     public void updateSpeed()
     {
-        //je¿eli postaæ jest pierwszosobowa, szybkoœæ oraz szybkoœæ skoku s¹ przekazywane do kontrollera
+        //jeï¿½eli postaï¿½ jest pierwszosobowa, szybkoï¿½ï¿½ oraz szybkoï¿½ï¿½ skoku sï¿½ przekazywane do kontrollera
         if (this.gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>() != null)
         {
             gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = speed;
             gameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_JumpSpeed = jumpSpeed;
         }
-        //dla ka¿dego typu kontrolera szybkoœæ przypisywna jest w odpowiednie miejsce
+        //dla kaï¿½dego typu kontrolera szybkoï¿½ï¿½ przypisywna jest w odpowiednie miejsce
         if (this.gameObject.GetComponent<ArrowsController>() != null)
             gameObject.GetComponent<ArrowsController>().speed = speed / 2;
         if (this.gameObject.GetComponent<WASDController>() != null)
             gameObject.GetComponent<WASDController>().speed = speed / 2;
         if (this.gameObject.GetComponent<GamepadController>() != null)
             gameObject.GetComponent<GamepadController>().speed = speed / 2;
-        //dla ka¿dego typu modelu szybkoœæ animacji przekazywana jest do animatora
+        //dla kaï¿½dego typu modelu szybkoï¿½ï¿½ animacji przekazywana jest do animatora
         if (this.gameObject.GetComponent<Animator>() != null)
             gameObject.GetComponent<Animator>().speed = speed / 10;
         if (this.gameObject.transform.GetChild(0).GetComponent<Animator>() != null)
             gameObject.transform.GetChild(0).GetComponent<Animator>().speed = speed / 10.0f;
     }
-    /** funkcja sprawdzaj¹ca czy któraœ bomba siê nie odnowi³a oraz redukuje czas odnowienia ka¿dej bomby*/
+    /** funkcja sprawdzajï¿½ca czy ktï¿½raï¿½ bomba siï¿½ nie odnowiï¿½a oraz redukuje czas odnowienia kaï¿½dej bomby*/
     public void checkBomb() {
         for(int i=0;i<bombCooldowns.Count;i++)
         {
-            //je¿eli czas odnowienia osi¹gnie zero gracz odzyskuje bombê
+            //jeï¿½eli czas odnowienia osiï¿½gnie zero gracz odzyskuje bombï¿½
             if(--bombCooldowns[i]==0)
             {
                 bombs++;
             }
         }
-        //usuniêcie bomb które zosta³y ju¿ zwrócone
+        //usuniï¿½cie bomb ktï¿½re zostaï¿½y juï¿½ zwrï¿½cone
         bombCooldowns.RemoveAll(item => item == 0);
     }
-    /** funkcja wywo³ywana przy postawieniu bomby*/
+    /** funkcja wywoï¿½ywana przy postawieniu bomby*/
     public void placeBomb()
     {
-        //redukcja iloœci bomb
-        this.bombs -= 1;
-        //dodanie bomby do listy czasów odnowienia
-        bombCooldowns.Add(bombLifetime);
+        if (this.bombs > 0) {
+            //redukcja iloï¿½ci bomb
+            this.bombs -= 1;
+            //dodanie bomby do listy czasï¿½w odnowienia
+            bombCooldowns.Add(bombLifetime);
+
+            //pobranie zasiÄ™gu i czasu Å¼ycia bomby ze skryptu postaci
+            // Vector3Int intVector = new Vector3Int((int)this.transform.position.x, (int)this.transform.position.y, (int)this.transform.position.z);
+            Vector3Int intVector = Vector3Int.FloorToInt(this.transform.position);
+            //obliczenie wektora pozycji stawiajÄ…cego bombÄ™ na Å›rodku pola
+            Vector3 bombPlacement = intVector + new Vector3(1 - (intVector.x) % 2, 1, 1 - (intVector.z) % 2);
+            //stworzenie bomby
+            GameObject bomb = Instantiate(
+                bombPrefab,
+                bombPlacement,
+                Quaternion.identity,
+                this.gameObject.transform.parent
+            );
+            //przekazanie czasu Å¼ycia
+            bomb.GetComponent<Bomb>().maxLifetime = bombLifetime;
+            //przekazanie zasiÄ™gu i czasÃ³w Å¼ycia do obiektÃ³w odpowiadajÄ…cych za zadawanie obraÅ¼eÅ„
+            bomb.transform.GetChild(1).GetComponent<BoxCollider>().size = new Vector3(4 * range, 1, 1);
+            bomb.transform.GetChild(1).GetComponent<BombExplosion>().lifetime = bombLifetime;
+            bomb.transform.GetChild(2).GetComponent<BoxCollider>().size = new Vector3(1, 4 * range, 1);
+            bomb.transform.GetChild(2).GetComponent<BombExplosion>().lifetime = bombLifetime;
+            bomb.transform.GetChild(3).GetComponent<BoxCollider>().size = new Vector3(1, 1, 4 * range);
+            bomb.transform.GetChild(3).GetComponent<BombExplosion>().lifetime = bombLifetime;
+            //przekazanie wartoÅ›ci trÃ³jwymiarowoÅ›ci do bomby
+            bomb.GetComponent<Bomb>().is3D = false;
+            //przekazanie zasiÄ™gu do bomby
+            bomb.GetComponent<Bomb>().range = range;  
+        } 
     }
-    /** funkcja sprawdzaj¹ca czy gracz jest martwy (czy nie ma ¿yæ lub wypad³ poza mapê)
+    /** funkcja sprawdzajï¿½ca czy gracz jest martwy (czy nie ma ï¿½yï¿½ lub wypadï¿½ poza mapï¿½)
      * @return informacja czy gracz jest martwy
      */
     public bool isDead() {
         return this.lifes < 1 || this.gameObject.transform.position.y < 0;
     }
-    /** funckja obs³uguj¹ca przegran¹ postaci*/
+    /** funckja obsï¿½ugujï¿½ca przegranï¿½ postaci*/
     public void handleGameover() {
         if(this.gameObject) {
             Destroy(this.gameObject);
         }
     }
-    /** funkcja redukuj¹ca czas nieœmiertelnoœci*/
+    /** funkcja redukujï¿½ca czas nieï¿½miertelnoï¿½ci*/
     public void checkImmunity() {
-        if(this.isImmune) {                 //je¿eli gracz jest nieœmiertelny
-            if(this.immunityTimer == 0) {   //je¿eli nieœmiertelnoœæ siê skonczy³a
-                //nieœmiertelnoœæ jest wy³¹czana
+        if(this.isImmune) {                 //jeï¿½eli gracz jest nieï¿½miertelny
+            if(this.immunityTimer == 0) {   //jeï¿½eli nieï¿½miertelnoï¿½ï¿½ siï¿½ skonczyï¿½a
+                //nieï¿½miertelnoï¿½ï¿½ jest wyï¿½ï¿½czana
                 this.isImmune = false;
-                //licznik nieœmiertelnoœci jest resetowany
+                //licznik nieï¿½miertelnoï¿½ci jest resetowany
                 this.immunityTimer = 800;
             }
             else
-                //je¿eli nieœmiertelnoœæ siê nie skoñczy³a czas nieœmiertelnoœci jest redukowany
+                //jeï¿½eli nieï¿½miertelnoï¿½ï¿½ siï¿½ nie skoï¿½czyï¿½a czas nieï¿½miertelnoï¿½ci jest redukowany
                 this.immunityTimer--;
         }
     }

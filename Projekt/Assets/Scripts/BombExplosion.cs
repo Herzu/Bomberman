@@ -53,12 +53,14 @@ public class BombExplosion: MonoBehaviour
             //obliczenie limitu zadawania obrażeń (żeby nie zadawać obrażeń przez niezniszczalne ściany)
             foreach(GameObject wall in walls)
             {
-                //uzyskanie pozycji relatywnej do bomby
-                float relativePos = GetRelativePos(wall.transform.position);
-                if (relativePos < 0)    //jeżeli ściana znajduje się po lewej
-                    lowerWallLimit = Mathf.Max(relativePos, lowerWallLimit);
-                else                    //jeżeli ściana znajduje się po prawej
-                    upperWallLimit = Mathf.Min(relativePos, upperWallLimit);
+                if(wall != null) {
+                    //uzyskanie pozycji relatywnej do bomby
+                    float relativePos = GetRelativePos(wall.transform.position);
+                    if (relativePos < 0)    //jeżeli ściana znajduje się po lewej
+                        lowerWallLimit = Mathf.Max(relativePos, lowerWallLimit);
+                    else                    //jeżeli ściana znajduje się po prawej
+                        upperWallLimit = Mathf.Min(relativePos, upperWallLimit);
+                }
             }
             //destrukcja napotkanych obiektów (zniszczalnych ścian i powerupów)
             foreach (GameObject gObject in objectCollisions)

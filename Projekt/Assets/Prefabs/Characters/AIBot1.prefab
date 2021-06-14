@@ -118,14 +118,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc9bff3ec187d64a9531d5731bdca6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
-  speed: 0
+  range: 1
+  speed: 10
   jumpSpeed: 10
-  lifes: 0
+  lifes: 1
   isImmune: 0
   immunityTimer: 800
   push: 0
-  bombs: 0
+  bombs: 1
   bombLifetime: 0
   mapHeight: 0
 --- !u!114 &4300440297066182037

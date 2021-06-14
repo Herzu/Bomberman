@@ -34,11 +34,11 @@ public class Bomb : MonoBehaviour
             par = new ParticleSystem[4];
         }
 		//wyliczenie o ile ma się przesuwać lont co klatkę
-        fuseBurn = 0.2f / maxLifetime;
+        // fuseBurn = 0.2f / maxLifetime;
 		//ustawienie czasu życia do maksymalnej wartości
         lifetime = maxLifetime;
 		//stworzenie efektu ognia
-        fire = Instantiate(fireEffect, this.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
+        // fire = Instantiate(fireEffect, this.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
     }
 	/** funkcja tworzoąca efekt eksplozji z odpowiednim kątem bazując na id
 	 * @param id identyfikator kierunku efektu
@@ -63,9 +63,9 @@ public class Bomb : MonoBehaviour
 		//redukcja pozostałego czasu życia bomby
         lifetime--;
 		//obniżenie położenia lontu
-        fuse.gameObject.transform.position -= new Vector3(0,fuseBurn,0);
+        // fuse.gameObject.transform.position -= new Vector3(0,fuseBurn,0);
 		//obniżenie położenia efektu ognia
-        fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.3f,0);
+        // fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.3f,0);
 		//stworzenie efektów wybuchu
         if(lifetime==0)
         {
@@ -97,7 +97,7 @@ public class Bomb : MonoBehaviour
             for (int i = 0; i < exp.Length; i++)
                 Destroy(exp[i].gameObject);
 			//destrukcja efektu ognia
-            Destroy(fire.gameObject);
+            // Destroy(fire.gameObject);
 			//destrukcja bomby
             Destroy(this.gameObject);
         }

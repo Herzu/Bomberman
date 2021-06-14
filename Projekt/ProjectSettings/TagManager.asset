@@ -13,6 +13,7 @@ TagManager:
   - Bot
   - Fire
   - Bomb
+  - EndPoint
   layers:
   - Default
   - TransparentFX

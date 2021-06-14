@@ -24,12 +24,10 @@ public class GameController: MonoBehaviour
     public int initBombs = 1;                   //!< startowa ilość bomb postaci
     public int bombLifetime = 500;              //!< startowy czas życia bomb
     int[] powerupDropTable;                     //!< tablica informująca który powerup został wylosowany
-
     bool isGameOver;                     //!< czy gra została zakonczona
     void Awake()
     {   
         InitValues();
-        anyPowerupChance = PlayerPrefs.GetInt("powerupChanceAmount");
         Time.timeScale = 1;
         powerups = new Queue<Vector3>();
         terrain.terrainData.size = new Vector3(2 * mapXSize, 0, 2 * mapYSize);
@@ -78,18 +76,46 @@ public class GameController: MonoBehaviour
             index++;
         }
     }
+
+
+    void DeleteBombs() {
+        for(int i = 0; i < this.gameObject.transform.parent.childCount; i++) {
+            var item = this.gameObject.transform.parent.GetChild(i);
+            if ( item.tag == "Bomb") {
+                Destroy(item.gameObject);
+            }
+        }
+    }
+
+    void DeleteWallsBlocks() {
+        for(int i = 0; i < this.gameObject.transform.parent.childCount; i++) {
+            var item = this.gameObject.transform.parent.GetChild(i);
+            if ( item.tag == "Wall" || item.tag == "Block") {
+                Destroy(item.gameObject);
+            }
+        }
+    }
+
     /**  funkcja wypełnieniająca mapę 2D*/
-    void Fill2D()
+    public void Fill2D()
     {
+        DeleteBombs();
+        DeleteWallsBlocks();
+
         int offsetX = (int)(this.gameObject.transform.parent.gameObject.transform.position.x)/2;
-        int offsetY = (int)(this.gameObject.transform.parent.gameObject.transform.position.y)/2;
+        int offsetY = (int)(this.gameObject.transform.parent.gameObject.transform.position.z)/2;
         for (int i = offsetX; i < mapXSize+offsetX; i++)
         {
             for (int j = offsetY; j < mapYSize+offsetY; j++)
             {
                 //stworzenie zewnętrznych ścian
                 if (i == offsetX || j == offsetY || i == mapXSize + offsetX - 1 || j == mapYSize + offsetY - 1)
-                    Instantiate(wallPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity);
+                    Instantiate(
+                        wallPrefab,
+                        new Vector3(2 * i + 1, 1, 2 * j + 1),
+                        Quaternion.identity,
+                        this.gameObject.transform.parent
+                    );
                 //pozostawienie wolnego miejsca w pozycjach startowych
                 else if ((i > offsetX + 2 || j > offsetY + 2)
                     && (i < mapXSize + offsetX - 3 || j < mapYSize + offsetY - 3)
@@ -98,16 +124,25 @@ public class GameController: MonoBehaviour
                 {
                     //wypełnienie odpowiednich miejsc niezniszczalnymi ścianami
                     if (i % 2 == 0 && j % 2 == 0)
-                        Instantiate(wallPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity);
+                        Instantiate(
+                            wallPrefab,
+                            new Vector3(2 * i + 1, 1, 2 * j + 1),
+                            Quaternion.identity,
+                            this.gameObject.transform.parent
+                        );
                     //wypełnienie reszty miejsc zniszczalnymi ścianami zgodnie z ustaloną szansą na stworzenie ściany
-                    else if (blockChance >= Random.Range(1, 100)) {}
-                        // Instantiate(blockPrefab, new Vector3(2 * i + 1, 1, 2 * j + 1), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
+                    else if (blockChance >= Random.Range(1, 100)) {
+                        Instantiate(
+                            blockPrefab,
+                            new Vector3(2 * i + 1, 1, 2 * j + 1),
+                            Quaternion.identity,
+                            this.gameObject.transform.parent
+                        ).gameObject.GetComponent<BlockDestroy>().GameController = this;
+                    }
                 }
-
-            }
+            }   
         }
     }
-
     void Fill3D()
     {
         //stworzenie dodatkowej części muru w osi X
@@ -135,15 +170,27 @@ public class GameController: MonoBehaviour
                 for (int k = 0; k < mapZSize; k++)
                     //stworzenie zewnętrznych ścian
                     if (i == 0 || j == 0 || i == mapXSize - 1 || j == mapYSize - 1)
-                        Instantiate(wallPrefab, new Vector3(2 * i + 1, 2 * k + 1, 2 * j + 1), Quaternion.identity);
+                        Instantiate(
+                            wallPrefab,
+                            new Vector3(2 * i + 1, 2 * k + 1, 2 * j + 1),
+                            Quaternion.identity
+                        );
                     else
                     {
                         //wypełnienie odpowiednich miejsc niezniszczalnymi ścianami
                         if (i % 2 == 0 && j % 2 == 0)
-                            Instantiate(wallPrefab, new Vector3(2 * i + 1, 2 * k + 1, 2 * j + 1), Quaternion.identity);
+                            Instantiate(
+                                wallPrefab,
+                                new Vector3(2 * i + 1, 2 * k + 1, 2 * j + 1),
+                                Quaternion.identity
+                            );
                         //wypełnienie reszty miejsc zniszczalnymi ścianami zgodnie z ustaloną szansą na stworzenie ściany
                         else if (blockChance >= Random.Range(1, 100))
-                            Instantiate(blockPrefab, new Vector3(2 * i + 1, 2 * k + 1, 2 * j + 1), Quaternion.identity).gameObject.GetComponent<BlockDestroy>().GameController = this;
+                            Instantiate(
+                                blockPrefab,
+                                new Vector3(2 * i + 1, 2 * k + 1, 2 * j + 1),
+                                Quaternion.identity
+                            ).gameObject.GetComponent<BlockDestroy>().GameController = this;
                     }
 
             }
