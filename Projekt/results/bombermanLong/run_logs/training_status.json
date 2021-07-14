@@ -1,0 +1,38 @@
+{
+    "BombermanAIBehavior": {
+        "checkpoints": [
+            {
+                "steps": 499922,
+                "file_path": "results\\bombermanLong\\BombermanAIBehavior\\BombermanAIBehavior-499922.onnx",
+                "reward": -0.2640799770752589,
+                "creation_time": 1624119401.1412337,
+                "auxillary_file_paths": [
+                    "results\\bombermanLong\\BombermanAIBehavior\\BombermanAIBehavior-499922.pt"
+                ]
+            },
+            {
+                "steps": 806115,
+                "file_path": "results\\bombermanLong\\BombermanAIBehavior\\BombermanAIBehavior-806115.onnx",
+                "reward": 0.680580048263073,
+                "creation_time": 1624123650.7174926,
+                "auxillary_file_paths": [
+                    "results\\bombermanLong\\BombermanAIBehavior\\BombermanAIBehavior-806115.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 806115,
+            "file_path": "results\\bombermanLong\\BombermanAIBehavior.onnx",
+            "reward": 0.680580048263073,
+            "creation_time": 1624123650.7174926,
+            "auxillary_file_paths": [
+                "results\\bombermanLong\\BombermanAIBehavior\\BombermanAIBehavior-806115.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

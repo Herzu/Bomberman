@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6167102954204708168}
-  - component: {fileID: 6167102954197625738}
   - component: {fileID: 6167102954210249884}
   - component: {fileID: 6167102954201137356}
   - component: {fileID: -3307833662240152900}
@@ -39,25 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6167102954197625738
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6167102954204973260}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 967a824ade830a6498e07cacc404d43b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 74b0078f82088af48b7995fca8a525db, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &6167102954210249884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,6 +108,7 @@ MonoBehaviour:
   bombs: 1
   bombLifetime: 0
   mapHeight: 0
+  bombPrefab: {fileID: 0}
 --- !u!114 &4300440297066182037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,15 +124,21 @@ MonoBehaviour:
   m_BrainParameters:
     VectorObservationSize: 3
     NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 0200000002000000
     VectorActionSize: 0200000002000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 1
   m_BehaviorType: 0
   m_BehaviorName: My Behavior
   TeamId: 0
   m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!114 &8883777708128607400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +157,8 @@ MonoBehaviour:
   MaxStep: 0
   target: {fileID: 0}
   previousScore: 0
+  targetFound: 0
+  gameController: {fileID: 0}
 --- !u!114 &6381036513136850750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +240,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BomberTom 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 967a824ade830a6498e07cacc404d43b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 967a824ade830a6498e07cacc404d43b, type: 3}
 --- !u!4 &4889658072945732361 stripped
 Transform:

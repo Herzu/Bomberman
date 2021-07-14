@@ -37,6 +37,7 @@ public class Bomb : MonoBehaviour
         // fuseBurn = 0.2f / maxLifetime;
 		//ustawienie czasu życia do maksymalnej wartości
         lifetime = maxLifetime;
+        gameObject.transform.GetChild(5).gameObject.GetComponent<BoxCollider>().enabled = false;
 		//stworzenie efektu ognia
         // fire = Instantiate(fireEffect, this.transform.position+new Vector3(0,0.5f,0), Quaternion.identity);
     }
@@ -67,7 +68,9 @@ public class Bomb : MonoBehaviour
 		//obniżenie położenia efektu ognia
         // fire.gameObject.transform.position = fuse.gameObject.transform.position+new Vector3(0,0.3f,0);
 		//stworzenie efektów wybuchu
-        if(lifetime==0)
+        if(lifetime == maxLifetime - 50)
+            gameObject.transform.GetChild(5).gameObject.GetComponent<BoxCollider>().enabled = true;
+        if (lifetime==0)
         {
 			//zatrzymanie bomby w miejscu
             this.gameObject.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
