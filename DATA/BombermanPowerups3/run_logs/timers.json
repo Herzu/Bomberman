@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1627251309",
+        "python_version": "3.9.5 (tags/v3.9.5:0a7dcbd, May  3 2021, 17:27:52) [MSC v.1928 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\dawid\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\mlagents-learn config/BombermanAIBehavior.yaml --run-id=BombermanPowerups3 --initialize-from=BombermanPowerups2 --force",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cu110",
+        "numpy_version": "1.19.5",
+        "end_time_seconds": "1627251409"
+    },
+    "total": 99.9825366,
+    "count": 1,
+    "self": 0.005549500000014973,
+    "children": {
+        "run_training.setup": {
+            "total": 0.10100069999999994,
+            "count": 1,
+            "self": 0.10100069999999994
+        },
+        "TrainerController.start_learning": {
+            "total": 99.87598639999999,
+            "count": 1,
+            "self": 0.00012129999998933272,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 99.8758499,
+                    "count": 1,
+                    "self": 99.8758499
+                },
+                "TrainerController._save_models": {
+                    "total": 1.519999999288757e-05,
+                    "count": 1,
+                    "self": 1.519999999288757e-05
+                }
+            }
+        }
+    }
+}

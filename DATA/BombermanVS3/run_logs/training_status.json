@@ -1,0 +1,65 @@
+{
+    "BombermanAIBehavior": {
+        "checkpoints": [
+            {
+                "steps": 1499959,
+                "file_path": "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-1499959.onnx",
+                "reward": null,
+                "creation_time": 1626346077.0529191,
+                "auxillary_file_paths": [
+                    "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-1499959.pt"
+                ]
+            },
+            {
+                "steps": 1999994,
+                "file_path": "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-1999994.onnx",
+                "reward": 0.42115001007914543,
+                "creation_time": 1626348853.8153358,
+                "auxillary_file_paths": [
+                    "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-1999994.pt"
+                ]
+            },
+            {
+                "steps": 2499945,
+                "file_path": "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-2499945.onnx",
+                "reward": null,
+                "creation_time": 1626351555.2667305,
+                "auxillary_file_paths": [
+                    "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-2499945.pt"
+                ]
+            },
+            {
+                "steps": 2999960,
+                "file_path": "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-2999960.onnx",
+                "reward": 0.4604915886496504,
+                "creation_time": 1626353585.1568582,
+                "auxillary_file_paths": [
+                    "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-2999960.pt"
+                ]
+            },
+            {
+                "steps": 3000216,
+                "file_path": "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-3000216.onnx",
+                "reward": 0.4604915886496504,
+                "creation_time": 1626353585.3910284,
+                "auxillary_file_paths": [
+                    "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-3000216.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3000216,
+            "file_path": "results\\BombermanVS3\\BombermanAIBehavior.onnx",
+            "reward": 0.4604915886496504,
+            "creation_time": 1626353585.3910284,
+            "auxillary_file_paths": [
+                "results\\BombermanVS3\\BombermanAIBehavior\\BombermanAIBehavior-3000216.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
